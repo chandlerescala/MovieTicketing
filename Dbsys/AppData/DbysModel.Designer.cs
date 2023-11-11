@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\Admin\Documents\GitHub\MovieTicketing\Dbsys\AppData\DbysModel.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\Escala_CA\3rd year (BSIT)\1st Semester (BSIT 3-C)\IT- IMDBSYS\3SEMIFINAL\MovieTicketing\Dbsys\AppData\DbysModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
