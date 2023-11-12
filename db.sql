@@ -22,7 +22,15 @@ userInfAddress varchar (50) not null default 'No Address',
 userInfEmail varchar not null,
 userId integer,
 FOREIGN KEY (userId) REFERENCES UserAccount(userId)
-);
+)
+
+CREATE TABLE Movie(
+	movieId integer IDENTITY(1,1) PRIMARY KEY,
+	movieName varchar(50) NOT NULL,
+	movieInfo varchar(255) NOT NULL,
+	movieDirector varchar(50) NOT NULL,
+	moviePublisher varchar(50) NOT NULL
+)
 
 CREATE TABLE [dbo].[Role](
 	[roleId] [int] IDENTITY(1,1) NOT NULL,
@@ -47,3 +55,9 @@ CREATE PROCEDURE sp_newUser @userName nvarchar(50), @userPassword nvarchar(50), 
 AS
 INSERT INTO UserAccount(userName, userPassword, createdBy) 
 	values (@userName, @userPassword, @createdBy)
+
+
+
+
+
+
