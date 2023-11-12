@@ -70,6 +70,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DbysModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="AppData\Movie.cs">
+      <DependentUpon>DbysModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="AppData\Role.cs">
       <DependentUpon>DbysModel.tt</DependentUpon>
     </Compile>
@@ -82,11 +85,17 @@
     <Compile Include="AppData\vw_all_user_role.cs">
       <DependentUpon>DbysModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Frm_Admin_Dashboard.cs">
+    <Compile Include="Forms\Frm_AdminHome.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Frm_Admin_Dashboard.Designer.cs">
-      <DependentUpon>Frm_Admin_Dashboard.cs</DependentUpon>
+    <Compile Include="Forms\Frm_AdminHome.Designer.cs">
+      <DependentUpon>Frm_AdminHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Frm_Admin_LogIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Frm_Admin_LogIn.Designer.cs">
+      <DependentUpon>Frm_Admin_LogIn.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Frm_Register.cs">
       <SubType>Form</SubType>
@@ -142,8 +151,8 @@
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Utils\Constant.cs" />
     <Compile Include="Utils\Func.cs" />
-    <EmbeddedResource Include="Forms\Frm_Admin_Dashboard.resx">
-      <DependentUpon>Frm_Admin_Dashboard.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Frm_Admin_LogIn.resx">
+      <DependentUpon>Frm_Admin_LogIn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Frm_Register.resx">
       <DependentUpon>Frm_Register.cs</DependentUpon>

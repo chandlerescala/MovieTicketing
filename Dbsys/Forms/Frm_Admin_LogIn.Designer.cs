@@ -1,6 +1,6 @@
 ﻿namespace Dbsys.Forms
 {
-    partial class Frm_Admin_Dashboard
+    partial class Frm_Admin_LogIn
     {
         /// <summary>
         /// Required designer variable.

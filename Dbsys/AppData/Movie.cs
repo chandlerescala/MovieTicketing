@@ -12,19 +12,12 @@ namespace Dbsys.AppData
     using System;
     using System.Collections.Generic;
     
-    public partial class UserAccount
+    public partial class Movie
     {
-        public UserAccount()
-        {
-            this.UserInformation = new HashSet<UserInformation>();
-        }
-    
-        public int userId { get; set; }
-        public string userName { get; set; }
-        public string userPassword { get; set; }
-        public string userStatus { get; set; }
-        public Nullable<int> roleId { get; set; }
-    
-        public virtual ICollection<UserInformation> UserInformation { get; set; }
+        public int movieId { get; set; }
+        public string movieName { get; set; }
+        public string movieInfo { get; set; }
+        public string movieDirector { get; set; }
+        public string moviePublisher { get; set; }
     }
 }

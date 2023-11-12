@@ -4,35 +4,44 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Alias="Self" Namespace="DBSYSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008">
+    <Schema Namespace="DBSYSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Movie">
+          <Key>
+            <PropertyRef Name="movieId" />
+          </Key>
+          <Property Name="movieId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="movieName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="movieInfo" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="movieDirector" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="moviePublisher" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="Role">
           <Key>
             <PropertyRef Name="roleId" />
           </Key>
-          <Property Name="roleId" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-          <Property Name="roleName" MaxLength="50" Type="nvarchar" />
-          <Property Name="roleDescription" MaxLength="100" Type="nvarchar" />
+          <Property Name="roleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="roleName" Type="nvarchar" MaxLength="50" />
+          <Property Name="roleDescription" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="UserAccount">
           <Key>
             <PropertyRef Name="userId" />
           </Key>
-          <Property Name="userId" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-          <Property Name="userName" Nullable="false" MaxLength="50" Type="varchar" />
-          <Property Name="userPassword" Nullable="false" MaxLength="50" Type="varchar" />
-          <Property Name="userStatus" Nullable="false" MaxLength="10" Type="varchar" />
+          <Property Name="userId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="userPassword" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="userStatus" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="roleId" Type="int" />
-          <Property Name="createdBy" Type="int" />
         </EntityType>
         <EntityType Name="UserInformation">
           <Key>
             <PropertyRef Name="userInfoId" />
           </Key>
-          <Property Name="userInfoId" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-          <Property Name="userInfLname" Nullable="false" MaxLength="50" Type="varchar" />
-          <Property Name="userInfFname" Nullable="false" MaxLength="50" Type="varchar" />
-          <Property Name="userInfAddress" Nullable="false" MaxLength="50" Type="varchar" />
-          <Property Name="userInfEmail" Nullable="false" MaxLength="1" Type="varchar" />
+          <Property Name="userInfoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userInfLname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="userInfFname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="userInfAddress" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="userInfEmail" Type="varchar" MaxLength="1" Nullable="false" />
           <Property Name="userId" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
@@ -43,14 +52,14 @@ warning 6002: The table/view 'DBSYS.dbo.vw_all_user_role' does not have a primar
             <PropertyRef Name="Username" />
             <PropertyRef Name="Password" />
           </Key>
-          <Property Name="UserId" Nullable="false" Type="int" />
-          <Property Name="Username" Nullable="false" MaxLength="50" Type="varchar" />
-          <Property Name="Password" Nullable="false" MaxLength="50" Type="varchar" />
-          <Property Name="Role" MaxLength="50" Type="nvarchar" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Role" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <Association Name="FK__UserInfor__userI__1BFD2C07">
-          <End Type="Self.UserAccount" Multiplicity="0..1" Role="UserAccount" />
-          <End Type="Self.UserInformation" Multiplicity="*" Role="UserInformation" />
+          <End Role="UserAccount" Type="Self.UserAccount" Multiplicity="0..1" />
+          <End Role="UserInformation" Type="Self.UserInformation" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="UserAccount">
               <PropertyRef Name="userId" />
@@ -60,13 +69,8 @@ warning 6002: The table/view 'DBSYS.dbo.vw_all_user_role' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Function Name="sp_newUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="userName" Type="nvarchar" Mode="In" />
-          <Parameter Name="userPassword" Type="nvarchar" Mode="In" />
-          <Parameter Name="roleId" Type="int" Mode="In" />
-          <Parameter Name="createdBy" Type="int" Mode="In" />
-        </Function>
         <EntityContainer Name="DBSYSModelStoreContainer">
+          <EntitySet Name="Movie" EntityType="Self.Movie" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserAccount" EntityType="Self.UserAccount" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserInformation" EntityType="Self.UserInformation" Schema="dbo" store:Type="Tables" />
@@ -79,8 +83,8 @@ warning 6002: The table/view 'DBSYS.dbo.vw_all_user_role' does not have a primar
 FROM [dbo].[vw_all_user_role] AS [vw_all_user_role]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK__UserInfor__userI__1BFD2C07" Association="Self.FK__UserInfor__userI__1BFD2C07">
-            <End EntitySet="UserAccount" Role="UserAccount" />
-            <End EntitySet="UserInformation" Role="UserInformation" />
+            <End Role="UserAccount" EntitySet="UserAccount" />
+            <End Role="UserInformation" EntitySet="UserInformation" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -88,50 +92,60 @@ FROM [dbo].[vw_all_user_role] AS [vw_all_user_role]</DefiningQuery>
     <edmx:ConceptualModels>
       <Schema Namespace="DBSYSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="DBSYSEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Role" EntityType="DBSYSModel.Role" />
-          <EntitySet Name="UserAccount" EntityType="DBSYSModel.UserAccount" />
-          <EntitySet Name="UserInformation" EntityType="DBSYSModel.UserInformation" />
-          <EntitySet Name="vw_all_user_role" EntityType="DBSYSModel.vw_all_user_role" />
-          <AssociationSet Name="FK__UserInfor__userI__1BFD2C07" Association="DBSYSModel.FK__UserInfor__userI__1BFD2C07">
-            <End EntitySet="UserAccount" Role="UserAccount" />
-            <End EntitySet="UserInformation" Role="UserInformation" />
-          </AssociationSet>
           <FunctionImport Name="sp_newUser">
             <Parameter Name="userName" Type="String" Mode="In" />
             <Parameter Name="userPassword" Type="String" Mode="In" />
             <Parameter Name="roleId" Type="Int32" Mode="In" />
             <Parameter Name="createdBy" Type="Int32" Mode="In" />
           </FunctionImport>
+          <EntitySet Name="Movie" EntityType="DBSYSModel.Movie" />
+          <EntitySet Name="Role" EntityType="DBSYSModel.Role" />
+          <EntitySet Name="UserAccount" EntityType="DBSYSModel.UserAccount" />
+          <EntitySet Name="UserInformation" EntityType="DBSYSModel.UserInformation" />
+          <EntitySet Name="vw_all_user_role" EntityType="DBSYSModel.vw_all_user_role" />
+          <AssociationSet Name="FK__UserInfor__userI__1BFD2C07" Association="DBSYSModel.FK__UserInfor__userI__1BFD2C07">
+            <End Role="UserAccount" EntitySet="UserAccount" />
+            <End Role="UserInformation" EntitySet="UserInformation" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Movie">
+          <Key>
+            <PropertyRef Name="movieId" />
+          </Key>
+          <Property Name="movieId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="movieName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="movieInfo" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="movieDirector" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="moviePublisher" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="Role">
           <Key>
             <PropertyRef Name="roleId" />
           </Key>
-          <Property Name="roleId" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
-          <Property Name="roleName" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
-          <Property Name="roleDescription" MaxLength="100" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="roleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="roleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="roleDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="UserAccount">
           <Key>
             <PropertyRef Name="userId" />
           </Key>
-          <Property Name="userId" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
-          <Property Name="userName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="userPassword" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="userStatus" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="userId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="userPassword" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="userStatus" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="roleId" Type="Int32" />
-          <Property Name="createdBy" Type="Int32" />
           <NavigationProperty Name="UserInformation" Relationship="DBSYSModel.FK__UserInfor__userI__1BFD2C07" FromRole="UserAccount" ToRole="UserInformation" />
         </EntityType>
         <EntityType Name="UserInformation">
           <Key>
             <PropertyRef Name="userInfoId" />
           </Key>
-          <Property Name="userInfoId" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
-          <Property Name="userInfLname" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="userInfFname" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="userInfAddress" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="userInfEmail" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="userInfoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userInfLname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="userInfFname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="userInfAddress" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="userInfEmail" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="userId" Type="Int32" />
           <NavigationProperty Name="UserAccount" Relationship="DBSYSModel.FK__UserInfor__userI__1BFD2C07" FromRole="UserInformation" ToRole="UserAccount" />
         </EntityType>
@@ -141,14 +155,14 @@ FROM [dbo].[vw_all_user_role] AS [vw_all_user_role]</DefiningQuery>
             <PropertyRef Name="Username" />
             <PropertyRef Name="Password" />
           </Key>
-          <Property Name="UserId" Nullable="false" Type="Int32" />
-          <Property Name="Username" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="Password" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="Role" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK__UserInfor__userI__1BFD2C07">
-          <End Type="DBSYSModel.UserAccount" Multiplicity="0..1" Role="UserAccount" />
-          <End Type="DBSYSModel.UserInformation" Multiplicity="*" Role="UserInformation" />
+          <End Type="DBSYSModel.UserAccount" Role="UserAccount" Multiplicity="0..1" />
+          <End Type="DBSYSModel.UserInformation" Role="UserInformation" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="UserAccount">
               <PropertyRef Name="userId" />
@@ -164,6 +178,17 @@ FROM [dbo].[vw_all_user_role] AS [vw_all_user_role]</DefiningQuery>
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="DBSYSModelStoreContainer" CdmEntityContainer="DBSYSEntities">
+          <EntitySetMapping Name="Movie">
+            <EntityTypeMapping TypeName="DBSYSModel.Movie">
+              <MappingFragment StoreEntitySet="Movie">
+                <ScalarProperty Name="moviePublisher" ColumnName="moviePublisher" />
+                <ScalarProperty Name="movieDirector" ColumnName="movieDirector" />
+                <ScalarProperty Name="movieInfo" ColumnName="movieInfo" />
+                <ScalarProperty Name="movieName" ColumnName="movieName" />
+                <ScalarProperty Name="movieId" ColumnName="movieId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Role">
             <EntityTypeMapping TypeName="DBSYSModel.Role">
               <MappingFragment StoreEntitySet="Role">
@@ -176,7 +201,6 @@ FROM [dbo].[vw_all_user_role] AS [vw_all_user_role]</DefiningQuery>
           <EntitySetMapping Name="UserAccount">
             <EntityTypeMapping TypeName="DBSYSModel.UserAccount">
               <MappingFragment StoreEntitySet="UserAccount">
-                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
                 <ScalarProperty Name="roleId" ColumnName="roleId" />
                 <ScalarProperty Name="userStatus" ColumnName="userStatus" />
                 <ScalarProperty Name="userPassword" ColumnName="userPassword" />
@@ -207,7 +231,6 @@ FROM [dbo].[vw_all_user_role] AS [vw_all_user_role]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="sp_newUser" FunctionName="DBSYSModel.Store.sp_newUser" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

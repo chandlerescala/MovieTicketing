@@ -11,10 +11,10 @@ using Dbsys.AppData;
 
 namespace Dbsys.Forms
 {
-    public partial class Frm_Admin_Dashboard : Form
+    public partial class Frm_Admin_LogIn : Form
     {
         UserRepository userRepo;
-        public Frm_Admin_Dashboard()
+        public Frm_Admin_LogIn()
         {
             InitializeComponent();
             //
