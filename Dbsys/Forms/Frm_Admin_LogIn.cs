@@ -42,5 +42,12 @@ namespace Dbsys.Forms
 
             this.Close();
         }
+
+        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Frm_Login login = new Frm_Login();
+            login.Show();
+        }
     }
 }

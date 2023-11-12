@@ -36,6 +36,10 @@
             this.picBox_AddMovie = new System.Windows.Forms.PictureBox();
             this.picBox_AdminLogin = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.linkLabel_AddMovie = new System.Windows.Forms.LinkLabel();
+            this.linkLabel_ViewAccount = new System.Windows.Forms.LinkLabel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_History)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_ViewMovie)).BeginInit();
@@ -71,7 +75,7 @@
             // picBox_History
             // 
             this.picBox_History.Image = global::Dbsys.Properties.Resources.history;
-            this.picBox_History.Location = new System.Drawing.Point(338, 248);
+            this.picBox_History.Location = new System.Drawing.Point(338, 265);
             this.picBox_History.Name = "picBox_History";
             this.picBox_History.Size = new System.Drawing.Size(121, 98);
             this.picBox_History.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -81,7 +85,7 @@
             // picBox_ViewMovie
             // 
             this.picBox_ViewMovie.Image = global::Dbsys.Properties.Resources.package;
-            this.picBox_ViewMovie.Location = new System.Drawing.Point(141, 248);
+            this.picBox_ViewMovie.Location = new System.Drawing.Point(141, 265);
             this.picBox_ViewMovie.Name = "picBox_ViewMovie";
             this.picBox_ViewMovie.Size = new System.Drawing.Size(121, 98);
             this.picBox_ViewMovie.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -120,13 +124,69 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "MOVIE TICKETING";
             // 
+            // linkLabel_AddMovie
+            // 
+            this.linkLabel_AddMovie.AutoSize = true;
+            this.linkLabel_AddMovie.BackColor = System.Drawing.Color.White;
+            this.linkLabel_AddMovie.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel_AddMovie.LinkColor = System.Drawing.Color.Black;
+            this.linkLabel_AddMovie.Location = new System.Drawing.Point(157, 226);
+            this.linkLabel_AddMovie.Name = "linkLabel_AddMovie";
+            this.linkLabel_AddMovie.Size = new System.Drawing.Size(90, 20);
+            this.linkLabel_AddMovie.TabIndex = 6;
+            this.linkLabel_AddMovie.TabStop = true;
+            this.linkLabel_AddMovie.Text = "Add Movie";
+            // 
+            // linkLabel_ViewAccount
+            // 
+            this.linkLabel_ViewAccount.AutoSize = true;
+            this.linkLabel_ViewAccount.BackColor = System.Drawing.Color.White;
+            this.linkLabel_ViewAccount.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel_ViewAccount.LinkColor = System.Drawing.Color.Black;
+            this.linkLabel_ViewAccount.Location = new System.Drawing.Point(336, 226);
+            this.linkLabel_ViewAccount.Name = "linkLabel_ViewAccount";
+            this.linkLabel_ViewAccount.Size = new System.Drawing.Size(123, 20);
+            this.linkLabel_ViewAccount.TabIndex = 7;
+            this.linkLabel_ViewAccount.TabStop = true;
+            this.linkLabel_ViewAccount.Text = "View Accounts";
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.BackColor = System.Drawing.Color.White;
+            this.linkLabel1.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel1.LinkColor = System.Drawing.Color.Black;
+            this.linkLabel1.Location = new System.Drawing.Point(143, 366);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(104, 20);
+            this.linkLabel1.TabIndex = 8;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "View Movies";
+            // 
+            // linkLabel2
+            // 
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.BackColor = System.Drawing.Color.White;
+            this.linkLabel2.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel2.LinkColor = System.Drawing.Color.Black;
+            this.linkLabel2.Location = new System.Drawing.Point(367, 366);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(66, 20);
+            this.linkLabel2.TabIndex = 9;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "History";
+            // 
             // Frm_AdminHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Dbsys.Properties.Resources.b81;
+            this.BackgroundImage = global::Dbsys.Properties.Resources.movie_objects_with_space_top;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(635, 375);
+            this.ClientSize = new System.Drawing.Size(635, 413);
+            this.Controls.Add(this.linkLabel2);
+            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.linkLabel_ViewAccount);
+            this.Controls.Add(this.linkLabel_AddMovie);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.picBox_History);
             this.Controls.Add(this.picBox_ViewMovie);
@@ -157,5 +217,9 @@
         private System.Windows.Forms.PictureBox picBox_ViewMovie;
         private System.Windows.Forms.PictureBox picBox_History;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.LinkLabel linkLabel_AddMovie;
+        private System.Windows.Forms.LinkLabel linkLabel_ViewAccount;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel linkLabel2;
     }
 }

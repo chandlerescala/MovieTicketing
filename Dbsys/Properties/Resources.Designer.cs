@@ -133,6 +133,16 @@ namespace Dbsys.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap clapperboard {
+            get {
+                object obj = ResourceManager.GetObject("clapperboard", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap edit2 {
             get {
                 object obj = ResourceManager.GetObject("edit2", resourceCulture);
@@ -196,6 +206,26 @@ namespace Dbsys.Properties {
         internal static System.Drawing.Bitmap m4 {
             get {
                 object obj = ResourceManager.GetObject("m4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap movie_background_collage {
+            get {
+                object obj = ResourceManager.GetObject("movie-background-collage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap movie_objects_with_space_top {
+            get {
+                object obj = ResourceManager.GetObject("movie-objects-with-space-top", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

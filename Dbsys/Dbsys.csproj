@@ -227,6 +227,9 @@
       <DependentUpon>DbysModel.edmx</DependentUpon>
       <LastGenOutput>DbysModel.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\clapperboard.jpg" />
+    <None Include="Resources\movie-background-collage.jpg" />
+    <None Include="Resources\movie-objects-with-space-top.jpg" />
     <None Include="Resources\2.jpg" />
     <None Include="Resources\history.png" />
     <None Include="Resources\package.png" />

@@ -149,7 +149,7 @@ namespace Dbsys
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Dbsys.Properties.Resources.MovieInfo;
+            this.BackgroundImage = global::Dbsys.Properties.Resources.clapperboard;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(735, 438);
             this.Controls.Add(this.picBox_AvailableSeat);

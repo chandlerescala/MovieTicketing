@@ -39,10 +39,14 @@ namespace Dbsys
             this.linkLabel_m3 = new System.Windows.Forms.LinkLabel();
             this.linkLabel_m4 = new System.Windows.Forms.LinkLabel();
             this.label2 = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_m1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_m2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_m3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_m4)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -52,7 +56,7 @@ namespace Dbsys
             this.label1.Font = new System.Drawing.Font("Bookman Old Style", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(256, 43);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(280, 32);
+            this.label1.Size = new System.Drawing.Size(279, 32);
             this.label1.TabIndex = 0;
             this.label1.Text = "MOVIE TICKETING";
             // 
@@ -167,13 +171,39 @@ namespace Dbsys
             this.label2.TabIndex = 9;
             this.label2.Text = "Movies";
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(767, 24);
+            this.menuStrip1.TabIndex = 10;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.logOutToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // logOutToolStripMenuItem
+            // 
+            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.logOutToolStripMenuItem.Text = "Log out";
+            this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
+            // 
             // Frm_UserHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Dbsys.Properties.Resources.movieSelection;
+            this.BackgroundImage = global::Dbsys.Properties.Resources.movie_objects_with_space_top;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(767, 450);
+            this.ClientSize = new System.Drawing.Size(767, 467);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.linkLabel_m4);
             this.Controls.Add(this.linkLabel_m3);
@@ -191,6 +221,8 @@ namespace Dbsys
             ((System.ComponentModel.ISupportInitialize)(this.picBox_m2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_m3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_m4)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -208,5 +240,8 @@ namespace Dbsys
         private System.Windows.Forms.LinkLabel linkLabel_m3;
         private System.Windows.Forms.LinkLabel linkLabel_m4;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
     }
 }

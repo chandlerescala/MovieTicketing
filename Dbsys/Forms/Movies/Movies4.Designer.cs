@@ -32,12 +32,12 @@ namespace Dbsys
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
             this.linkLabel_m1 = new System.Windows.Forms.LinkLabel();
             this.picBox_AvailableSeat = new System.Windows.Forms.PictureBox();
             this.picBox_Buy = new System.Windows.Forms.PictureBox();
             this.picBox_m1 = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_AvailableSeat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_Buy)).BeginInit();
@@ -78,6 +78,19 @@ namespace Dbsys
             this.label1.Size = new System.Drawing.Size(85, 28);
             this.label1.TabIndex = 17;
             this.label1.Text = "About";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(33, 50);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(383, 80);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Wish will follow a young girl named Asha who \r\nwishes on a star and gets a more d" +
+    "irect answer \r\nthan she bargained for when a trouble-making \r\nstar comes down fr" +
+    "om the sky to join her.";
             // 
             // btnBack
             // 
@@ -134,24 +147,11 @@ namespace Dbsys
             this.picBox_m1.TabIndex = 24;
             this.picBox_m1.TabStop = false;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(33, 50);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(383, 80);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "Wish will follow a young girl named Asha who \r\nwishes on a star and gets a more d" +
-    "irect answer \r\nthan she bargained for when a trouble-making \r\nstar comes down fr" +
-    "om the sky to join her.";
-            // 
             // Movies4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Dbsys.Properties.Resources.MovieInfo;
+            this.BackgroundImage = global::Dbsys.Properties.Resources.clapperboard;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(746, 425);
             this.Controls.Add(this.picBox_AvailableSeat);
