@@ -21,6 +21,7 @@ namespace Dbsys
             InitializeComponent();
             //
             userRepo = new UserRepository();
+            //ckShowPass.CheckedChanged += ckShowPass_CheckedChanged;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -107,6 +108,19 @@ namespace Dbsys
         private void label4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void ckShowPass_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ckShowPass.Checked)
+            {
+            
+                txtPassword.PasswordChar = '\0';
+            }
+            else
+            {
+                txtPassword.PasswordChar = '*';
+            }
         }
     }
 }

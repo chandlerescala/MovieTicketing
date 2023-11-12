@@ -16,5 +16,25 @@ namespace Dbsys.Forms
         {
             InitializeComponent();
         }
+
+        private void createUserToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Frm_Login login = new Frm_Login();
+            login.Show();
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Frm_Admin_LogIn al = new Frm_Admin_LogIn();
+            al.Show();
+            this.Close();
+        }
     }
 }

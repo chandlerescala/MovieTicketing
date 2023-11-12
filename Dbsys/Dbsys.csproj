@@ -151,6 +151,9 @@
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Utils\Constant.cs" />
     <Compile Include="Utils\Func.cs" />
+    <EmbeddedResource Include="Forms\Frm_AdminHome.resx">
+      <DependentUpon>Frm_AdminHome.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Frm_Admin_LogIn.resx">
       <DependentUpon>Frm_Admin_LogIn.cs</DependentUpon>
     </EmbeddedResource>
@@ -224,6 +227,13 @@
       <DependentUpon>DbysModel.edmx</DependentUpon>
       <LastGenOutput>DbysModel.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\2.jpg" />
+    <None Include="Resources\history.png" />
+    <None Include="Resources\package.png" />
+    <None Include="Resources\edit2.png" />
+    <None Include="Resources\b81.jpg" />
+    <None Include="Resources\profile.png" />
+    <None Include="Resources\b8.jpg" />
     <None Include="Resources\bg11.jpg" />
     <None Include="Resources\sits.png" />
     <None Include="Resources\Buy.png" />

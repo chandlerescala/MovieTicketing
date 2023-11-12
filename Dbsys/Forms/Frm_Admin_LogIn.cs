@@ -34,5 +34,13 @@ namespace Dbsys.Forms
                 frm.ShowDialog();
             }
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            Frm_AdminHome ah = new Frm_AdminHome();
+            ah.Show();
+
+            this.Close();
+        }
     }
 }
