@@ -21,7 +21,7 @@ namespace Dbsys
             InitializeComponent();
             //
             userRepo = new UserRepository();
-            //ckShowPass.CheckedChanged += ckShowPass_CheckedChanged;
+
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -114,11 +114,12 @@ namespace Dbsys
         {
             if (ckShowPass.Checked)
             {
-            
+                // Disable password masking
                 txtPassword.PasswordChar = '\0';
             }
             else
             {
+                // Enable password masking with asterisks
                 txtPassword.PasswordChar = '*';
             }
         }

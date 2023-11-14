@@ -177,6 +177,8 @@
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsername);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Frm_Register";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Register";

@@ -31,16 +31,19 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.picBox_History = new System.Windows.Forms.PictureBox();
-            this.picBox_ViewMovie = new System.Windows.Forms.PictureBox();
-            this.picBox_AddMovie = new System.Windows.Forms.PictureBox();
-            this.picBox_AdminLogin = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.linkLabel_AddMovie = new System.Windows.Forms.LinkLabel();
             this.linkLabel_ViewAccount = new System.Windows.Forms.LinkLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.picBox_History = new System.Windows.Forms.PictureBox();
+            this.picBox_ViewMovie = new System.Windows.Forms.PictureBox();
+            this.picBox_AddMovie = new System.Windows.Forms.PictureBox();
+            this.picBox_AdminLogin = new System.Windows.Forms.PictureBox();
+            this.txtLoggedUser = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_History)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_ViewMovie)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_AddMovie)).BeginInit();
@@ -72,53 +75,12 @@
             this.logOutToolStripMenuItem.Text = "Log out";
             this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
-            // picBox_History
-            // 
-            this.picBox_History.Image = global::Dbsys.Properties.Resources.history;
-            this.picBox_History.Location = new System.Drawing.Point(338, 265);
-            this.picBox_History.Name = "picBox_History";
-            this.picBox_History.Size = new System.Drawing.Size(121, 98);
-            this.picBox_History.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBox_History.TabIndex = 4;
-            this.picBox_History.TabStop = false;
-            // 
-            // picBox_ViewMovie
-            // 
-            this.picBox_ViewMovie.Image = global::Dbsys.Properties.Resources.package;
-            this.picBox_ViewMovie.Location = new System.Drawing.Point(141, 265);
-            this.picBox_ViewMovie.Name = "picBox_ViewMovie";
-            this.picBox_ViewMovie.Size = new System.Drawing.Size(121, 98);
-            this.picBox_ViewMovie.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBox_ViewMovie.TabIndex = 3;
-            this.picBox_ViewMovie.TabStop = false;
-            // 
-            // picBox_AddMovie
-            // 
-            this.picBox_AddMovie.Image = global::Dbsys.Properties.Resources.edit2;
-            this.picBox_AddMovie.Location = new System.Drawing.Point(141, 125);
-            this.picBox_AddMovie.Name = "picBox_AddMovie";
-            this.picBox_AddMovie.Size = new System.Drawing.Size(121, 98);
-            this.picBox_AddMovie.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBox_AddMovie.TabIndex = 2;
-            this.picBox_AddMovie.TabStop = false;
-            // 
-            // picBox_AdminLogin
-            // 
-            this.picBox_AdminLogin.Image = global::Dbsys.Properties.Resources.profile;
-            this.picBox_AdminLogin.Location = new System.Drawing.Point(338, 125);
-            this.picBox_AdminLogin.Name = "picBox_AdminLogin";
-            this.picBox_AdminLogin.Size = new System.Drawing.Size(121, 98);
-            this.picBox_AdminLogin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBox_AdminLogin.TabIndex = 1;
-            this.picBox_AdminLogin.TabStop = false;
-            this.picBox_AdminLogin.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Font = new System.Drawing.Font("Bookman Old Style", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(169, 60);
+            this.label1.Location = new System.Drawing.Point(172, 85);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(279, 32);
             this.label1.TabIndex = 5;
@@ -130,7 +92,7 @@
             this.linkLabel_AddMovie.BackColor = System.Drawing.Color.White;
             this.linkLabel_AddMovie.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel_AddMovie.LinkColor = System.Drawing.Color.Black;
-            this.linkLabel_AddMovie.Location = new System.Drawing.Point(157, 226);
+            this.linkLabel_AddMovie.Location = new System.Drawing.Point(160, 251);
             this.linkLabel_AddMovie.Name = "linkLabel_AddMovie";
             this.linkLabel_AddMovie.Size = new System.Drawing.Size(90, 20);
             this.linkLabel_AddMovie.TabIndex = 6;
@@ -143,7 +105,7 @@
             this.linkLabel_ViewAccount.BackColor = System.Drawing.Color.White;
             this.linkLabel_ViewAccount.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel_ViewAccount.LinkColor = System.Drawing.Color.Black;
-            this.linkLabel_ViewAccount.Location = new System.Drawing.Point(336, 226);
+            this.linkLabel_ViewAccount.Location = new System.Drawing.Point(339, 251);
             this.linkLabel_ViewAccount.Name = "linkLabel_ViewAccount";
             this.linkLabel_ViewAccount.Size = new System.Drawing.Size(123, 20);
             this.linkLabel_ViewAccount.TabIndex = 7;
@@ -156,7 +118,7 @@
             this.linkLabel1.BackColor = System.Drawing.Color.White;
             this.linkLabel1.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel1.LinkColor = System.Drawing.Color.Black;
-            this.linkLabel1.Location = new System.Drawing.Point(143, 366);
+            this.linkLabel1.Location = new System.Drawing.Point(146, 391);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(104, 20);
             this.linkLabel1.TabIndex = 8;
@@ -169,12 +131,73 @@
             this.linkLabel2.BackColor = System.Drawing.Color.White;
             this.linkLabel2.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel2.LinkColor = System.Drawing.Color.Black;
-            this.linkLabel2.Location = new System.Drawing.Point(367, 366);
+            this.linkLabel2.Location = new System.Drawing.Point(370, 391);
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.Size = new System.Drawing.Size(66, 20);
             this.linkLabel2.TabIndex = 9;
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "History";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Dbsys.Properties.Resources.profile1;
+            this.pictureBox1.Location = new System.Drawing.Point(543, 27);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(80, 54);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
+            // 
+            // picBox_History
+            // 
+            this.picBox_History.Image = global::Dbsys.Properties.Resources.history;
+            this.picBox_History.Location = new System.Drawing.Point(341, 290);
+            this.picBox_History.Name = "picBox_History";
+            this.picBox_History.Size = new System.Drawing.Size(121, 98);
+            this.picBox_History.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBox_History.TabIndex = 4;
+            this.picBox_History.TabStop = false;
+            // 
+            // picBox_ViewMovie
+            // 
+            this.picBox_ViewMovie.Image = global::Dbsys.Properties.Resources.package;
+            this.picBox_ViewMovie.Location = new System.Drawing.Point(144, 290);
+            this.picBox_ViewMovie.Name = "picBox_ViewMovie";
+            this.picBox_ViewMovie.Size = new System.Drawing.Size(121, 98);
+            this.picBox_ViewMovie.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBox_ViewMovie.TabIndex = 3;
+            this.picBox_ViewMovie.TabStop = false;
+            // 
+            // picBox_AddMovie
+            // 
+            this.picBox_AddMovie.Image = global::Dbsys.Properties.Resources.edit2;
+            this.picBox_AddMovie.Location = new System.Drawing.Point(144, 150);
+            this.picBox_AddMovie.Name = "picBox_AddMovie";
+            this.picBox_AddMovie.Size = new System.Drawing.Size(121, 98);
+            this.picBox_AddMovie.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBox_AddMovie.TabIndex = 2;
+            this.picBox_AddMovie.TabStop = false;
+            this.picBox_AddMovie.Click += new System.EventHandler(this.picBox_AddMovie_Click);
+            // 
+            // picBox_AdminLogin
+            // 
+            this.picBox_AdminLogin.Image = global::Dbsys.Properties.Resources.profile;
+            this.picBox_AdminLogin.Location = new System.Drawing.Point(341, 150);
+            this.picBox_AdminLogin.Name = "picBox_AdminLogin";
+            this.picBox_AdminLogin.Size = new System.Drawing.Size(121, 98);
+            this.picBox_AdminLogin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBox_AdminLogin.TabIndex = 1;
+            this.picBox_AdminLogin.TabStop = false;
+            this.picBox_AdminLogin.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // txtLoggedUser
+            // 
+            this.txtLoggedUser.Location = new System.Drawing.Point(437, 42);
+            this.txtLoggedUser.Name = "txtLoggedUser";
+            this.txtLoggedUser.ReadOnly = true;
+            this.txtLoggedUser.Size = new System.Drawing.Size(100, 20);
+            this.txtLoggedUser.TabIndex = 11;
+            this.txtLoggedUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Frm_AdminHome
             // 
@@ -182,7 +205,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Dbsys.Properties.Resources.movie_objects_with_space_top;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(635, 413);
+            this.ClientSize = new System.Drawing.Size(635, 450);
+            this.Controls.Add(this.txtLoggedUser);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.linkLabel2);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.linkLabel_ViewAccount);
@@ -193,11 +218,15 @@
             this.Controls.Add(this.picBox_AddMovie);
             this.Controls.Add(this.picBox_AdminLogin);
             this.Controls.Add(this.menuStrip1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Frm_AdminHome";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Admin Home";
+            this.Text = "Home(Admin)";
+            this.Load += new System.EventHandler(this.Frm_AdminHome_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_History)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_ViewMovie)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_AddMovie)).EndInit();
@@ -221,5 +250,7 @@
         private System.Windows.Forms.LinkLabel linkLabel_ViewAccount;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox txtLoggedUser;
     }
 }

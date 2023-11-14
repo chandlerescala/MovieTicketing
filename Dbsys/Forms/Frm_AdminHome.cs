@@ -36,5 +36,17 @@ namespace Dbsys.Forms
             al.Show();
             this.Close();
         }
+
+        private void Frm_AdminHome_Load(object sender, EventArgs e)
+        {
+            txtLoggedUser.Text = UserLogged.GetInstance().UserAccount.userName;
+        }
+
+        private void picBox_AddMovie_Click(object sender, EventArgs e)
+        {
+            Frm_Admin_AddMovie add = new Frm_Admin_AddMovie();
+            add.Show();
+            this.Close();
+        }
     }
 }

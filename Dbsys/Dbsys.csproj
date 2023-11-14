@@ -91,6 +91,12 @@
     <Compile Include="Forms\Frm_AdminHome.Designer.cs">
       <DependentUpon>Frm_AdminHome.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Frm_Admin_AddMovie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Frm_Admin_AddMovie.Designer.cs">
+      <DependentUpon>Frm_Admin_AddMovie.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Frm_Admin_LogIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +159,9 @@
     <Compile Include="Utils\Func.cs" />
     <EmbeddedResource Include="Forms\Frm_AdminHome.resx">
       <DependentUpon>Frm_AdminHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Frm_Admin_AddMovie.resx">
+      <DependentUpon>Frm_Admin_AddMovie.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Frm_Admin_LogIn.resx">
       <DependentUpon>Frm_Admin_LogIn.cs</DependentUpon>
@@ -227,6 +236,7 @@
       <DependentUpon>DbysModel.edmx</DependentUpon>
       <LastGenOutput>DbysModel.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\profile1.png" />
     <None Include="Resources\clapperboard.jpg" />
     <None Include="Resources\movie-background-collage.jpg" />
     <None Include="Resources\movie-objects-with-space-top.jpg" />

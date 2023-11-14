@@ -79,5 +79,10 @@ namespace Dbsys
             Frm_Login login = new Frm_Login();
             login.Show();
         }
+
+        private void Frm_UserHome_Load(object sender, EventArgs e)
+        {
+            txtLoggedUser.Text = UserLogged.GetInstance().UserAccount.userName;
+        }
     }
 }
