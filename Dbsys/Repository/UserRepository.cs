@@ -108,5 +108,12 @@ namespace Dbsys
             return db.vw_all_user_role.ToList();
         }
 
+        // Implement the SearchUserRole method here
+        public List<vw_all_user_role> SearchUserRole(string searchTerm)
+        {
+            // Search for user roles based on the search term
+            return db.vw_all_user_role.Where(u => u.Username.Contains(searchTerm) || u.Role.Contains(searchTerm)).ToList();
+        }
+
     }
 }

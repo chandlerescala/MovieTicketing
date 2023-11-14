@@ -31,8 +31,10 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnBack = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.picBox_Search = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox_Search)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -67,12 +69,22 @@
             this.label1.TabIndex = 26;
             this.label1.Text = "Search";
             // 
-            // textBox1
+            // txtSearch
             // 
-            this.textBox1.Location = new System.Drawing.Point(262, 63);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(206, 20);
-            this.textBox1.TabIndex = 27;
+            this.txtSearch.Location = new System.Drawing.Point(262, 63);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(206, 20);
+            this.txtSearch.TabIndex = 27;
+            // 
+            // picBox_Search
+            // 
+            this.picBox_Search.Image = global::Dbsys.Properties.Resources.Search;
+            this.picBox_Search.Location = new System.Drawing.Point(474, 59);
+            this.picBox_Search.Name = "picBox_Search";
+            this.picBox_Search.Size = new System.Drawing.Size(24, 24);
+            this.picBox_Search.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.picBox_Search.TabIndex = 31;
+            this.picBox_Search.TabStop = false;
             // 
             // Frm_Admin_ViewMovies
             // 
@@ -81,7 +93,8 @@
             this.BackgroundImage = global::Dbsys.Properties.Resources.movie_objects_with_space_top;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.picBox_Search);
+            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.dataGridView1);
@@ -91,6 +104,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ViewMovies(Admin)";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox_Search)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -101,6 +115,7 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.PictureBox picBox_Search;
     }
 }

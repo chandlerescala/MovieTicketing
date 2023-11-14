@@ -47,9 +47,11 @@
             this.btn_UpdateMovie = new System.Windows.Forms.Button();
             this.btn_DeleteMovie = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.picBox_Search = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox_Search)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -230,12 +232,12 @@
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // textBox1
+            // txtSearch
             // 
-            this.textBox1.Location = new System.Drawing.Point(517, 38);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(206, 20);
-            this.textBox1.TabIndex = 29;
+            this.txtSearch.Location = new System.Drawing.Point(517, 38);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(206, 20);
+            this.txtSearch.TabIndex = 29;
             // 
             // label8
             // 
@@ -248,6 +250,16 @@
             this.label8.TabIndex = 28;
             this.label8.Text = "Search";
             // 
+            // picBox_Search
+            // 
+            this.picBox_Search.Image = global::Dbsys.Properties.Resources.Search;
+            this.picBox_Search.Location = new System.Drawing.Point(729, 38);
+            this.picBox_Search.Name = "picBox_Search";
+            this.picBox_Search.Size = new System.Drawing.Size(24, 24);
+            this.picBox_Search.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.picBox_Search.TabIndex = 30;
+            this.picBox_Search.TabStop = false;
+            // 
             // Frm_Admin_AddMovie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -255,7 +267,8 @@
             this.BackgroundImage = global::Dbsys.Properties.Resources.movie_objects_with_space_top;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(931, 507);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.picBox_Search);
+            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btn_DeleteMovie);
@@ -282,6 +295,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Movie(Admin)";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox_Search)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -308,7 +322,8 @@
         private System.Windows.Forms.Button btn_UpdateMovie;
         private System.Windows.Forms.Button btn_DeleteMovie;
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.PictureBox picBox_Search;
     }
 }

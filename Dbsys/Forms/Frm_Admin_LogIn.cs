@@ -49,5 +49,14 @@ namespace Dbsys.Forms
             Frm_Login login = new Frm_Login();
             login.Show();
         }
+
+        private void picBox_Search_Click(object sender, EventArgs e)
+        {
+            // Get the search term from the textbox
+            string searchTerm = txtSearch.Text;
+
+            // Search for the items based on the search term
+            dgv_main.DataSource = userRepo.SearchUserRole(searchTerm);
+        }
     }
 }

@@ -254,6 +254,7 @@
       <DependentUpon>DbysModel.edmx</DependentUpon>
       <LastGenOutput>DbysModel.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\Search.png" />
     <None Include="Resources\profile1.png" />
     <None Include="Resources\clapperboard.jpg" />
     <None Include="Resources\movie-background-collage.jpg" />

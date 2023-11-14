@@ -38,11 +38,13 @@
             this.createUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnBack = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.picBox_Search = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_main)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox_Search)).BeginInit();
             this.SuspendLayout();
             // 
             // dgv_main
@@ -130,12 +132,12 @@
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // textBox1
+            // txtSearch
             // 
-            this.textBox1.Location = new System.Drawing.Point(229, 72);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(206, 20);
-            this.textBox1.TabIndex = 29;
+            this.txtSearch.Location = new System.Drawing.Point(229, 72);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(206, 20);
+            this.txtSearch.TabIndex = 29;
             // 
             // label1
             // 
@@ -148,6 +150,17 @@
             this.label1.TabIndex = 28;
             this.label1.Text = "Search";
             // 
+            // picBox_Search
+            // 
+            this.picBox_Search.Image = global::Dbsys.Properties.Resources.Search;
+            this.picBox_Search.Location = new System.Drawing.Point(441, 68);
+            this.picBox_Search.Name = "picBox_Search";
+            this.picBox_Search.Size = new System.Drawing.Size(24, 24);
+            this.picBox_Search.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.picBox_Search.TabIndex = 31;
+            this.picBox_Search.TabStop = false;
+            this.picBox_Search.Click += new System.EventHandler(this.picBox_Search_Click);
+            // 
             // Frm_Admin_LogIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -155,7 +168,8 @@
             this.BackgroundImage = global::Dbsys.Properties.Resources.movie_objects_with_space_top;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(695, 429);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.picBox_Search);
+            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.statusStrip1);
@@ -173,6 +187,7 @@
             this.statusStrip1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox_Search)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -190,7 +205,8 @@
         private System.Windows.Forms.ToolStripMenuItem createUserToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox picBox_Search;
     }
 }
