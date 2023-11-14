@@ -103,6 +103,12 @@
     <Compile Include="Forms\Frm_Admin_LogIn.Designer.cs">
       <DependentUpon>Frm_Admin_LogIn.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Frm_Admin_ViewMovies.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Frm_Admin_ViewMovies.Designer.cs">
+      <DependentUpon>Frm_Admin_ViewMovies.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Frm_Register.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +132,12 @@
     </Compile>
     <Compile Include="Forms\Frm_UserHome.Designer.cs">
       <DependentUpon>Frm_UserHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Frm_Admin_History.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Frm_Admin_History.Designer.cs">
+      <DependentUpon>Frm_Admin_History.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Movies\Movie1.cs">
       <SubType>Form</SubType>
@@ -166,6 +178,9 @@
     <EmbeddedResource Include="Forms\Frm_Admin_LogIn.resx">
       <DependentUpon>Frm_Admin_LogIn.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Frm_Admin_ViewMovies.resx">
+      <DependentUpon>Frm_Admin_ViewMovies.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Frm_Register.resx">
       <DependentUpon>Frm_Register.cs</DependentUpon>
     </EmbeddedResource>
@@ -177,6 +192,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Frm_UserHome.resx">
       <DependentUpon>Frm_UserHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Frm_Admin_History.resx">
+      <DependentUpon>Frm_Admin_History.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Movies\Movie1.resx">
       <DependentUpon>Movie1.cs</DependentUpon>

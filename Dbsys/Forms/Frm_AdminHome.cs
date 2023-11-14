@@ -48,5 +48,19 @@ namespace Dbsys.Forms
             add.Show();
             this.Close();
         }
+
+        private void picBox_ViewMovie_Click(object sender, EventArgs e)
+        {
+            Frm_Admin_ViewMovies view = new Frm_Admin_ViewMovies();
+            view.Show();
+            this.Close();
+        }
+
+        private void picBox_History_Click(object sender, EventArgs e)
+        {
+            Frm_Admin_History hist = new Frm_Admin_History();
+            hist.Show();
+            this.Close();
+        }
     }
 }

@@ -157,6 +157,7 @@
             this.picBox_History.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBox_History.TabIndex = 4;
             this.picBox_History.TabStop = false;
+            this.picBox_History.Click += new System.EventHandler(this.picBox_History_Click);
             // 
             // picBox_ViewMovie
             // 
@@ -167,6 +168,7 @@
             this.picBox_ViewMovie.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBox_ViewMovie.TabIndex = 3;
             this.picBox_ViewMovie.TabStop = false;
+            this.picBox_ViewMovie.Click += new System.EventHandler(this.picBox_ViewMovie_Click);
             // 
             // picBox_AddMovie
             // 
