@@ -109,17 +109,17 @@
     <Compile Include="Forms\Frm_Admin_ViewMovies.Designer.cs">
       <DependentUpon>Frm_Admin_ViewMovies.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Frm_ProfileSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Frm_ProfileSettings.Designer.cs">
+      <DependentUpon>Frm_ProfileSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Frm_Register.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Frm_Register.Designer.cs">
       <DependentUpon>Frm_Register.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Frm_UserEntry.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Frm_UserEntry.Designer.cs">
-      <DependentUpon>Frm_UserEntry.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Frm_Login.cs">
       <SubType>Form</SubType>
@@ -181,11 +181,11 @@
     <EmbeddedResource Include="Forms\Frm_Admin_ViewMovies.resx">
       <DependentUpon>Frm_Admin_ViewMovies.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Frm_ProfileSettings.resx">
+      <DependentUpon>Frm_ProfileSettings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Frm_Register.resx">
       <DependentUpon>Frm_Register.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Frm_UserEntry.resx">
-      <DependentUpon>Frm_UserEntry.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Frm_Login.resx">
       <DependentUpon>Frm_Login.cs</DependentUpon>
@@ -254,6 +254,9 @@
       <DependentUpon>DbysModel.edmx</DependentUpon>
       <LastGenOutput>DbysModel.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\profile2.png" />
+    <None Include="Resources\setting_2.png" />
+    <None Include="Resources\settings_7827945.png" />
     <None Include="Resources\Log out.jpg" />
     <None Include="Resources\Search.png" />
     <None Include="Resources\profile1.png" />

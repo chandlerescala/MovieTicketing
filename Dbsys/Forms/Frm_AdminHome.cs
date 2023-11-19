@@ -22,13 +22,6 @@ namespace Dbsys
 
         }
 
-        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            Frm_Login login = new Frm_Login();
-            login.Show();
-
-        }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -88,6 +81,34 @@ namespace Dbsys
         {
             Frm_Admin_History hist = new Frm_Admin_History();
             hist.Show();
+            this.Close();
+        }
+
+        private void logOutToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+            Frm_Login login = new Frm_Login();
+            login.Show();
+        }
+
+        private void profileSettingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_ProfileSettings profile = new Frm_ProfileSettings();
+            profile.Show();
+
+            this.Close();
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void profileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_ProfileSettings profile = new Frm_ProfileSettings();
+            profile.Show();
+
             this.Close();
         }
     }

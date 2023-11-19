@@ -34,14 +34,6 @@ namespace Dbsys
             toolStripStatusUser.Text = UserLogged.GetInstance().UserAccount.userName;
         }
 
-        private void createUserToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            using (var frm = new Frm_UserEntry())
-            {
-                frm.ShowDialog();
-            }
-        }
-
         private void btnBack_Click(object sender, EventArgs e)
         {
             Frm_AdminHome ah = new Frm_AdminHome();

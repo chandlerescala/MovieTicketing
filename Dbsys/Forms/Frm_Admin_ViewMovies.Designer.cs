@@ -96,6 +96,7 @@
             this.txtGenre.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtGenre.Location = new System.Drawing.Point(492, 215);
             this.txtGenre.Name = "txtGenre";
+            this.txtGenre.ReadOnly = true;
             this.txtGenre.Size = new System.Drawing.Size(185, 23);
             this.txtGenre.TabIndex = 46;
             // 
@@ -115,6 +116,7 @@
             this.txtReleaseYear.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtReleaseYear.Location = new System.Drawing.Point(492, 178);
             this.txtReleaseYear.Name = "txtReleaseYear";
+            this.txtReleaseYear.ReadOnly = true;
             this.txtReleaseYear.Size = new System.Drawing.Size(107, 23);
             this.txtReleaseYear.TabIndex = 44;
             // 
@@ -134,6 +136,7 @@
             this.txtMoviePrice.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMoviePrice.Location = new System.Drawing.Point(492, 138);
             this.txtMoviePrice.Name = "txtMoviePrice";
+            this.txtMoviePrice.ReadOnly = true;
             this.txtMoviePrice.Size = new System.Drawing.Size(145, 23);
             this.txtMoviePrice.TabIndex = 42;
             // 
@@ -153,6 +156,7 @@
             this.txtMoviePublisher.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMoviePublisher.Location = new System.Drawing.Point(492, 307);
             this.txtMoviePublisher.Name = "txtMoviePublisher";
+            this.txtMoviePublisher.ReadOnly = true;
             this.txtMoviePublisher.Size = new System.Drawing.Size(268, 23);
             this.txtMoviePublisher.TabIndex = 40;
             // 
@@ -161,6 +165,7 @@
             this.txtMovieDirector.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMovieDirector.Location = new System.Drawing.Point(492, 261);
             this.txtMovieDirector.Name = "txtMovieDirector";
+            this.txtMovieDirector.ReadOnly = true;
             this.txtMovieDirector.Size = new System.Drawing.Size(268, 23);
             this.txtMovieDirector.TabIndex = 39;
             // 
@@ -169,6 +174,7 @@
             this.txtMovieName.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMovieName.Location = new System.Drawing.Point(492, 94);
             this.txtMovieName.Name = "txtMovieName";
+            this.txtMovieName.ReadOnly = true;
             this.txtMovieName.Size = new System.Drawing.Size(280, 23);
             this.txtMovieName.TabIndex = 38;
             // 

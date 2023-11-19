@@ -30,7 +30,14 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.profileSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addMovieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewMoviesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.accountManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.transactionHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.profileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.linkLabel_AddMovie = new System.Windows.Forms.LinkLabel();
             this.linkLabel_ViewAccount = new System.Windows.Forms.LinkLabel();
@@ -42,10 +49,6 @@
             this.picBox_AddMovie = new System.Windows.Forms.PictureBox();
             this.picBox_AdminLogin = new System.Windows.Forms.PictureBox();
             this.txtLoggedUser = new System.Windows.Forms.TextBox();
-            this.addMovieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewMoviesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.accountManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.transactionHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_History)).BeginInit();
@@ -61,20 +64,31 @@
             this.addMovieToolStripMenuItem,
             this.viewMoviesToolStripMenuItem,
             this.accountManagementToolStripMenuItem,
-            this.transactionHistoryToolStripMenuItem});
+            this.transactionHistoryToolStripMenuItem,
+            this.settingsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(635, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(630, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.profileSettingsToolStripMenuItem,
             this.logOutToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
+            // 
+            // profileSettingsToolStripMenuItem
+            // 
+            this.profileSettingsToolStripMenuItem.Image = global::Dbsys.Properties.Resources.profile;
+            this.profileSettingsToolStripMenuItem.Name = "profileSettingsToolStripMenuItem";
+            this.profileSettingsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.profileSettingsToolStripMenuItem.Text = "Profile Settings";
+            this.profileSettingsToolStripMenuItem.Click += new System.EventHandler(this.profileSettingsToolStripMenuItem_Click);
             // 
             // logOutToolStripMenuItem
             // 
@@ -82,7 +96,56 @@
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
             this.logOutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.logOutToolStripMenuItem.Text = "Log out";
-            this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
+            this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click_1);
+            // 
+            // addMovieToolStripMenuItem
+            // 
+            this.addMovieToolStripMenuItem.Image = global::Dbsys.Properties.Resources.edit2;
+            this.addMovieToolStripMenuItem.Name = "addMovieToolStripMenuItem";
+            this.addMovieToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
+            this.addMovieToolStripMenuItem.Text = "Add Movie";
+            this.addMovieToolStripMenuItem.Click += new System.EventHandler(this.addMovieToolStripMenuItem_Click);
+            // 
+            // viewMoviesToolStripMenuItem
+            // 
+            this.viewMoviesToolStripMenuItem.Image = global::Dbsys.Properties.Resources.package;
+            this.viewMoviesToolStripMenuItem.Name = "viewMoviesToolStripMenuItem";
+            this.viewMoviesToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
+            this.viewMoviesToolStripMenuItem.Text = "View Movies";
+            this.viewMoviesToolStripMenuItem.Click += new System.EventHandler(this.viewMoviesToolStripMenuItem_Click);
+            // 
+            // accountManagementToolStripMenuItem
+            // 
+            this.accountManagementToolStripMenuItem.Image = global::Dbsys.Properties.Resources.profile;
+            this.accountManagementToolStripMenuItem.Name = "accountManagementToolStripMenuItem";
+            this.accountManagementToolStripMenuItem.Size = new System.Drawing.Size(154, 20);
+            this.accountManagementToolStripMenuItem.Text = "Account Management";
+            this.accountManagementToolStripMenuItem.Click += new System.EventHandler(this.accountManagementToolStripMenuItem_Click);
+            // 
+            // transactionHistoryToolStripMenuItem
+            // 
+            this.transactionHistoryToolStripMenuItem.Image = global::Dbsys.Properties.Resources.history;
+            this.transactionHistoryToolStripMenuItem.Name = "transactionHistoryToolStripMenuItem";
+            this.transactionHistoryToolStripMenuItem.Size = new System.Drawing.Size(136, 20);
+            this.transactionHistoryToolStripMenuItem.Text = "Transaction History";
+            this.transactionHistoryToolStripMenuItem.Click += new System.EventHandler(this.transactionHistoryToolStripMenuItem_Click);
+            // 
+            // settingsToolStripMenuItem
+            // 
+            this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.profileToolStripMenuItem});
+            this.settingsToolStripMenuItem.Image = global::Dbsys.Properties.Resources.setting_2;
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
+            this.settingsToolStripMenuItem.Text = "Settings";
+            // 
+            // profileToolStripMenuItem
+            // 
+            this.profileToolStripMenuItem.Image = global::Dbsys.Properties.Resources.profile2;
+            this.profileToolStripMenuItem.Name = "profileToolStripMenuItem";
+            this.profileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.profileToolStripMenuItem.Text = "Profile";
+            this.profileToolStripMenuItem.Click += new System.EventHandler(this.profileToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -210,45 +273,13 @@
             this.txtLoggedUser.TabIndex = 11;
             this.txtLoggedUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // addMovieToolStripMenuItem
-            // 
-            this.addMovieToolStripMenuItem.Image = global::Dbsys.Properties.Resources.edit2;
-            this.addMovieToolStripMenuItem.Name = "addMovieToolStripMenuItem";
-            this.addMovieToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
-            this.addMovieToolStripMenuItem.Text = "Add Movie";
-            this.addMovieToolStripMenuItem.Click += new System.EventHandler(this.addMovieToolStripMenuItem_Click);
-            // 
-            // viewMoviesToolStripMenuItem
-            // 
-            this.viewMoviesToolStripMenuItem.Image = global::Dbsys.Properties.Resources.package;
-            this.viewMoviesToolStripMenuItem.Name = "viewMoviesToolStripMenuItem";
-            this.viewMoviesToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
-            this.viewMoviesToolStripMenuItem.Text = "View Movies";
-            this.viewMoviesToolStripMenuItem.Click += new System.EventHandler(this.viewMoviesToolStripMenuItem_Click);
-            // 
-            // accountManagementToolStripMenuItem
-            // 
-            this.accountManagementToolStripMenuItem.Image = global::Dbsys.Properties.Resources.profile;
-            this.accountManagementToolStripMenuItem.Name = "accountManagementToolStripMenuItem";
-            this.accountManagementToolStripMenuItem.Size = new System.Drawing.Size(154, 20);
-            this.accountManagementToolStripMenuItem.Text = "Account Management";
-            this.accountManagementToolStripMenuItem.Click += new System.EventHandler(this.accountManagementToolStripMenuItem_Click);
-            // 
-            // transactionHistoryToolStripMenuItem
-            // 
-            this.transactionHistoryToolStripMenuItem.Image = global::Dbsys.Properties.Resources.history;
-            this.transactionHistoryToolStripMenuItem.Name = "transactionHistoryToolStripMenuItem";
-            this.transactionHistoryToolStripMenuItem.Size = new System.Drawing.Size(136, 20);
-            this.transactionHistoryToolStripMenuItem.Text = "Transaction History";
-            this.transactionHistoryToolStripMenuItem.Click += new System.EventHandler(this.transactionHistoryToolStripMenuItem_Click);
-            // 
             // Frm_AdminHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Dbsys.Properties.Resources.movie_objects_with_space_top;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(635, 450);
+            this.ClientSize = new System.Drawing.Size(630, 450);
             this.Controls.Add(this.txtLoggedUser);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.linkLabel2);
@@ -284,7 +315,6 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
         private System.Windows.Forms.PictureBox picBox_AdminLogin;
         private System.Windows.Forms.PictureBox picBox_AddMovie;
         private System.Windows.Forms.PictureBox picBox_ViewMovie;
@@ -300,5 +330,9 @@
         private System.Windows.Forms.ToolStripMenuItem viewMoviesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem accountManagementToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem transactionHistoryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem profileSettingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem profileToolStripMenuItem;
     }
 }
