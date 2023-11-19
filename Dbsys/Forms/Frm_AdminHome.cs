@@ -32,7 +32,7 @@ namespace Dbsys
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            Frm_Admin_LogIn al = new Frm_Admin_LogIn();
+            Frm_Admin_AccountManagement al = new Frm_Admin_AccountManagement();
             al.Show();
             this.Close();
         }
@@ -57,6 +57,34 @@ namespace Dbsys
         }
 
         private void picBox_History_Click(object sender, EventArgs e)
+        {
+            Frm_Admin_History hist = new Frm_Admin_History();
+            hist.Show();
+            this.Close();
+        }
+
+        private void addMovieToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_Admin_AddMovie add = new Frm_Admin_AddMovie();
+            add.Show();
+            this.Close();
+        }
+
+        private void viewMoviesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_Admin_ViewMovies view = new Frm_Admin_ViewMovies();
+            view.Show();
+            this.Close();
+        }
+
+        private void accountManagementToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_Admin_AccountManagement al = new Frm_Admin_AccountManagement();
+            al.Show();
+            this.Close();
+        }
+
+        private void transactionHistoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Frm_Admin_History hist = new Frm_Admin_History();
             hist.Show();

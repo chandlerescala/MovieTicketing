@@ -97,11 +97,11 @@
     <Compile Include="Forms\Frm_Admin_AddMovie.Designer.cs">
       <DependentUpon>Frm_Admin_AddMovie.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Frm_Admin_LogIn.cs">
+    <Compile Include="Forms\Frm_Admin_AccountManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Frm_Admin_LogIn.Designer.cs">
-      <DependentUpon>Frm_Admin_LogIn.cs</DependentUpon>
+    <Compile Include="Forms\Frm_Admin_AccountManagement.Designer.cs">
+      <DependentUpon>Frm_Admin_AccountManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Frm_Admin_ViewMovies.cs">
       <SubType>Form</SubType>
@@ -175,8 +175,8 @@
     <EmbeddedResource Include="Forms\Frm_Admin_AddMovie.resx">
       <DependentUpon>Frm_Admin_AddMovie.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Frm_Admin_LogIn.resx">
-      <DependentUpon>Frm_Admin_LogIn.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Frm_Admin_AccountManagement.resx">
+      <DependentUpon>Frm_Admin_AccountManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Frm_Admin_ViewMovies.resx">
       <DependentUpon>Frm_Admin_ViewMovies.cs</DependentUpon>
@@ -254,6 +254,7 @@
       <DependentUpon>DbysModel.edmx</DependentUpon>
       <LastGenOutput>DbysModel.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\Log out.jpg" />
     <None Include="Resources\Search.png" />
     <None Include="Resources\profile1.png" />
     <None Include="Resources\clapperboard.jpg" />
