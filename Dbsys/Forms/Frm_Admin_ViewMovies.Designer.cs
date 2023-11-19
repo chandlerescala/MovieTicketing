@@ -1,4 +1,4 @@
-﻿namespace Dbsys.Forms
+﻿namespace Dbsys
 {
     partial class Frm_Admin_ViewMovies
     {

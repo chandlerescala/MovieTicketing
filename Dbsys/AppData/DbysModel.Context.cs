@@ -28,11 +28,11 @@ namespace Dbsys.AppData
             throw new UnintentionalCodeFirstException();
         }
     
+        public DbSet<vw_all_user_role> vw_all_user_role { get; set; }
         public DbSet<Movie> Movie { get; set; }
         public DbSet<Role> Role { get; set; }
         public DbSet<UserAccount> UserAccount { get; set; }
         public DbSet<UserInformation> UserInformation { get; set; }
-        public DbSet<vw_all_user_role> vw_all_user_role { get; set; }
     
         public virtual int sp_newUser(string userName, string userPassword, Nullable<int> roleId, Nullable<int> createdBy)
         {

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dbsys.AppData;
 
-namespace Dbsys.Forms
+namespace Dbsys
 {
     public partial class Frm_Admin_LogIn : Form
     {

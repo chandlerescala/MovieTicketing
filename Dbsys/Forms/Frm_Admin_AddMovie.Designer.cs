@@ -1,4 +1,4 @@
-﻿namespace Dbsys.Forms
+﻿namespace Dbsys
 {
     partial class Frm_Admin_AddMovie
     {
@@ -28,49 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.richText_MovieInformation = new System.Windows.Forms.RichTextBox();
-            this.txtMovieId = new System.Windows.Forms.TextBox();
-            this.dateTime_StartShowing = new System.Windows.Forms.DateTimePicker();
-            this.dateTime_EndShowing = new System.Windows.Forms.DateTimePicker();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
             this.txtMovieName = new System.Windows.Forms.TextBox();
             this.txtMovieDirector = new System.Windows.Forms.TextBox();
             this.txtMoviePublisher = new System.Windows.Forms.TextBox();
-            this.btn_AddMovie = new System.Windows.Forms.Button();
-            this.btn_UpdateMovie = new System.Windows.Forms.Button();
-            this.btn_DeleteMovie = new System.Windows.Forms.Button();
+            this.btn_Save = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.picBox_Search = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox_Search)).BeginInit();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnBrowse = new System.Windows.Forms.Button();
+            this.labelPath = new System.Windows.Forms.Label();
+            this.txtMoviePrice = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtReleaseYear = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtGenre = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(36, 64);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 20);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Movie Id";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(36, 111);
+            this.label2.Location = new System.Drawing.Point(45, 149);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(104, 20);
             this.label2.TabIndex = 7;
@@ -80,89 +64,30 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.White;
-            this.label3.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(38, 158);
+            this.label3.Font = new System.Drawing.Font("Bookman Old Style", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(25, 102);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(151, 20);
+            this.label3.Size = new System.Drawing.Size(141, 24);
             this.label3.TabIndex = 8;
-            this.label3.Text = "Movie Information";
+            this.label3.Text = "Information";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.White;
             this.label4.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(36, 285);
+            this.label4.Location = new System.Drawing.Point(45, 316);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(123, 20);
+            this.label4.Size = new System.Drawing.Size(141, 20);
             this.label4.TabIndex = 9;
-            this.label4.Text = "Movie Director";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.White;
-            this.label5.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(36, 367);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(121, 20);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Start Showing";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.White;
-            this.label6.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(36, 413);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(114, 20);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "End Showing";
-            // 
-            // richText_MovieInformation
-            // 
-            this.richText_MovieInformation.Location = new System.Drawing.Point(195, 158);
-            this.richText_MovieInformation.Name = "richText_MovieInformation";
-            this.richText_MovieInformation.Size = new System.Drawing.Size(233, 115);
-            this.richText_MovieInformation.TabIndex = 12;
-            this.richText_MovieInformation.Text = "";
-            // 
-            // txtMovieId
-            // 
-            this.txtMovieId.Location = new System.Drawing.Point(195, 66);
-            this.txtMovieId.Name = "txtMovieId";
-            this.txtMovieId.Size = new System.Drawing.Size(96, 20);
-            this.txtMovieId.TabIndex = 13;
-            // 
-            // dateTime_StartShowing
-            // 
-            this.dateTime_StartShowing.Location = new System.Drawing.Point(195, 366);
-            this.dateTime_StartShowing.Name = "dateTime_StartShowing";
-            this.dateTime_StartShowing.Size = new System.Drawing.Size(200, 20);
-            this.dateTime_StartShowing.TabIndex = 14;
-            // 
-            // dateTime_EndShowing
-            // 
-            this.dateTime_EndShowing.Location = new System.Drawing.Point(195, 413);
-            this.dateTime_EndShowing.Name = "dateTime_EndShowing";
-            this.dateTime_EndShowing.Size = new System.Drawing.Size(200, 20);
-            this.dateTime_EndShowing.TabIndex = 15;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(447, 64);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(472, 369);
-            this.dataGridView1.TabIndex = 16;
+            this.label4.Text = "Movie Director/s";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.White;
             this.label7.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(36, 328);
+            this.label7.Location = new System.Drawing.Point(45, 362);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(135, 20);
             this.label7.TabIndex = 17;
@@ -170,54 +95,39 @@
             // 
             // txtMovieName
             // 
-            this.txtMovieName.Location = new System.Drawing.Point(195, 113);
+            this.txtMovieName.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMovieName.Location = new System.Drawing.Point(204, 146);
             this.txtMovieName.Name = "txtMovieName";
-            this.txtMovieName.Size = new System.Drawing.Size(186, 20);
+            this.txtMovieName.Size = new System.Drawing.Size(280, 23);
             this.txtMovieName.TabIndex = 18;
             // 
             // txtMovieDirector
             // 
-            this.txtMovieDirector.Location = new System.Drawing.Point(195, 285);
+            this.txtMovieDirector.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMovieDirector.Location = new System.Drawing.Point(204, 313);
             this.txtMovieDirector.Name = "txtMovieDirector";
-            this.txtMovieDirector.Size = new System.Drawing.Size(186, 20);
+            this.txtMovieDirector.Size = new System.Drawing.Size(268, 23);
             this.txtMovieDirector.TabIndex = 19;
             // 
             // txtMoviePublisher
             // 
-            this.txtMoviePublisher.Location = new System.Drawing.Point(195, 328);
+            this.txtMoviePublisher.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMoviePublisher.Location = new System.Drawing.Point(204, 359);
             this.txtMoviePublisher.Name = "txtMoviePublisher";
-            this.txtMoviePublisher.Size = new System.Drawing.Size(186, 20);
+            this.txtMoviePublisher.Size = new System.Drawing.Size(268, 23);
             this.txtMoviePublisher.TabIndex = 20;
             // 
-            // btn_AddMovie
+            // btn_Save
             // 
-            this.btn_AddMovie.Font = new System.Drawing.Font("Bookman Old Style", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_AddMovie.Location = new System.Drawing.Point(489, 450);
-            this.btn_AddMovie.Name = "btn_AddMovie";
-            this.btn_AddMovie.Size = new System.Drawing.Size(100, 37);
-            this.btn_AddMovie.TabIndex = 21;
-            this.btn_AddMovie.Text = "Add";
-            this.btn_AddMovie.UseVisualStyleBackColor = true;
-            // 
-            // btn_UpdateMovie
-            // 
-            this.btn_UpdateMovie.Font = new System.Drawing.Font("Bookman Old Style", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_UpdateMovie.Location = new System.Drawing.Point(635, 450);
-            this.btn_UpdateMovie.Name = "btn_UpdateMovie";
-            this.btn_UpdateMovie.Size = new System.Drawing.Size(100, 37);
-            this.btn_UpdateMovie.TabIndex = 22;
-            this.btn_UpdateMovie.Text = "Update";
-            this.btn_UpdateMovie.UseVisualStyleBackColor = true;
-            // 
-            // btn_DeleteMovie
-            // 
-            this.btn_DeleteMovie.Font = new System.Drawing.Font("Bookman Old Style", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_DeleteMovie.Location = new System.Drawing.Point(772, 450);
-            this.btn_DeleteMovie.Name = "btn_DeleteMovie";
-            this.btn_DeleteMovie.Size = new System.Drawing.Size(100, 37);
-            this.btn_DeleteMovie.TabIndex = 23;
-            this.btn_DeleteMovie.Text = "Delete";
-            this.btn_DeleteMovie.UseVisualStyleBackColor = true;
+            this.btn_Save.BackColor = System.Drawing.Color.White;
+            this.btn_Save.Font = new System.Drawing.Font("Bookman Old Style", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Save.Location = new System.Drawing.Point(416, 432);
+            this.btn_Save.Name = "btn_Save";
+            this.btn_Save.Size = new System.Drawing.Size(119, 37);
+            this.btn_Save.TabIndex = 21;
+            this.btn_Save.Text = "Save";
+            this.btn_Save.UseVisualStyleBackColor = false;
+            this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
             // 
             // btnBack
             // 
@@ -232,98 +142,149 @@
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // txtSearch
+            // pictureBox1
             // 
-            this.txtSearch.Location = new System.Drawing.Point(517, 38);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(206, 20);
-            this.txtSearch.TabIndex = 29;
+            this.pictureBox1.Location = new System.Drawing.Point(544, 114);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(244, 268);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 25;
+            this.pictureBox1.TabStop = false;
             // 
-            // label8
+            // btnBrowse
             // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.White;
-            this.label8.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(447, 38);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(64, 20);
-            this.label8.TabIndex = 28;
-            this.label8.Text = "Search";
+            this.btnBrowse.BackColor = System.Drawing.Color.White;
+            this.btnBrowse.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBrowse.Location = new System.Drawing.Point(518, 80);
+            this.btnBrowse.Name = "btnBrowse";
+            this.btnBrowse.Size = new System.Drawing.Size(97, 28);
+            this.btnBrowse.TabIndex = 26;
+            this.btnBrowse.Text = "Browse";
+            this.btnBrowse.UseVisualStyleBackColor = false;
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
-            // picBox_Search
+            // labelPath
             // 
-            this.picBox_Search.Image = global::Dbsys.Properties.Resources.Search;
-            this.picBox_Search.Location = new System.Drawing.Point(729, 38);
-            this.picBox_Search.Name = "picBox_Search";
-            this.picBox_Search.Size = new System.Drawing.Size(24, 24);
-            this.picBox_Search.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.picBox_Search.TabIndex = 30;
-            this.picBox_Search.TabStop = false;
+            this.labelPath.AutoSize = true;
+            this.labelPath.BackColor = System.Drawing.Color.White;
+            this.labelPath.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPath.Location = new System.Drawing.Point(515, 385);
+            this.labelPath.Name = "labelPath";
+            this.labelPath.Size = new System.Drawing.Size(33, 15);
+            this.labelPath.TabIndex = 27;
+            this.labelPath.Text = "Path";
+            // 
+            // txtMoviePrice
+            // 
+            this.txtMoviePrice.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMoviePrice.Location = new System.Drawing.Point(204, 190);
+            this.txtMoviePrice.Name = "txtMoviePrice";
+            this.txtMoviePrice.Size = new System.Drawing.Size(145, 23);
+            this.txtMoviePrice.TabIndex = 29;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.White;
+            this.label5.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(45, 191);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(48, 20);
+            this.label5.TabIndex = 28;
+            this.label5.Text = "Price";
+            // 
+            // txtReleaseYear
+            // 
+            this.txtReleaseYear.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtReleaseYear.Location = new System.Drawing.Point(204, 230);
+            this.txtReleaseYear.Name = "txtReleaseYear";
+            this.txtReleaseYear.Size = new System.Drawing.Size(107, 23);
+            this.txtReleaseYear.TabIndex = 31;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(45, 230);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(110, 20);
+            this.label1.TabIndex = 30;
+            this.label1.Text = "Release Year";
+            // 
+            // txtGenre
+            // 
+            this.txtGenre.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGenre.Location = new System.Drawing.Point(204, 267);
+            this.txtGenre.Name = "txtGenre";
+            this.txtGenre.Size = new System.Drawing.Size(185, 23);
+            this.txtGenre.TabIndex = 33;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.White;
+            this.label6.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(45, 268);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(58, 20);
+            this.label6.TabIndex = 32;
+            this.label6.Text = "Genre";
             // 
             // Frm_Admin_AddMovie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Dbsys.Properties.Resources.movie_objects_with_space_top;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(931, 507);
-            this.Controls.Add(this.picBox_Search);
-            this.Controls.Add(this.txtSearch);
-            this.Controls.Add(this.label8);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(853, 495);
+            this.Controls.Add(this.txtGenre);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.txtReleaseYear);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtMoviePrice);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.labelPath);
+            this.Controls.Add(this.btnBrowse);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.btn_DeleteMovie);
-            this.Controls.Add(this.btn_UpdateMovie);
-            this.Controls.Add(this.btn_AddMovie);
+            this.Controls.Add(this.btn_Save);
             this.Controls.Add(this.txtMoviePublisher);
             this.Controls.Add(this.txtMovieDirector);
             this.Controls.Add(this.txtMovieName);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.dateTime_EndShowing);
-            this.Controls.Add(this.dateTime_StartShowing);
-            this.Controls.Add(this.txtMovieId);
-            this.Controls.Add(this.richText_MovieInformation);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Frm_Admin_AddMovie";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Movie(Admin)";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox_Search)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.RichTextBox richText_MovieInformation;
-        private System.Windows.Forms.TextBox txtMovieId;
-        private System.Windows.Forms.DateTimePicker dateTime_StartShowing;
-        private System.Windows.Forms.DateTimePicker dateTime_EndShowing;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtMovieName;
         private System.Windows.Forms.TextBox txtMovieDirector;
         private System.Windows.Forms.TextBox txtMoviePublisher;
-        private System.Windows.Forms.Button btn_AddMovie;
-        private System.Windows.Forms.Button btn_UpdateMovie;
-        private System.Windows.Forms.Button btn_DeleteMovie;
+        private System.Windows.Forms.Button btn_Save;
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.PictureBox picBox_Search;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnBrowse;
+        private System.Windows.Forms.Label labelPath;
+        private System.Windows.Forms.TextBox txtMoviePrice;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtReleaseYear;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtGenre;
+        private System.Windows.Forms.Label label6;
     }
 }

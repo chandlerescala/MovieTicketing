@@ -10,10 +10,13 @@
             <PropertyRef Name="movieId" />
           </Key>
           <Property Name="movieId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="movieName" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="movieInfo" Type="varchar" MaxLength="255" Nullable="false" />
-          <Property Name="movieDirector" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="moviePublisher" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="movieName" Type="varchar(max)" Nullable="false" />
+          <Property Name="moviePrice" Type="int" Nullable="false" />
+          <Property Name="movieReleaseYear" Type="int" Nullable="false" />
+          <Property Name="movieGenre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="movieDirector" Type="varchar(max)" Nullable="false" />
+          <Property Name="moviePublisher" Type="varchar(max)" Nullable="false" />
+          <Property Name="moviePathImg" Type="varchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -98,25 +101,39 @@ FROM [dbo].[vw_all_user_role] AS [vw_all_user_role]</DefiningQuery>
             <Parameter Name="roleId" Type="Int32" Mode="In" />
             <Parameter Name="createdBy" Type="Int32" Mode="In" />
           </FunctionImport>
+          <EntitySet Name="vw_all_user_role" EntityType="DBSYSModel.vw_all_user_role" />
           <EntitySet Name="Movie" EntityType="DBSYSModel.Movie" />
           <EntitySet Name="Role" EntityType="DBSYSModel.Role" />
           <EntitySet Name="UserAccount" EntityType="DBSYSModel.UserAccount" />
           <EntitySet Name="UserInformation" EntityType="DBSYSModel.UserInformation" />
-          <EntitySet Name="vw_all_user_role" EntityType="DBSYSModel.vw_all_user_role" />
           <AssociationSet Name="FK__UserInfor__userI__1BFD2C07" Association="DBSYSModel.FK__UserInfor__userI__1BFD2C07">
             <End Role="UserAccount" EntitySet="UserAccount" />
             <End Role="UserInformation" EntitySet="UserInformation" />
           </AssociationSet>
         </EntityContainer>
+        <EntityType Name="vw_all_user_role">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="Username" />
+            <PropertyRef Name="Password" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="Movie">
           <Key>
             <PropertyRef Name="movieId" />
           </Key>
           <Property Name="movieId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="movieName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="movieInfo" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="movieDirector" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="moviePublisher" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="movieName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="moviePrice" Type="Int32" Nullable="false" />
+          <Property Name="movieReleaseYear" Type="Int32" Nullable="false" />
+          <Property Name="movieGenre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="movieDirector" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="moviePublisher" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="moviePathImg" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -149,17 +166,6 @@ FROM [dbo].[vw_all_user_role] AS [vw_all_user_role]</DefiningQuery>
           <Property Name="userId" Type="Int32" />
           <NavigationProperty Name="UserAccount" Relationship="DBSYSModel.FK__UserInfor__userI__1BFD2C07" FromRole="UserInformation" ToRole="UserAccount" />
         </EntityType>
-        <EntityType Name="vw_all_user_role">
-          <Key>
-            <PropertyRef Name="UserId" />
-            <PropertyRef Name="Username" />
-            <PropertyRef Name="Password" />
-          </Key>
-          <Property Name="UserId" Type="Int32" Nullable="false" />
-          <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
         <Association Name="FK__UserInfor__userI__1BFD2C07">
           <End Type="DBSYSModel.UserAccount" Role="UserAccount" Multiplicity="0..1" />
           <End Type="DBSYSModel.UserInformation" Role="UserInformation" Multiplicity="*" />
@@ -178,12 +184,25 @@ FROM [dbo].[vw_all_user_role] AS [vw_all_user_role]</DefiningQuery>
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="DBSYSModelStoreContainer" CdmEntityContainer="DBSYSEntities">
+          <EntitySetMapping Name="vw_all_user_role">
+            <EntityTypeMapping TypeName="DBSYSModel.vw_all_user_role">
+              <MappingFragment StoreEntitySet="vw_all_user_role">
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Movie">
             <EntityTypeMapping TypeName="DBSYSModel.Movie">
               <MappingFragment StoreEntitySet="Movie">
+                <ScalarProperty Name="moviePathImg" ColumnName="moviePathImg" />
                 <ScalarProperty Name="moviePublisher" ColumnName="moviePublisher" />
                 <ScalarProperty Name="movieDirector" ColumnName="movieDirector" />
-                <ScalarProperty Name="movieInfo" ColumnName="movieInfo" />
+                <ScalarProperty Name="movieGenre" ColumnName="movieGenre" />
+                <ScalarProperty Name="movieReleaseYear" ColumnName="movieReleaseYear" />
+                <ScalarProperty Name="moviePrice" ColumnName="moviePrice" />
                 <ScalarProperty Name="movieName" ColumnName="movieName" />
                 <ScalarProperty Name="movieId" ColumnName="movieId" />
               </MappingFragment>
@@ -221,17 +240,7 @@ FROM [dbo].[vw_all_user_role] AS [vw_all_user_role]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="vw_all_user_role">
-            <EntityTypeMapping TypeName="DBSYSModel.vw_all_user_role">
-              <MappingFragment StoreEntitySet="vw_all_user_role">
-                <ScalarProperty Name="Role" ColumnName="Role" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Username" ColumnName="Username" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-        </EntityContainerMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

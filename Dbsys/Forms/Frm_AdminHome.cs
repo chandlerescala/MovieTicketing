@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Dbsys.Forms
+namespace Dbsys
 {
     public partial class Frm_AdminHome : Form
     {

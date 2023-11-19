@@ -25,12 +25,16 @@ FOREIGN KEY (userId) REFERENCES UserAccount(userId)
 )
 
 CREATE TABLE Movie(
-	movieId integer IDENTITY(1,1) PRIMARY KEY,
-	movieName varchar(50) NOT NULL,
-	movieInfo varchar(255) NOT NULL,
-	movieDirector varchar(50) NOT NULL,
-	moviePublisher varchar(50) NOT NULL
+	movieId int IDENTITY(1,1) PRIMARY KEY,
+	movieName varchar(MAX) NOT NULL,
+	moviePrice int NOT NULL,
+	movieReleaseYear int NOT NULL,
+	movieGenre varchar(100) NOT NULL,
+	movieDirector varchar(MAX) NOT NULL,
+	moviePublisher varchar(MAX) NOT NULL,
+	moviePathImg varchar(MAX) NOT NULL
 )
+SELECT * FROM Movie
 
 CREATE TABLE [dbo].[Role](
 	[roleId] [int] IDENTITY(1,1) NOT NULL,

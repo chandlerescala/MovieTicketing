@@ -16,8 +16,11 @@ namespace Dbsys.AppData
     {
         public int movieId { get; set; }
         public string movieName { get; set; }
-        public string movieInfo { get; set; }
+        public int moviePrice { get; set; }
+        public int movieReleaseYear { get; set; }
+        public string movieGenre { get; set; }
         public string movieDirector { get; set; }
         public string moviePublisher { get; set; }
+        public string moviePathImg { get; set; }
     }
 }
