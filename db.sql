@@ -11,7 +11,7 @@ roleId int,
 createdBy int,
 userStatus varchar (10) not NULL default 'ACTIVE',
 );
---To view the user account table
+
 
 --Creates the user information table
 CREATE TABLE UserInformation(
@@ -23,7 +23,7 @@ userInfEmail varchar(MAX) NOT NULL,
 userId int,
 FOREIGN KEY (userId) REFERENCES UserAccount(userId)
 )
-
+SELECT * FROM UserInformation
 --Creates the movie table
 CREATE TABLE Movie(
 	movieId int IDENTITY(1,1) PRIMARY KEY,
