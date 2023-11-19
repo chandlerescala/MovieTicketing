@@ -86,7 +86,7 @@
             // 
             this.profileSettingsToolStripMenuItem.Image = global::Dbsys.Properties.Resources.profile;
             this.profileSettingsToolStripMenuItem.Name = "profileSettingsToolStripMenuItem";
-            this.profileSettingsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.profileSettingsToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.profileSettingsToolStripMenuItem.Text = "Profile Settings";
             this.profileSettingsToolStripMenuItem.Click += new System.EventHandler(this.profileSettingsToolStripMenuItem_Click);
             // 
@@ -94,7 +94,7 @@
             // 
             this.logOutToolStripMenuItem.Image = global::Dbsys.Properties.Resources.Log_out;
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.logOutToolStripMenuItem.Text = "Log out";
             this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click_1);
             // 
@@ -177,12 +177,12 @@
             this.linkLabel_ViewAccount.BackColor = System.Drawing.Color.White;
             this.linkLabel_ViewAccount.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel_ViewAccount.LinkColor = System.Drawing.Color.Black;
-            this.linkLabel_ViewAccount.Location = new System.Drawing.Point(339, 251);
+            this.linkLabel_ViewAccount.Location = new System.Drawing.Point(311, 251);
             this.linkLabel_ViewAccount.Name = "linkLabel_ViewAccount";
-            this.linkLabel_ViewAccount.Size = new System.Drawing.Size(123, 20);
+            this.linkLabel_ViewAccount.Size = new System.Drawing.Size(181, 20);
             this.linkLabel_ViewAccount.TabIndex = 7;
             this.linkLabel_ViewAccount.TabStop = true;
-            this.linkLabel_ViewAccount.Text = "View Accounts";
+            this.linkLabel_ViewAccount.Text = "Account Management";
             // 
             // linkLabel1
             // 
@@ -190,7 +190,7 @@
             this.linkLabel1.BackColor = System.Drawing.Color.White;
             this.linkLabel1.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel1.LinkColor = System.Drawing.Color.Black;
-            this.linkLabel1.Location = new System.Drawing.Point(146, 391);
+            this.linkLabel1.Location = new System.Drawing.Point(153, 391);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(104, 20);
             this.linkLabel1.TabIndex = 8;
@@ -203,12 +203,12 @@
             this.linkLabel2.BackColor = System.Drawing.Color.White;
             this.linkLabel2.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel2.LinkColor = System.Drawing.Color.Black;
-            this.linkLabel2.Location = new System.Drawing.Point(370, 391);
+            this.linkLabel2.Location = new System.Drawing.Point(325, 391);
             this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(66, 20);
+            this.linkLabel2.Size = new System.Drawing.Size(163, 20);
             this.linkLabel2.TabIndex = 9;
             this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "History";
+            this.linkLabel2.Text = "Transaction History";
             // 
             // pictureBox1
             // 
@@ -278,7 +278,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Dbsys.Properties.Resources.movie_objects_with_space_top;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(630, 450);
             this.Controls.Add(this.txtLoggedUser);
             this.Controls.Add(this.pictureBox1);

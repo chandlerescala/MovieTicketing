@@ -14,6 +14,11 @@ namespace Dbsys.AppData
     
     public partial class Movie
     {
+        public Movie()
+        {
+            this.Showtimes = new HashSet<Showtimes>();
+        }
+    
         public int movieId { get; set; }
         public string movieName { get; set; }
         public int moviePrice { get; set; }
@@ -22,5 +27,7 @@ namespace Dbsys.AppData
         public string movieDirector { get; set; }
         public string moviePublisher { get; set; }
         public string moviePathImg { get; set; }
+    
+        public virtual ICollection<Showtimes> Showtimes { get; set; }
     }
 }

@@ -26,6 +26,28 @@
           <Property Name="roleName" Type="nvarchar" MaxLength="50" />
           <Property Name="roleDescription" Type="nvarchar" MaxLength="100" />
         </EntityType>
+        <EntityType Name="Showtimes">
+          <Key>
+            <PropertyRef Name="showtimeID" />
+          </Key>
+          <Property Name="showtimeID" Type="int" Nullable="false" />
+          <Property Name="movieID" Type="int" />
+          <Property Name="showDate" Type="date" Nullable="false" />
+          <Property Name="startTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="endTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="ticketsSold" Type="int" Nullable="false" />
+          <Property Name="capacity" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tickets">
+          <Key>
+            <PropertyRef Name="ticketID" />
+          </Key>
+          <Property Name="ticketID" Type="int" Nullable="false" />
+          <Property Name="showtimeID" Type="int" />
+          <Property Name="sectionNumber" Type="int" Nullable="false" />
+          <Property Name="rowNumber" Type="int" Nullable="false" />
+          <Property Name="seatNumber" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="UserAccount">
           <Key>
             <PropertyRef Name="userId" />
@@ -41,10 +63,10 @@
             <PropertyRef Name="userInfoId" />
           </Key>
           <Property Name="userInfoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="userInfLname" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="userInfFname" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="userInfAddress" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="userInfEmail" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="userInfLname" Type="varchar(max)" Nullable="false" />
+          <Property Name="userInfFname" Type="varchar(max)" Nullable="false" />
+          <Property Name="userInfAddress" Type="varchar(max)" Nullable="false" />
+          <Property Name="userInfEmail" Type="varchar(max)" Nullable="false" />
           <Property Name="userId" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
@@ -60,7 +82,31 @@ warning 6002: The table/view 'DBSYS.dbo.vw_all_user_role' does not have a primar
           <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Role" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <Association Name="FK__UserInfor__userI__1BFD2C07">
+        <Association Name="FK__Showtimes__movie__68487DD7">
+          <End Role="Movie" Type="Self.Movie" Multiplicity="0..1" />
+          <End Role="Showtimes" Type="Self.Showtimes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movie">
+              <PropertyRef Name="movieId" />
+            </Principal>
+            <Dependent Role="Showtimes">
+              <PropertyRef Name="movieID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tickets__showtim__6B24EA82">
+          <End Role="Showtimes" Type="Self.Showtimes" Multiplicity="0..1" />
+          <End Role="Tickets" Type="Self.Tickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Showtimes">
+              <PropertyRef Name="showtimeID" />
+            </Principal>
+            <Dependent Role="Tickets">
+              <PropertyRef Name="showtimeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserInfor__userI__6EF57B66">
           <End Role="UserAccount" Type="Self.UserAccount" Multiplicity="0..1" />
           <End Role="UserInformation" Type="Self.UserInformation" Multiplicity="*" />
           <ReferentialConstraint>
@@ -75,6 +121,8 @@ warning 6002: The table/view 'DBSYS.dbo.vw_all_user_role' does not have a primar
         <EntityContainer Name="DBSYSModelStoreContainer">
           <EntitySet Name="Movie" EntityType="Self.Movie" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Showtimes" EntityType="Self.Showtimes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tickets" EntityType="Self.Tickets" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserAccount" EntityType="Self.UserAccount" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserInformation" EntityType="Self.UserInformation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="vw_all_user_role" EntityType="Self.vw_all_user_role" store:Type="Views" store:Schema="dbo">
@@ -85,7 +133,15 @@ warning 6002: The table/view 'DBSYS.dbo.vw_all_user_role' does not have a primar
 [vw_all_user_role].[Role] AS [Role]
 FROM [dbo].[vw_all_user_role] AS [vw_all_user_role]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK__UserInfor__userI__1BFD2C07" Association="Self.FK__UserInfor__userI__1BFD2C07">
+          <AssociationSet Name="FK__Showtimes__movie__68487DD7" Association="Self.FK__Showtimes__movie__68487DD7">
+            <End Role="Movie" EntitySet="Movie" />
+            <End Role="Showtimes" EntitySet="Showtimes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tickets__showtim__6B24EA82" Association="Self.FK__Tickets__showtim__6B24EA82">
+            <End Role="Showtimes" EntitySet="Showtimes" />
+            <End Role="Tickets" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserInfor__userI__6EF57B66" Association="Self.FK__UserInfor__userI__6EF57B66">
             <End Role="UserAccount" EntitySet="UserAccount" />
             <End Role="UserInformation" EntitySet="UserInformation" />
           </AssociationSet>
@@ -104,13 +160,23 @@ FROM [dbo].[vw_all_user_role] AS [vw_all_user_role]</DefiningQuery>
           <EntitySet Name="vw_all_user_role" EntityType="DBSYSModel.vw_all_user_role" />
           <EntitySet Name="Movie" EntityType="DBSYSModel.Movie" />
           <EntitySet Name="Role" EntityType="DBSYSModel.Role" />
+          <EntitySet Name="Showtimes" EntityType="DBSYSModel.Showtimes" />
+          <EntitySet Name="Tickets" EntityType="DBSYSModel.Tickets" />
           <EntitySet Name="UserAccount" EntityType="DBSYSModel.UserAccount" />
           <EntitySet Name="UserInformation" EntityType="DBSYSModel.UserInformation" />
-          <AssociationSet Name="FK__UserInfor__userI__1BFD2C07" Association="DBSYSModel.FK__UserInfor__userI__1BFD2C07">
+          <AssociationSet Name="FK__Showtimes__movie__68487DD7" Association="DBSYSModel.FK__Showtimes__movie__68487DD7">
+            <End Role="Movie" EntitySet="Movie" />
+            <End Role="Showtimes" EntitySet="Showtimes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tickets__showtim__6B24EA82" Association="DBSYSModel.FK__Tickets__showtim__6B24EA82">
+            <End Role="Showtimes" EntitySet="Showtimes" />
+            <End Role="Tickets" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserInfor__userI__6EF57B66" Association="DBSYSModel.FK__UserInfor__userI__6EF57B66">
             <End Role="UserAccount" EntitySet="UserAccount" />
             <End Role="UserInformation" EntitySet="UserInformation" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <EntityType Name="vw_all_user_role">
           <Key>
             <PropertyRef Name="UserId" />
@@ -134,6 +200,7 @@ FROM [dbo].[vw_all_user_role] AS [vw_all_user_role]</DefiningQuery>
           <Property Name="movieDirector" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="moviePublisher" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="moviePathImg" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Showtimes" Relationship="DBSYSModel.FK__Showtimes__movie__68487DD7" FromRole="Movie" ToRole="Showtimes" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -142,6 +209,31 @@ FROM [dbo].[vw_all_user_role] AS [vw_all_user_role]</DefiningQuery>
           <Property Name="roleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="roleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="roleDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Showtimes">
+          <Key>
+            <PropertyRef Name="showtimeID" />
+          </Key>
+          <Property Name="showtimeID" Type="Int32" Nullable="false" />
+          <Property Name="movieID" Type="Int32" />
+          <Property Name="showDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="startTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="endTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="ticketsSold" Type="Int32" Nullable="false" />
+          <Property Name="capacity" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Movie" Relationship="DBSYSModel.FK__Showtimes__movie__68487DD7" FromRole="Showtimes" ToRole="Movie" />
+          <NavigationProperty Name="Tickets" Relationship="DBSYSModel.FK__Tickets__showtim__6B24EA82" FromRole="Showtimes" ToRole="Tickets" />
+        </EntityType>
+        <EntityType Name="Tickets">
+          <Key>
+            <PropertyRef Name="ticketID" />
+          </Key>
+          <Property Name="ticketID" Type="Int32" Nullable="false" />
+          <Property Name="showtimeID" Type="Int32" />
+          <Property Name="sectionNumber" Type="Int32" Nullable="false" />
+          <Property Name="rowNumber" Type="Int32" Nullable="false" />
+          <Property Name="seatNumber" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Showtimes" Relationship="DBSYSModel.FK__Tickets__showtim__6B24EA82" FromRole="Tickets" ToRole="Showtimes" />
         </EntityType>
         <EntityType Name="UserAccount">
           <Key>
@@ -152,21 +244,45 @@ FROM [dbo].[vw_all_user_role] AS [vw_all_user_role]</DefiningQuery>
           <Property Name="userPassword" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="userStatus" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="roleId" Type="Int32" />
-          <NavigationProperty Name="UserInformation" Relationship="DBSYSModel.FK__UserInfor__userI__1BFD2C07" FromRole="UserAccount" ToRole="UserInformation" />
+          <NavigationProperty Name="UserInformation" Relationship="DBSYSModel.FK__UserInfor__userI__6EF57B66" FromRole="UserAccount" ToRole="UserInformation" />
         </EntityType>
         <EntityType Name="UserInformation">
           <Key>
             <PropertyRef Name="userInfoId" />
           </Key>
           <Property Name="userInfoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="userInfLname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="userInfFname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="userInfAddress" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="userInfEmail" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="userInfLname" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="userInfFname" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="userInfAddress" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="userInfEmail" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="userId" Type="Int32" />
-          <NavigationProperty Name="UserAccount" Relationship="DBSYSModel.FK__UserInfor__userI__1BFD2C07" FromRole="UserInformation" ToRole="UserAccount" />
+          <NavigationProperty Name="UserAccount" Relationship="DBSYSModel.FK__UserInfor__userI__6EF57B66" FromRole="UserInformation" ToRole="UserAccount" />
         </EntityType>
-        <Association Name="FK__UserInfor__userI__1BFD2C07">
+        <Association Name="FK__Showtimes__movie__68487DD7">
+          <End Type="DBSYSModel.Movie" Role="Movie" Multiplicity="0..1" />
+          <End Type="DBSYSModel.Showtimes" Role="Showtimes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movie">
+              <PropertyRef Name="movieId" />
+            </Principal>
+            <Dependent Role="Showtimes">
+              <PropertyRef Name="movieID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tickets__showtim__6B24EA82">
+          <End Type="DBSYSModel.Showtimes" Role="Showtimes" Multiplicity="0..1" />
+          <End Type="DBSYSModel.Tickets" Role="Tickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Showtimes">
+              <PropertyRef Name="showtimeID" />
+            </Principal>
+            <Dependent Role="Tickets">
+              <PropertyRef Name="showtimeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserInfor__userI__6EF57B66">
           <End Type="DBSYSModel.UserAccount" Role="UserAccount" Multiplicity="0..1" />
           <End Type="DBSYSModel.UserInformation" Role="UserInformation" Multiplicity="*" />
           <ReferentialConstraint>
@@ -214,6 +330,30 @@ FROM [dbo].[vw_all_user_role] AS [vw_all_user_role]</DefiningQuery>
                 <ScalarProperty Name="roleDescription" ColumnName="roleDescription" />
                 <ScalarProperty Name="roleName" ColumnName="roleName" />
                 <ScalarProperty Name="roleId" ColumnName="roleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Showtimes">
+            <EntityTypeMapping TypeName="DBSYSModel.Showtimes">
+              <MappingFragment StoreEntitySet="Showtimes">
+                <ScalarProperty Name="capacity" ColumnName="capacity" />
+                <ScalarProperty Name="ticketsSold" ColumnName="ticketsSold" />
+                <ScalarProperty Name="endTime" ColumnName="endTime" />
+                <ScalarProperty Name="startTime" ColumnName="startTime" />
+                <ScalarProperty Name="showDate" ColumnName="showDate" />
+                <ScalarProperty Name="movieID" ColumnName="movieID" />
+                <ScalarProperty Name="showtimeID" ColumnName="showtimeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tickets">
+            <EntityTypeMapping TypeName="DBSYSModel.Tickets">
+              <MappingFragment StoreEntitySet="Tickets">
+                <ScalarProperty Name="seatNumber" ColumnName="seatNumber" />
+                <ScalarProperty Name="rowNumber" ColumnName="rowNumber" />
+                <ScalarProperty Name="sectionNumber" ColumnName="sectionNumber" />
+                <ScalarProperty Name="showtimeID" ColumnName="showtimeID" />
+                <ScalarProperty Name="ticketID" ColumnName="ticketID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

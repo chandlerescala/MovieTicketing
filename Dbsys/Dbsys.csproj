@@ -76,6 +76,12 @@
     <Compile Include="AppData\Role.cs">
       <DependentUpon>DbysModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="AppData\Showtimes.cs">
+      <DependentUpon>DbysModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppData\Tickets.cs">
+      <DependentUpon>DbysModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="AppData\UserAccount.cs">
       <DependentUpon>DbysModel.tt</DependentUpon>
     </Compile>
@@ -254,6 +260,7 @@
       <DependentUpon>DbysModel.edmx</DependentUpon>
       <LastGenOutput>DbysModel.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\edit.png" />
     <None Include="Resources\profile2.png" />
     <None Include="Resources\setting_2.png" />
     <None Include="Resources\settings_7827945.png" />

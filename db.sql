@@ -14,16 +14,17 @@ userStatus varchar (10) not NULL default 'ACTIVE',
 --To view the user account table
 
 --Creates the user information table
-CREATE TABLE UserInformation (
-userInfoId integer IDENTITY(1,1) primary key,
-userInfLname varchar (50) not null,
-userInfFname varchar (50) not null,
-userInfAddress varchar (50) not null default 'No Address',
-userInfEmail varchar not null,
-userId integer,
+CREATE TABLE UserInformation(
+userInfoId int IDENTITY(1,1) PRIMARY KEY,
+userInfLname varchar (MAX) NOT NULL,
+userInfFname varchar (MAX) NOT NULL,
+userInfAddress varchar (MAX) NOT NULL DEFAULT 'No Address',
+userInfEmail varchar(MAX) NOT NULL,
+userId int,
 FOREIGN KEY (userId) REFERENCES UserAccount(userId)
 )
 
+--Creates the movie table
 CREATE TABLE Movie(
 	movieId int IDENTITY(1,1) PRIMARY KEY,
 	movieName varchar(MAX) NOT NULL,
@@ -34,8 +35,29 @@ CREATE TABLE Movie(
 	moviePublisher varchar(MAX) NOT NULL,
 	moviePathImg varchar(MAX) NOT NULL
 )
+--test
 SELECT * FROM Movie
 
+--Creates the Showtimes table
+CREATE TABLE Showtimes(
+    showtimeID int PRIMARY KEY,
+    movieID int FOREIGN KEY REFERENCES Movie(movieID),
+    showDate date NOT NULL,
+    startTime time NOT NULL,
+    endTime time NOT NULL,
+    ticketsSold int NOT NULL,
+    capacity int NOT NULL
+)
+--Creates the Tickets table
+CREATE TABLE Tickets(
+    ticketID int PRIMARY KEY,
+    showtimeID int FOREIGN KEY REFERENCES Showtimes(showtimeID),
+	sectionNumber int NOT NULL,
+	rowNumber int NOT NULL,
+    seatNumber int NOT NULL
+)
+
+--Creates the Role table
 CREATE TABLE [dbo].[Role](
 	[roleId] [int] IDENTITY(1,1) NOT NULL,
 	[roleName] [nvarchar](50) NULL,

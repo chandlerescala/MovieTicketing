@@ -103,7 +103,7 @@
             this.MinimizeBox = false;
             this.Name = "Frm_Admin_History";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "History(Admin)";
+            this.Text = "Transaction History(Admin)";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_Search)).EndInit();
             this.ResumeLayout(false);
