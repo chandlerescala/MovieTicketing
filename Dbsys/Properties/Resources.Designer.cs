@@ -143,6 +143,16 @@ namespace Dbsys.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap close_2579419 {
+            get {
+                object obj = ResourceManager.GetObject("close_2579419", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap edit {
             get {
                 object obj = ResourceManager.GetObject("edit", resourceCulture);
@@ -266,6 +276,26 @@ namespace Dbsys.Properties {
         internal static System.Drawing.Bitmap movieSelection {
             get {
                 object obj = ResourceManager.GetObject("movieSelection", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap next_show {
+            get {
+                object obj = ResourceManager.GetObject("next show", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap now_5626952 {
+            get {
+                object obj = ResourceManager.GetObject("now_5626952", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

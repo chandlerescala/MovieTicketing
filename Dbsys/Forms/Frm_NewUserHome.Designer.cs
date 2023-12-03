@@ -100,26 +100,26 @@
             // 
             // addMovieToolStripMenuItem
             // 
-            this.addMovieToolStripMenuItem.Image = global::Dbsys.Properties.Resources.edit2;
+            this.addMovieToolStripMenuItem.Image = global::Dbsys.Properties.Resources.now_5626952;
             this.addMovieToolStripMenuItem.Name = "addMovieToolStripMenuItem";
-            this.addMovieToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
-            this.addMovieToolStripMenuItem.Text = "Add Movie";
+            this.addMovieToolStripMenuItem.Size = new System.Drawing.Size(109, 20);
+            this.addMovieToolStripMenuItem.Text = "Now Showing";
             this.addMovieToolStripMenuItem.Click += new System.EventHandler(this.addMovieToolStripMenuItem_Click);
             // 
             // viewMoviesToolStripMenuItem
             // 
-            this.viewMoviesToolStripMenuItem.Image = global::Dbsys.Properties.Resources.package;
+            this.viewMoviesToolStripMenuItem.Image = global::Dbsys.Properties.Resources.next_show;
             this.viewMoviesToolStripMenuItem.Name = "viewMoviesToolStripMenuItem";
-            this.viewMoviesToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
-            this.viewMoviesToolStripMenuItem.Text = "View Movies";
+            this.viewMoviesToolStripMenuItem.Size = new System.Drawing.Size(92, 20);
+            this.viewMoviesToolStripMenuItem.Text = "Next Show";
             this.viewMoviesToolStripMenuItem.Click += new System.EventHandler(this.viewMoviesToolStripMenuItem_Click);
             // 
             // accountManagementToolStripMenuItem
             // 
-            this.accountManagementToolStripMenuItem.Image = global::Dbsys.Properties.Resources.profile;
+            this.accountManagementToolStripMenuItem.Image = global::Dbsys.Properties.Resources.close_2579419;
             this.accountManagementToolStripMenuItem.Name = "accountManagementToolStripMenuItem";
-            this.accountManagementToolStripMenuItem.Size = new System.Drawing.Size(154, 20);
-            this.accountManagementToolStripMenuItem.Text = "Account Management";
+            this.accountManagementToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.accountManagementToolStripMenuItem.Text = "Closed";
             this.accountManagementToolStripMenuItem.Click += new System.EventHandler(this.accountManagementToolStripMenuItem_Click);
             // 
             // transactionHistoryToolStripMenuItem
@@ -164,12 +164,12 @@
             this.linkLabel_AddMovie.BackColor = System.Drawing.Color.White;
             this.linkLabel_AddMovie.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel_AddMovie.LinkColor = System.Drawing.Color.Black;
-            this.linkLabel_AddMovie.Location = new System.Drawing.Point(160, 251);
+            this.linkLabel_AddMovie.Location = new System.Drawing.Point(147, 251);
             this.linkLabel_AddMovie.Name = "linkLabel_AddMovie";
-            this.linkLabel_AddMovie.Size = new System.Drawing.Size(90, 20);
+            this.linkLabel_AddMovie.Size = new System.Drawing.Size(115, 20);
             this.linkLabel_AddMovie.TabIndex = 6;
             this.linkLabel_AddMovie.TabStop = true;
-            this.linkLabel_AddMovie.Text = "Add Movie";
+            this.linkLabel_AddMovie.Text = "Now Showing";
             // 
             // linkLabel_ViewAccount
             // 
@@ -177,12 +177,12 @@
             this.linkLabel_ViewAccount.BackColor = System.Drawing.Color.White;
             this.linkLabel_ViewAccount.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel_ViewAccount.LinkColor = System.Drawing.Color.Black;
-            this.linkLabel_ViewAccount.Location = new System.Drawing.Point(311, 251);
+            this.linkLabel_ViewAccount.Location = new System.Drawing.Point(356, 251);
             this.linkLabel_ViewAccount.Name = "linkLabel_ViewAccount";
-            this.linkLabel_ViewAccount.Size = new System.Drawing.Size(181, 20);
+            this.linkLabel_ViewAccount.Size = new System.Drawing.Size(93, 20);
             this.linkLabel_ViewAccount.TabIndex = 7;
             this.linkLabel_ViewAccount.TabStop = true;
-            this.linkLabel_ViewAccount.Text = "Account Management";
+            this.linkLabel_ViewAccount.Text = "Next Show";
             // 
             // linkLabel1
             // 
@@ -190,12 +190,12 @@
             this.linkLabel1.BackColor = System.Drawing.Color.White;
             this.linkLabel1.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel1.LinkColor = System.Drawing.Color.Black;
-            this.linkLabel1.Location = new System.Drawing.Point(153, 391);
+            this.linkLabel1.Location = new System.Drawing.Point(170, 391);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(104, 20);
+            this.linkLabel1.Size = new System.Drawing.Size(62, 20);
             this.linkLabel1.TabIndex = 8;
             this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "View Movies";
+            this.linkLabel1.Text = "Closed";
             // 
             // linkLabel2
             // 
@@ -233,7 +233,7 @@
             // 
             // picBox_ViewMovie
             // 
-            this.picBox_ViewMovie.Image = global::Dbsys.Properties.Resources.package;
+            this.picBox_ViewMovie.Image = global::Dbsys.Properties.Resources.close_2579419;
             this.picBox_ViewMovie.Location = new System.Drawing.Point(144, 290);
             this.picBox_ViewMovie.Name = "picBox_ViewMovie";
             this.picBox_ViewMovie.Size = new System.Drawing.Size(121, 98);
@@ -244,7 +244,7 @@
             // 
             // picBox_AddMovie
             // 
-            this.picBox_AddMovie.Image = global::Dbsys.Properties.Resources.edit2;
+            this.picBox_AddMovie.Image = global::Dbsys.Properties.Resources.now_5626952;
             this.picBox_AddMovie.Location = new System.Drawing.Point(144, 150);
             this.picBox_AddMovie.Name = "picBox_AddMovie";
             this.picBox_AddMovie.Size = new System.Drawing.Size(121, 98);
@@ -255,7 +255,7 @@
             // 
             // picBox_AdminLogin
             // 
-            this.picBox_AdminLogin.Image = global::Dbsys.Properties.Resources.profile;
+            this.picBox_AdminLogin.Image = global::Dbsys.Properties.Resources.next_show;
             this.picBox_AdminLogin.Location = new System.Drawing.Point(341, 150);
             this.picBox_AdminLogin.Name = "picBox_AdminLogin";
             this.picBox_AdminLogin.Size = new System.Drawing.Size(121, 98);
@@ -273,7 +273,7 @@
             this.txtLoggedUser.TabIndex = 11;
             this.txtLoggedUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // Frm_StaffHome
+            // Frm_NewUserHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -295,9 +295,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Frm_StaffHome";
+            this.Name = "Frm_NewUserHome";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Home(Staff)";
+            this.Text = "Home(Customer)";
             this.Load += new System.EventHandler(this.Frm_AdminHome_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
