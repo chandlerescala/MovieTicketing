@@ -12,7 +12,6 @@ createdBy int,
 userStatus varchar (10) not NULL default 'ACTIVE',
 );
 
-
 --Creates the user information table
 CREATE TABLE UserInformation(
 userInfoId int IDENTITY(1,1) PRIMARY KEY,
@@ -56,6 +55,14 @@ CREATE TABLE Tickets(
 	rowNumber int NOT NULL,
     seatNumber int NOT NULL
 )
+--Creates the Sales table
+CREATE TABLE Sales(
+	salesID int PRIMARY KEY,
+	ticketID int FOREIGN KEY REFERENCES Tickets(ticketID),
+	transactionAmount int NOT NULL,
+	transactionDate date NOT NULL,
+	transactionTime time NOT NULL
+)
 
 --Creates the Role table
 CREATE TABLE [dbo].[Role](
@@ -81,7 +88,6 @@ CREATE PROCEDURE sp_newUser @userName nvarchar(50), @userPassword nvarchar(50), 
 AS
 INSERT INTO UserAccount(userName, userPassword, createdBy) 
 	values (@userName, @userPassword, @createdBy)
-
 
 
 
