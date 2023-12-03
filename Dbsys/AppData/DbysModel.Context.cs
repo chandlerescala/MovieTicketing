@@ -31,6 +31,7 @@ namespace Dbsys.AppData
         public DbSet<vw_all_user_role> vw_all_user_role { get; set; }
         public DbSet<Movie> Movie { get; set; }
         public DbSet<Role> Role { get; set; }
+        public DbSet<Sales> Sales { get; set; }
         public DbSet<Showtimes> Showtimes { get; set; }
         public DbSet<Tickets> Tickets { get; set; }
         public DbSet<UserAccount> UserAccount { get; set; }

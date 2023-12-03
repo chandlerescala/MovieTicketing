@@ -14,12 +14,18 @@ namespace Dbsys.AppData
     
     public partial class Tickets
     {
+        public Tickets()
+        {
+            this.Sales = new HashSet<Sales>();
+        }
+    
         public int ticketID { get; set; }
         public Nullable<int> showtimeID { get; set; }
         public int sectionNumber { get; set; }
         public int rowNumber { get; set; }
         public int seatNumber { get; set; }
     
+        public virtual ICollection<Sales> Sales { get; set; }
         public virtual Showtimes Showtimes { get; set; }
     }
 }

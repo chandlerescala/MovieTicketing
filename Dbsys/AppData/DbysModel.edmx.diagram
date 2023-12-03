@@ -8,11 +8,13 @@
         <EntityTypeShape EntityType="DBSYSModel.vw_all_user_role" Width="1.5" PointX="4.75" PointY="4.75" />
         <EntityTypeShape EntityType="DBSYSModel.Movie" Width="1.5" PointX="0.75" PointY="1" />
         <EntityTypeShape EntityType="DBSYSModel.Role" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="DBSYSModel.Sales" Width="1.5" PointX="7.5" PointY="1.25" />
         <EntityTypeShape EntityType="DBSYSModel.Showtimes" Width="1.5" PointX="3" PointY="1" />
-        <EntityTypeShape EntityType="DBSYSModel.Tickets" Width="1.5" PointX="5.25" PointY="1.25" />
-        <EntityTypeShape EntityType="DBSYSModel.UserAccount" Width="1.5" PointX="7.75" PointY="1" />
-        <EntityTypeShape EntityType="DBSYSModel.UserInformation" Width="1.5" PointX="10" PointY="1" />
+        <EntityTypeShape EntityType="DBSYSModel.Tickets" Width="1.5" PointX="5.25" PointY="1.125" />
+        <EntityTypeShape EntityType="DBSYSModel.UserAccount" Width="1.5" PointX="0.75" PointY="8" />
+        <EntityTypeShape EntityType="DBSYSModel.UserInformation" Width="1.5" PointX="3" PointY="8" />
         <AssociationConnector Association="DBSYSModel.FK__Showtimes__movie__68487DD7" />
+        <AssociationConnector Association="DBSYSModel.FK__Sales__ticketID__02FC7413" />
         <AssociationConnector Association="DBSYSModel.FK__Tickets__showtim__6B24EA82" />
         <AssociationConnector Association="DBSYSModel.FK__UserInfor__userI__6EF57B66" />
         </Diagram>

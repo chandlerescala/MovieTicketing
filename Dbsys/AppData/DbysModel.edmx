@@ -26,6 +26,16 @@
           <Property Name="roleName" Type="nvarchar" MaxLength="50" />
           <Property Name="roleDescription" Type="nvarchar" MaxLength="100" />
         </EntityType>
+        <EntityType Name="Sales">
+          <Key>
+            <PropertyRef Name="salesID" />
+          </Key>
+          <Property Name="salesID" Type="int" Nullable="false" />
+          <Property Name="ticketID" Type="int" />
+          <Property Name="transactionAmount" Type="int" Nullable="false" />
+          <Property Name="transactionDate" Type="date" Nullable="false" />
+          <Property Name="transactionTime" Type="time" Precision="7" Nullable="false" />
+        </EntityType>
         <EntityType Name="Showtimes">
           <Key>
             <PropertyRef Name="showtimeID" />
@@ -82,6 +92,18 @@ warning 6002: The table/view 'DBSYS.dbo.vw_all_user_role' does not have a primar
           <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Role" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <Association Name="FK__Sales__ticketID__02FC7413">
+          <End Role="Tickets" Type="Self.Tickets" Multiplicity="0..1" />
+          <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tickets">
+              <PropertyRef Name="ticketID" />
+            </Principal>
+            <Dependent Role="Sales">
+              <PropertyRef Name="ticketID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__Showtimes__movie__68487DD7">
           <End Role="Movie" Type="Self.Movie" Multiplicity="0..1" />
           <End Role="Showtimes" Type="Self.Showtimes" Multiplicity="*" />
@@ -121,6 +143,7 @@ warning 6002: The table/view 'DBSYS.dbo.vw_all_user_role' does not have a primar
         <EntityContainer Name="DBSYSModelStoreContainer">
           <EntitySet Name="Movie" EntityType="Self.Movie" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sales" EntityType="Self.Sales" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Showtimes" EntityType="Self.Showtimes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tickets" EntityType="Self.Tickets" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserAccount" EntityType="Self.UserAccount" Schema="dbo" store:Type="Tables" />
@@ -133,6 +156,10 @@ warning 6002: The table/view 'DBSYS.dbo.vw_all_user_role' does not have a primar
 [vw_all_user_role].[Role] AS [Role]
 FROM [dbo].[vw_all_user_role] AS [vw_all_user_role]</DefiningQuery>
           </EntitySet>
+          <AssociationSet Name="FK__Sales__ticketID__02FC7413" Association="Self.FK__Sales__ticketID__02FC7413">
+            <End Role="Tickets" EntitySet="Tickets" />
+            <End Role="Sales" EntitySet="Sales" />
+          </AssociationSet>
           <AssociationSet Name="FK__Showtimes__movie__68487DD7" Association="Self.FK__Showtimes__movie__68487DD7">
             <End Role="Movie" EntitySet="Movie" />
             <End Role="Showtimes" EntitySet="Showtimes" />
@@ -160,6 +187,7 @@ FROM [dbo].[vw_all_user_role] AS [vw_all_user_role]</DefiningQuery>
           <EntitySet Name="vw_all_user_role" EntityType="DBSYSModel.vw_all_user_role" />
           <EntitySet Name="Movie" EntityType="DBSYSModel.Movie" />
           <EntitySet Name="Role" EntityType="DBSYSModel.Role" />
+          <EntitySet Name="Sales" EntityType="DBSYSModel.Sales" />
           <EntitySet Name="Showtimes" EntityType="DBSYSModel.Showtimes" />
           <EntitySet Name="Tickets" EntityType="DBSYSModel.Tickets" />
           <EntitySet Name="UserAccount" EntityType="DBSYSModel.UserAccount" />
@@ -167,6 +195,10 @@ FROM [dbo].[vw_all_user_role] AS [vw_all_user_role]</DefiningQuery>
           <AssociationSet Name="FK__Showtimes__movie__68487DD7" Association="DBSYSModel.FK__Showtimes__movie__68487DD7">
             <End Role="Movie" EntitySet="Movie" />
             <End Role="Showtimes" EntitySet="Showtimes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sales__ticketID__02FC7413" Association="DBSYSModel.FK__Sales__ticketID__02FC7413">
+            <End Role="Tickets" EntitySet="Tickets" />
+            <End Role="Sales" EntitySet="Sales" />
           </AssociationSet>
           <AssociationSet Name="FK__Tickets__showtim__6B24EA82" Association="DBSYSModel.FK__Tickets__showtim__6B24EA82">
             <End Role="Showtimes" EntitySet="Showtimes" />
@@ -210,6 +242,17 @@ FROM [dbo].[vw_all_user_role] AS [vw_all_user_role]</DefiningQuery>
           <Property Name="roleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="roleDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="Sales">
+          <Key>
+            <PropertyRef Name="salesID" />
+          </Key>
+          <Property Name="salesID" Type="Int32" Nullable="false" />
+          <Property Name="ticketID" Type="Int32" />
+          <Property Name="transactionAmount" Type="Int32" Nullable="false" />
+          <Property Name="transactionDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="transactionTime" Type="Time" Nullable="false" Precision="7" />
+          <NavigationProperty Name="Tickets" Relationship="DBSYSModel.FK__Sales__ticketID__02FC7413" FromRole="Sales" ToRole="Tickets" />
+        </EntityType>
         <EntityType Name="Showtimes">
           <Key>
             <PropertyRef Name="showtimeID" />
@@ -233,6 +276,7 @@ FROM [dbo].[vw_all_user_role] AS [vw_all_user_role]</DefiningQuery>
           <Property Name="sectionNumber" Type="Int32" Nullable="false" />
           <Property Name="rowNumber" Type="Int32" Nullable="false" />
           <Property Name="seatNumber" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Sales" Relationship="DBSYSModel.FK__Sales__ticketID__02FC7413" FromRole="Tickets" ToRole="Sales" />
           <NavigationProperty Name="Showtimes" Relationship="DBSYSModel.FK__Tickets__showtim__6B24EA82" FromRole="Tickets" ToRole="Showtimes" />
         </EntityType>
         <EntityType Name="UserAccount">
@@ -267,6 +311,18 @@ FROM [dbo].[vw_all_user_role] AS [vw_all_user_role]</DefiningQuery>
             </Principal>
             <Dependent Role="Showtimes">
               <PropertyRef Name="movieID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sales__ticketID__02FC7413">
+          <End Type="DBSYSModel.Tickets" Role="Tickets" Multiplicity="0..1" />
+          <End Type="DBSYSModel.Sales" Role="Sales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tickets">
+              <PropertyRef Name="ticketID" />
+            </Principal>
+            <Dependent Role="Sales">
+              <PropertyRef Name="ticketID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -330,6 +386,17 @@ FROM [dbo].[vw_all_user_role] AS [vw_all_user_role]</DefiningQuery>
                 <ScalarProperty Name="roleDescription" ColumnName="roleDescription" />
                 <ScalarProperty Name="roleName" ColumnName="roleName" />
                 <ScalarProperty Name="roleId" ColumnName="roleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sales">
+            <EntityTypeMapping TypeName="DBSYSModel.Sales">
+              <MappingFragment StoreEntitySet="Sales">
+                <ScalarProperty Name="transactionTime" ColumnName="transactionTime" />
+                <ScalarProperty Name="transactionDate" ColumnName="transactionDate" />
+                <ScalarProperty Name="transactionAmount" ColumnName="transactionAmount" />
+                <ScalarProperty Name="ticketID" ColumnName="ticketID" />
+                <ScalarProperty Name="salesID" ColumnName="salesID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

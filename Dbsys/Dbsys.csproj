@@ -76,6 +76,9 @@
     <Compile Include="AppData\Role.cs">
       <DependentUpon>DbysModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="AppData\Sales.cs">
+      <DependentUpon>DbysModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="AppData\Showtimes.cs">
       <DependentUpon>DbysModel.tt</DependentUpon>
     </Compile>
@@ -90,6 +93,18 @@
     </Compile>
     <Compile Include="AppData\vw_all_user_role.cs">
       <DependentUpon>DbysModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Frm_NewUserHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Frm_NewUserHome.Designer.cs">
+      <DependentUpon>Frm_NewUserHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Frm_StaffHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Frm_StaffHome.Designer.cs">
+      <DependentUpon>Frm_StaffHome.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Frm_AdminHome.cs">
       <SubType>Form</SubType>
@@ -175,6 +190,12 @@
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Utils\Constant.cs" />
     <Compile Include="Utils\Func.cs" />
+    <EmbeddedResource Include="Forms\Frm_NewUserHome.resx">
+      <DependentUpon>Frm_NewUserHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Frm_StaffHome.resx">
+      <DependentUpon>Frm_StaffHome.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Frm_AdminHome.resx">
       <DependentUpon>Frm_AdminHome.cs</DependentUpon>
     </EmbeddedResource>

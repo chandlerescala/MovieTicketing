@@ -50,12 +50,12 @@ namespace Dbsys
                     {
                         case Role.Customer:
                             // Load user Home
-                            new Frm_UserHome().Show();
+                            new Frm_NewUserHome().Show();
                             this.Hide();
                             break;
                         case Role.Staff:
                             // Load Teacher Dashboard
-                            //new Frm_staff().Show();
+                            new Frm_StaffHome().Show();
                             this.Hide();
                             break;
                         case Role.Admin:
