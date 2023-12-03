@@ -46,6 +46,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.picBox_Buy = new System.Windows.Forms.PictureBox();
+            this.linkLabel_Buy = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_Buy)).BeginInit();
             this.SuspendLayout();
@@ -234,6 +235,19 @@
             this.picBox_Buy.TabIndex = 47;
             this.picBox_Buy.TabStop = false;
             // 
+            // linkLabel_Buy
+            // 
+            this.linkLabel_Buy.AutoSize = true;
+            this.linkLabel_Buy.BackColor = System.Drawing.Color.White;
+            this.linkLabel_Buy.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel_Buy.LinkColor = System.Drawing.Color.Black;
+            this.linkLabel_Buy.Location = new System.Drawing.Point(692, 413);
+            this.linkLabel_Buy.Name = "linkLabel_Buy";
+            this.linkLabel_Buy.Size = new System.Drawing.Size(41, 20);
+            this.linkLabel_Buy.TabIndex = 48;
+            this.linkLabel_Buy.TabStop = true;
+            this.linkLabel_Buy.Text = "Buy";
+            // 
             // Frm_Customer_ViewMovies
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -241,6 +255,7 @@
             this.BackgroundImage = global::Dbsys.Properties.Resources.movie_objects_with_space_top;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.linkLabel_Buy);
             this.Controls.Add(this.picBox_Buy);
             this.Controls.Add(this.txtGenre);
             this.Controls.Add(this.label6);
@@ -292,5 +307,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.PictureBox picBox_Buy;
+        private System.Windows.Forms.LinkLabel linkLabel_Buy;
     }
 }
