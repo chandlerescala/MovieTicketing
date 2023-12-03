@@ -37,8 +37,8 @@ namespace Dbsys
             return retValue;
         }
 
-
-
+ 
+        
         public ErrorCode UpdateUser(int? userId, UserAccount aUserAccount, ref String outMessage)
         {
             ErrorCode retValue = ErrorCode.Error;
@@ -64,7 +64,7 @@ namespace Dbsys
             return retValue;
 
         }
-
+        
         public ErrorCode RemoveUser(int? userId, ref String outMessage)
         {
             ErrorCode retValue = ErrorCode.Error;

@@ -140,6 +140,12 @@ warning 6002: The table/view 'DBSYS.dbo.vw_all_user_role' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="sp_UpdateUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userId" Type="int" Mode="In" />
+          <Parameter Name="userName" Type="varchar" Mode="In" />
+          <Parameter Name="userPassword" Type="varchar" Mode="In" />
+          <Parameter Name="roleId" Type="int" Mode="In" />
+        </Function>
         <EntityContainer Name="DBSYSModelStoreContainer">
           <EntitySet Name="Movie" EntityType="Self.Movie" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
@@ -208,6 +214,22 @@ FROM [dbo].[vw_all_user_role] AS [vw_all_user_role]</DefiningQuery>
             <End Role="UserAccount" EntitySet="UserAccount" />
             <End Role="UserInformation" EntitySet="UserInformation" />
           </AssociationSet>
+          <FunctionImport Name="sp_UpdateUser">
+            <Parameter Name="userId" Mode="In" Type="Int32" />
+            <Parameter Name="userName" Mode="In" Type="String" />
+            <Parameter Name="userPassword" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_UpdatedUser">
+            <Parameter Name="userId" Mode="In" Type="Int32" />
+            <Parameter Name="userName" Mode="In" Type="String" />
+            <Parameter Name="userPassword" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_UpdateUsers">
+            <Parameter Name="userId" Mode="In" Type="Int32" />
+            <Parameter Name="userName" Mode="In" Type="String" />
+            <Parameter Name="userPassword" Mode="In" Type="String" />
+            <Parameter Name="roleId" Mode="In" Type="Int32" />
+          </FunctionImport>
           </EntityContainer>
         <EntityType Name="vw_all_user_role">
           <Key>
@@ -447,6 +469,7 @@ FROM [dbo].[vw_all_user_role] AS [vw_all_user_role]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_UpdateUsers" FunctionName="DBSYSModel.Store.sp_UpdateUsers" />
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

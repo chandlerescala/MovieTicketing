@@ -281,6 +281,9 @@
       <DependentUpon>DbysModel.edmx</DependentUpon>
       <LastGenOutput>DbysModel.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\sales.png" />
+    <None Include="Resources\ticket.png" />
+    <None Include="Resources\Showtimes.png" />
     <None Include="Resources\edit.png" />
     <None Include="Resources\profile2.png" />
     <None Include="Resources\setting_2.png" />

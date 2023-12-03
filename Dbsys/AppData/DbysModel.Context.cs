@@ -57,5 +57,60 @@ namespace Dbsys.AppData
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_newUser", userNameParameter, userPasswordParameter, roleIdParameter, createdByParameter);
         }
+    
+        public virtual int sp_UpdateUser(Nullable<int> userId, string userName, string userPassword)
+        {
+            var userIdParameter = userId.HasValue ?
+                new ObjectParameter("userId", userId) :
+                new ObjectParameter("userId", typeof(int));
+    
+            var userNameParameter = userName != null ?
+                new ObjectParameter("userName", userName) :
+                new ObjectParameter("userName", typeof(string));
+    
+            var userPasswordParameter = userPassword != null ?
+                new ObjectParameter("userPassword", userPassword) :
+                new ObjectParameter("userPassword", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_UpdateUser", userIdParameter, userNameParameter, userPasswordParameter);
+        }
+    
+        public virtual int sp_UpdatedUser(Nullable<int> userId, string userName, string userPassword)
+        {
+            var userIdParameter = userId.HasValue ?
+                new ObjectParameter("userId", userId) :
+                new ObjectParameter("userId", typeof(int));
+    
+            var userNameParameter = userName != null ?
+                new ObjectParameter("userName", userName) :
+                new ObjectParameter("userName", typeof(string));
+    
+            var userPasswordParameter = userPassword != null ?
+                new ObjectParameter("userPassword", userPassword) :
+                new ObjectParameter("userPassword", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_UpdatedUser", userIdParameter, userNameParameter, userPasswordParameter);
+        }
+    
+        public virtual int sp_UpdateUsers(Nullable<int> userId, string userName, string userPassword, Nullable<int> roleId)
+        {
+            var userIdParameter = userId.HasValue ?
+                new ObjectParameter("userId", userId) :
+                new ObjectParameter("userId", typeof(int));
+    
+            var userNameParameter = userName != null ?
+                new ObjectParameter("userName", userName) :
+                new ObjectParameter("userName", typeof(string));
+    
+            var userPasswordParameter = userPassword != null ?
+                new ObjectParameter("userPassword", userPassword) :
+                new ObjectParameter("userPassword", typeof(string));
+    
+            var roleIdParameter = roleId.HasValue ?
+                new ObjectParameter("roleId", roleId) :
+                new ObjectParameter("roleId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_UpdateUsers", userIdParameter, userNameParameter, userPasswordParameter, roleIdParameter);
+        }
     }
 }

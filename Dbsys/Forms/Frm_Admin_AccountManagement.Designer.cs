@@ -41,14 +41,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.picBox_Search = new System.Windows.Forms.PictureBox();
             this.btnRemove = new System.Windows.Forms.Button();
-            this.ckShowPass = new System.Windows.Forms.CheckBox();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtUsername = new System.Windows.Forms.TextBox();
-            this.btnRegistion = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.errorProviderCustom = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtPassword = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_main)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -71,7 +69,7 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
             this.toolStripStatusUser});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 407);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 446);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(813, 22);
             this.statusStrip1.TabIndex = 1;
@@ -112,7 +110,7 @@
             // 
             this.logOutToolStripMenuItem.Image = global::Dbsys.Properties.Resources.Log_out;
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.logOutToolStripMenuItem.Text = "Log out";
             this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
@@ -161,7 +159,7 @@
             // 
             this.btnRemove.BackColor = System.Drawing.Color.White;
             this.btnRemove.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemove.Location = new System.Drawing.Point(50, 350);
+            this.btnRemove.Location = new System.Drawing.Point(50, 308);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(203, 32);
             this.btnRemove.TabIndex = 39;
@@ -169,23 +167,11 @@
             this.btnRemove.UseVisualStyleBackColor = false;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
-            // ckShowPass
-            // 
-            this.ckShowPass.AutoSize = true;
-            this.ckShowPass.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckShowPass.Location = new System.Drawing.Point(76, 221);
-            this.ckShowPass.Name = "ckShowPass";
-            this.ckShowPass.Size = new System.Drawing.Size(149, 24);
-            this.ckShowPass.TabIndex = 38;
-            this.ckShowPass.Text = "Show Password";
-            this.ckShowPass.UseVisualStyleBackColor = true;
-            this.ckShowPass.CheckedChanged += new System.EventHandler(this.ckShowPass_CheckedChanged);
-            // 
             // btnUpdate
             // 
             this.btnUpdate.BackColor = System.Drawing.Color.White;
             this.btnUpdate.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(50, 312);
+            this.btnUpdate.Location = new System.Drawing.Point(50, 270);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(203, 32);
             this.btnUpdate.TabIndex = 37;
@@ -193,60 +179,48 @@
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
-            // txtPassword
+            // errorProviderCustom
             // 
-            this.txtPassword.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(56, 176);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(203, 23);
-            this.txtPassword.TabIndex = 36;
-            this.txtPassword.UseSystemPasswordChar = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(46, 153);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 20);
-            this.label2.TabIndex = 35;
-            this.label2.Text = "Password";
-            // 
-            // txtUsername
-            // 
-            this.txtUsername.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsername.Location = new System.Drawing.Point(56, 127);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(203, 23);
-            this.txtUsername.TabIndex = 34;
-            // 
-            // btnRegistion
-            // 
-            this.btnRegistion.BackColor = System.Drawing.Color.White;
-            this.btnRegistion.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistion.Location = new System.Drawing.Point(50, 266);
-            this.btnRegistion.Name = "btnRegistion";
-            this.btnRegistion.Size = new System.Drawing.Size(203, 34);
-            this.btnRegistion.TabIndex = 33;
-            this.btnRegistion.Text = "REGISTER";
-            this.btnRegistion.UseVisualStyleBackColor = false;
-            this.btnRegistion.Click += new System.EventHandler(this.btnRegistion_Click);
+            this.errorProviderCustom.ContainerControl = this;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.White;
             this.label3.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(46, 104);
+            this.label3.Location = new System.Drawing.Point(40, 151);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(89, 20);
             this.label3.TabIndex = 32;
             this.label3.Text = "Username";
             // 
-            // errorProviderCustom
+            // txtUsername
             // 
-            this.errorProviderCustom.ContainerControl = this;
+            this.txtUsername.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsername.Location = new System.Drawing.Point(50, 174);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(203, 23);
+            this.txtUsername.TabIndex = 34;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(40, 200);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(82, 20);
+            this.label2.TabIndex = 35;
+            this.label2.Text = "Password";
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Location = new System.Drawing.Point(50, 223);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(203, 23);
+            this.txtPassword.TabIndex = 36;
+            this.txtPassword.UseSystemPasswordChar = true;
             // 
             // Frm_Admin_AccountManagement
             // 
@@ -254,14 +228,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Dbsys.Properties.Resources.movie_objects_with_space_top;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(813, 429);
+            this.ClientSize = new System.Drawing.Size(813, 468);
             this.Controls.Add(this.btnRemove);
-            this.Controls.Add(this.ckShowPass);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtUsername);
-            this.Controls.Add(this.btnRegistion);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.picBox_Search);
             this.Controls.Add(this.txtSearch);
@@ -304,13 +276,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox picBox_Search;
         private System.Windows.Forms.Button btnRemove;
-        private System.Windows.Forms.CheckBox ckShowPass;
         private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.ErrorProvider errorProviderCustom;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtUsername;
-        private System.Windows.Forms.Button btnRegistion;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ErrorProvider errorProviderCustom;
     }
 }

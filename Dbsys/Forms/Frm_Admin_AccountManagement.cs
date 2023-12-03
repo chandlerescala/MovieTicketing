@@ -32,6 +32,7 @@ namespace Dbsys
         {
             dgv_main.DataSource = userRepo.AllUserRole();
             toolStripStatusUser.Text = UserLogged.GetInstance().UserAccount.userName;
+
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -95,17 +96,7 @@ namespace Dbsys
             }
         }
 
-        private void ckShowPass_CheckedChanged(object sender, EventArgs e)
-        {
-            if (ckShowPass.Checked)
-            {
-                txtPassword.UseSystemPasswordChar = false;
-            }
-            else
-            {
-                txtPassword.UseSystemPasswordChar = true;
-            }
-        }
+       
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
