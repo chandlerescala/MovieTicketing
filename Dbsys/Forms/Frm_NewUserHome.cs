@@ -62,7 +62,9 @@ namespace Dbsys
 
         private void picBox_AddMovie_Click(object sender, EventArgs e)
         {
-      
+            Frm_Customer_ViewMovies vMovies = new Frm_Customer_ViewMovies();
+            vMovies.Show();
+            this.Close();
         }
 
         private void picBox_ViewMovie_Click(object sender, EventArgs e)
@@ -77,7 +79,9 @@ namespace Dbsys
 
         private void addMovieToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+            Frm_Customer_ViewMovies vMovies = new Frm_Customer_ViewMovies();
+            vMovies.Show();
+            this.Close();
         }
 
         private void viewMoviesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -121,6 +125,11 @@ namespace Dbsys
             profile.Show();
 
             this.Close();
+        }
+
+        private void linkLabel_AddMovie_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
         }
     }
 }

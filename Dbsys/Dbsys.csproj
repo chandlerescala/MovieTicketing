@@ -94,6 +94,12 @@
     <Compile Include="AppData\vw_all_user_role.cs">
       <DependentUpon>DbysModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Frm_Customer_ViewMovies.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Frm_Customer_ViewMovies.Designer.cs">
+      <DependentUpon>Frm_Customer_ViewMovies.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Frm_NewUserHome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -190,6 +196,9 @@
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Utils\Constant.cs" />
     <Compile Include="Utils\Func.cs" />
+    <EmbeddedResource Include="Forms\Frm_Customer_ViewMovies.resx">
+      <DependentUpon>Frm_Customer_ViewMovies.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Frm_NewUserHome.resx">
       <DependentUpon>Frm_NewUserHome.cs</DependentUpon>
     </EmbeddedResource>
@@ -281,6 +290,10 @@
       <DependentUpon>DbysModel.edmx</DependentUpon>
       <LastGenOutput>DbysModel.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\Buy1.png" />
+    <None Include="Resources\next show.png" />
+    <None Include="Resources\close_2579419.png" />
+    <None Include="Resources\now_5626952.png" />
     <None Include="Resources\sales.png" />
     <None Include="Resources\ticket.png" />
     <None Include="Resources\Showtimes.png" />

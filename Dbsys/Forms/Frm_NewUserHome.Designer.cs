@@ -46,14 +46,14 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.picBox_History = new System.Windows.Forms.PictureBox();
             this.picBox_ViewMovie = new System.Windows.Forms.PictureBox();
-            this.picBox_AddMovie = new System.Windows.Forms.PictureBox();
+            this.picBox_NowShowing = new System.Windows.Forms.PictureBox();
             this.picBox_AdminLogin = new System.Windows.Forms.PictureBox();
             this.txtLoggedUser = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_History)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_ViewMovie)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox_AddMovie)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox_NowShowing)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_AdminLogin)).BeginInit();
             this.SuspendLayout();
             // 
@@ -170,6 +170,7 @@
             this.linkLabel_AddMovie.TabIndex = 6;
             this.linkLabel_AddMovie.TabStop = true;
             this.linkLabel_AddMovie.Text = "Now Showing";
+            this.linkLabel_AddMovie.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_AddMovie_LinkClicked);
             // 
             // linkLabel_ViewAccount
             // 
@@ -242,16 +243,16 @@
             this.picBox_ViewMovie.TabStop = false;
             this.picBox_ViewMovie.Click += new System.EventHandler(this.picBox_ViewMovie_Click);
             // 
-            // picBox_AddMovie
+            // picBox_NowShowing
             // 
-            this.picBox_AddMovie.Image = global::Dbsys.Properties.Resources.now_5626952;
-            this.picBox_AddMovie.Location = new System.Drawing.Point(144, 150);
-            this.picBox_AddMovie.Name = "picBox_AddMovie";
-            this.picBox_AddMovie.Size = new System.Drawing.Size(121, 98);
-            this.picBox_AddMovie.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBox_AddMovie.TabIndex = 2;
-            this.picBox_AddMovie.TabStop = false;
-            this.picBox_AddMovie.Click += new System.EventHandler(this.picBox_AddMovie_Click);
+            this.picBox_NowShowing.Image = global::Dbsys.Properties.Resources.now_5626952;
+            this.picBox_NowShowing.Location = new System.Drawing.Point(144, 150);
+            this.picBox_NowShowing.Name = "picBox_NowShowing";
+            this.picBox_NowShowing.Size = new System.Drawing.Size(121, 98);
+            this.picBox_NowShowing.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBox_NowShowing.TabIndex = 2;
+            this.picBox_NowShowing.TabStop = false;
+            this.picBox_NowShowing.Click += new System.EventHandler(this.picBox_AddMovie_Click);
             // 
             // picBox_AdminLogin
             // 
@@ -289,7 +290,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.picBox_History);
             this.Controls.Add(this.picBox_ViewMovie);
-            this.Controls.Add(this.picBox_AddMovie);
+            this.Controls.Add(this.picBox_NowShowing);
             this.Controls.Add(this.picBox_AdminLogin);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -304,7 +305,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_History)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_ViewMovie)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox_AddMovie)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox_NowShowing)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_AdminLogin)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -316,7 +317,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.PictureBox picBox_AdminLogin;
-        private System.Windows.Forms.PictureBox picBox_AddMovie;
+        private System.Windows.Forms.PictureBox picBox_NowShowing;
         private System.Windows.Forms.PictureBox picBox_ViewMovie;
         private System.Windows.Forms.PictureBox picBox_History;
         private System.Windows.Forms.Label label1;
