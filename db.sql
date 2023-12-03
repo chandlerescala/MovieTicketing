@@ -10,7 +10,16 @@ userPassword varchar (50) not null,
 roleId int,
 createdBy int,
 userStatus varchar (10) not NULL default 'ACTIVE',
-);
+)
+
+CREATE PROCEDURE sp_UpdateUsers @userId INT, @userName VARCHAR(50),@userPassword VARCHAR(50), @roleId int
+AS
+BEGIN
+    UPDATE UserAccount SET userName = @userName, userPassword = @userPassword, roleId =  @roleId  WHERE userId = @userId;
+END
+
+DROP PROCEDURE sp_UpdateUsers
+GO
 
 --Creates the user information table
 CREATE TABLE UserInformation(
@@ -89,6 +98,7 @@ AS
 INSERT INTO UserAccount(userName, userPassword, createdBy) 
 	values (@userName, @userPassword, @createdBy)
 
+	
 
 
 
