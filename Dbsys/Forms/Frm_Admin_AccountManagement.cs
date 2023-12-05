@@ -49,6 +49,17 @@ namespace Dbsys
             Frm_Login login = new Frm_Login();
             login.Show();
         }
+        private void ckShowPass_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ckShowPass.Checked)
+            {
+                txtPassword.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                txtPassword.UseSystemPasswordChar = true;
+            }
+        }
 
         private void picBox_Search_Click(object sender, EventArgs e)
         {
@@ -177,5 +188,7 @@ namespace Dbsys
                 MessageBox.Show(strOutputMsg, "Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
+
+       
     }
 }

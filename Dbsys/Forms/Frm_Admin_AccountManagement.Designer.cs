@@ -47,6 +47,7 @@
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
+            this.ckShowPass = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_main)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -159,7 +160,7 @@
             // 
             this.btnRemove.BackColor = System.Drawing.Color.White;
             this.btnRemove.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemove.Location = new System.Drawing.Point(50, 308);
+            this.btnRemove.Location = new System.Drawing.Point(50, 334);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(203, 32);
             this.btnRemove.TabIndex = 39;
@@ -171,7 +172,7 @@
             // 
             this.btnUpdate.BackColor = System.Drawing.Color.White;
             this.btnUpdate.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(50, 270);
+            this.btnUpdate.Location = new System.Drawing.Point(50, 296);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(203, 32);
             this.btnUpdate.TabIndex = 37;
@@ -222,6 +223,19 @@
             this.txtPassword.TabIndex = 36;
             this.txtPassword.UseSystemPasswordChar = true;
             // 
+            // ckShowPass
+            // 
+            this.ckShowPass.AutoSize = true;
+            this.ckShowPass.BackColor = System.Drawing.Color.White;
+            this.ckShowPass.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckShowPass.Location = new System.Drawing.Point(44, 252);
+            this.ckShowPass.Name = "ckShowPass";
+            this.ckShowPass.Size = new System.Drawing.Size(149, 24);
+            this.ckShowPass.TabIndex = 40;
+            this.ckShowPass.Text = "Show Password";
+            this.ckShowPass.UseVisualStyleBackColor = false;
+            this.ckShowPass.CheckedChanged += new System.EventHandler(this.ckShowPass_CheckedChanged);
+            // 
             // Frm_Admin_AccountManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -229,6 +243,7 @@
             this.BackgroundImage = global::Dbsys.Properties.Resources.movie_objects_with_space_top;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(813, 468);
+            this.Controls.Add(this.ckShowPass);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.txtPassword);
@@ -282,5 +297,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.CheckBox ckShowPass;
     }
 }
