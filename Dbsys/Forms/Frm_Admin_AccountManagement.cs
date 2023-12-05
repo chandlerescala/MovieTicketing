@@ -96,8 +96,6 @@ namespace Dbsys
             }
         }
 
-       
-
         private void btnRemove_Click(object sender, EventArgs e)
         {
             String username = txtUsername.Text;
@@ -149,7 +147,12 @@ namespace Dbsys
                 errorProviderCustom.SetError(txtPassword, "Empty Field!");
                 return;
             }
-            var userAccount = userRepo.GetUserByUsername(username);
+
+            var userAccount = new UserAccount()
+            {
+                userName = username,
+                userPassword = pass
+            };
 
             ErrorCode retValue = userRepo.UpdateUser(userSelectedId, userAccount, ref strOutputMsg);
             if (retValue == ErrorCode.Success)
@@ -158,19 +161,21 @@ namespace Dbsys
                 errorProviderCustom.Clear();
                 MessageBox.Show(strOutputMsg, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 loadUser();
+                // Refresh the data grid
+                Frm_Admin_Dashboard_Load(sender, new EventArgs());
+
                 //reset the selected id
                 userSelectedId = null;
 
-
                 txtPassword.Clear();
                 txtUsername.Clear();
+            
             }
             else
             {
                 // error 
                 MessageBox.Show(strOutputMsg, "Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            // Update Code here...
         }
     }
 }
