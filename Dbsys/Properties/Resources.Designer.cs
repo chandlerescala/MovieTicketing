@@ -143,6 +143,16 @@ namespace Dbsys.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Cinema4D_34147 {
+            get {
+                object obj = ResourceManager.GetObject("Cinema4D_34147", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap clapperboard {
             get {
                 object obj = ResourceManager.GetObject("clapperboard", resourceCulture);

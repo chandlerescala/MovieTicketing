@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Staff_EditShowtimes));
             this.dataGridViewShowtimes = new System.Windows.Forms.DataGridView();
             this.txtMovieName = new System.Windows.Forms.TextBox();
             this.txtEditMovieID = new System.Windows.Forms.TextBox();
@@ -264,6 +265,7 @@
             this.Controls.Add(this.txtMovieName);
             this.Controls.Add(this.dataGridViewShowtimes);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Frm_Staff_EditShowtimes";
