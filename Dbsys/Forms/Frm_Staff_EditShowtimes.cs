@@ -195,5 +195,39 @@ namespace Dbsys.Forms
                 MessageBox.Show($"An error occurred: {ex.Message}");
             }
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            Frm_StaffHome h = new Frm_StaffHome();
+            h.Show();
+            this.Close();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dataGridViewShowtimes.SelectedRows.Count > 0)
+                {
+                    int selectedShowtimeID = (int)dataGridViewShowtimes.SelectedRows[0].Cells["ShowtimeID"].Value;
+
+                    using (var db = new DBSYSEntities())
+                    {
+                        // Execute the stored procedure instead of direct SQL
+                        db.Database.ExecuteSqlCommand("sp_DeleteShowtimes @ShowtimeID", new SqlParameter("@ShowtimeID", selectedShowtimeID));
+
+                        MessageBox.Show("Showtime deleted successfully!");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please select a showtime to delete.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}");
+            }
+        }
     }
 }

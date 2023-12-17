@@ -221,5 +221,58 @@ namespace Dbsys.AppData
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_UpdateShowtimes", showtimeIDParameter, movieIDParameter, showDateParameter, startTimeParameter, endTimeParameter, capacityParameter);
         }
+    
+        public virtual int sp_DeleteShowtime(Nullable<int> showtimeID)
+        {
+            var showtimeIDParameter = showtimeID.HasValue ?
+                new ObjectParameter("ShowtimeID", showtimeID) :
+                new ObjectParameter("ShowtimeID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_DeleteShowtime", showtimeIDParameter);
+        }
+    
+        public virtual ObjectResult<sp_DeleteShowtimes_Result> sp_DeleteShowtimes(Nullable<int> showtimeID)
+        {
+            var showtimeIDParameter = showtimeID.HasValue ?
+                new ObjectParameter("ShowtimeID", showtimeID) :
+                new ObjectParameter("ShowtimeID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_DeleteShowtimes_Result>("sp_DeleteShowtimes", showtimeIDParameter);
+        }
+    
+        public virtual int sp_RemoveUsers(Nullable<int> userID)
+        {
+            var userIDParameter = userID.HasValue ?
+                new ObjectParameter("UserID", userID) :
+                new ObjectParameter("UserID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_RemoveUsers", userIDParameter);
+        }
+    
+        public virtual int sp_UpdatedUsers(Nullable<int> userID, string userName, string userPassword)
+        {
+            var userIDParameter = userID.HasValue ?
+                new ObjectParameter("UserID", userID) :
+                new ObjectParameter("UserID", typeof(int));
+    
+            var userNameParameter = userName != null ?
+                new ObjectParameter("UserName", userName) :
+                new ObjectParameter("UserName", typeof(string));
+    
+            var userPasswordParameter = userPassword != null ?
+                new ObjectParameter("UserPassword", userPassword) :
+                new ObjectParameter("UserPassword", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_UpdatedUsers", userIDParameter, userNameParameter, userPasswordParameter);
+        }
+    
+        public virtual int sp_RemovedUsers(Nullable<int> userID)
+        {
+            var userIDParameter = userID.HasValue ?
+                new ObjectParameter("UserID", userID) :
+                new ObjectParameter("UserID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_RemovedUsers", userIDParameter);
+        }
     }
 }

@@ -82,6 +82,9 @@
     <Compile Include="AppData\Showtimes.cs">
       <DependentUpon>DbysModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="AppData\sp_DeleteShowtimes_Result.cs">
+      <DependentUpon>DbysModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="AppData\Tickets.cs">
       <DependentUpon>DbysModel.tt</DependentUpon>
     </Compile>
@@ -97,17 +100,29 @@
     <Compile Include="AppData\vw_ShowtimeDetails.cs">
       <DependentUpon>DbysModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Frm_Customer_ViewMovies.cs">
+    <Compile Include="Forms\Frm_Customer_ClosedShow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Frm_Customer_ViewMovies.Designer.cs">
-      <DependentUpon>Frm_Customer_ViewMovies.cs</DependentUpon>
+    <Compile Include="Forms\Frm_Customer_ClosedShow.Designer.cs">
+      <DependentUpon>Frm_Customer_ClosedShow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Frm_NewUserHome.cs">
+    <Compile Include="Forms\Frm_Customer_NextShow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Frm_NewUserHome.Designer.cs">
-      <DependentUpon>Frm_NewUserHome.cs</DependentUpon>
+    <Compile Include="Forms\Frm_Customer_NextShow.Designer.cs">
+      <DependentUpon>Frm_Customer_NextShow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Frm_Customer_NowShowing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Frm_Customer_NowShowing.Designer.cs">
+      <DependentUpon>Frm_Customer_NowShowing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Frm_CustomerHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Frm_CustomerHome.Designer.cs">
+      <DependentUpon>Frm_CustomerHome.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Frm_StaffHome.cs">
       <SubType>Form</SubType>
@@ -205,11 +220,17 @@
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Utils\Constant.cs" />
     <Compile Include="Utils\Func.cs" />
-    <EmbeddedResource Include="Forms\Frm_Customer_ViewMovies.resx">
-      <DependentUpon>Frm_Customer_ViewMovies.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Frm_Customer_ClosedShow.resx">
+      <DependentUpon>Frm_Customer_ClosedShow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Frm_NewUserHome.resx">
-      <DependentUpon>Frm_NewUserHome.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Frm_Customer_NextShow.resx">
+      <DependentUpon>Frm_Customer_NextShow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Frm_Customer_NowShowing.resx">
+      <DependentUpon>Frm_Customer_NowShowing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Frm_CustomerHome.resx">
+      <DependentUpon>Frm_CustomerHome.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Frm_StaffHome.resx">
       <DependentUpon>Frm_StaffHome.cs</DependentUpon>

@@ -44,6 +44,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.btn_Save = new System.Windows.Forms.Button();
             this.btn_Update = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewShowtimes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMovie)).BeginInit();
             this.SuspendLayout();
@@ -51,59 +53,59 @@
             // dataGridViewShowtimes
             // 
             this.dataGridViewShowtimes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewShowtimes.Location = new System.Drawing.Point(281, 159);
+            this.dataGridViewShowtimes.Location = new System.Drawing.Point(281, 138);
             this.dataGridViewShowtimes.Name = "dataGridViewShowtimes";
-            this.dataGridViewShowtimes.Size = new System.Drawing.Size(487, 244);
+            this.dataGridViewShowtimes.Size = new System.Drawing.Size(487, 257);
             this.dataGridViewShowtimes.TabIndex = 0;
             this.dataGridViewShowtimes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewShowtimes_CellClick);
             // 
             // txtMovieName
             // 
-            this.txtMovieName.Location = new System.Drawing.Point(387, 124);
+            this.txtMovieName.Location = new System.Drawing.Point(387, 112);
             this.txtMovieName.Name = "txtMovieName";
-            this.txtMovieName.Size = new System.Drawing.Size(216, 20);
+            this.txtMovieName.Size = new System.Drawing.Size(260, 20);
             this.txtMovieName.TabIndex = 1;
             // 
             // txtEditMovieID
             // 
-            this.txtEditMovieID.Location = new System.Drawing.Point(154, 179);
+            this.txtEditMovieID.Location = new System.Drawing.Point(142, 129);
             this.txtEditMovieID.Name = "txtEditMovieID";
             this.txtEditMovieID.Size = new System.Drawing.Size(100, 20);
             this.txtEditMovieID.TabIndex = 2;
             // 
             // txtEditShowDate
             // 
-            this.txtEditShowDate.Location = new System.Drawing.Point(154, 220);
+            this.txtEditShowDate.Location = new System.Drawing.Point(142, 170);
             this.txtEditShowDate.Name = "txtEditShowDate";
             this.txtEditShowDate.Size = new System.Drawing.Size(100, 20);
             this.txtEditShowDate.TabIndex = 3;
             // 
             // txtEditStartTime
             // 
-            this.txtEditStartTime.Location = new System.Drawing.Point(154, 258);
+            this.txtEditStartTime.Location = new System.Drawing.Point(142, 208);
             this.txtEditStartTime.Name = "txtEditStartTime";
             this.txtEditStartTime.Size = new System.Drawing.Size(100, 20);
             this.txtEditStartTime.TabIndex = 4;
             // 
             // txtEditEndTime
             // 
-            this.txtEditEndTime.Location = new System.Drawing.Point(154, 304);
+            this.txtEditEndTime.Location = new System.Drawing.Point(142, 254);
             this.txtEditEndTime.Name = "txtEditEndTime";
             this.txtEditEndTime.Size = new System.Drawing.Size(100, 20);
             this.txtEditEndTime.TabIndex = 5;
             // 
             // txtEditCapacity
             // 
-            this.txtEditCapacity.Location = new System.Drawing.Point(154, 349);
+            this.txtEditCapacity.Location = new System.Drawing.Point(142, 299);
             this.txtEditCapacity.Name = "txtEditCapacity";
             this.txtEditCapacity.Size = new System.Drawing.Size(100, 20);
             this.txtEditCapacity.TabIndex = 6;
             // 
             // pictureBoxMovie
             // 
-            this.pictureBoxMovie.Location = new System.Drawing.Point(609, 24);
+            this.pictureBoxMovie.Location = new System.Drawing.Point(653, 12);
             this.pictureBoxMovie.Name = "pictureBoxMovie";
-            this.pictureBoxMovie.Size = new System.Drawing.Size(159, 120);
+            this.pictureBoxMovie.Size = new System.Drawing.Size(115, 120);
             this.pictureBoxMovie.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxMovie.TabIndex = 8;
             this.pictureBoxMovie.TabStop = false;
@@ -113,7 +115,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(34, 179);
+            this.label2.Location = new System.Drawing.Point(22, 129);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 20);
             this.label2.TabIndex = 9;
@@ -124,7 +126,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(34, 220);
+            this.label1.Location = new System.Drawing.Point(22, 170);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(94, 20);
             this.label1.TabIndex = 10;
@@ -135,7 +137,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.White;
             this.label3.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(277, 124);
+            this.label3.Location = new System.Drawing.Point(277, 112);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(104, 20);
             this.label3.TabIndex = 11;
@@ -146,7 +148,7 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.White;
             this.label4.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(34, 258);
+            this.label4.Location = new System.Drawing.Point(22, 208);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(91, 20);
             this.label4.TabIndex = 12;
@@ -157,7 +159,7 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.White;
             this.label5.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(34, 304);
+            this.label5.Location = new System.Drawing.Point(22, 254);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(84, 20);
             this.label5.TabIndex = 13;
@@ -168,7 +170,7 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.White;
             this.label6.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(34, 349);
+            this.label6.Location = new System.Drawing.Point(22, 299);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(114, 20);
             this.label6.TabIndex = 14;
@@ -178,7 +180,7 @@
             // 
             this.btn_Save.BackColor = System.Drawing.Color.White;
             this.btn_Save.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Save.Location = new System.Drawing.Point(31, 394);
+            this.btn_Save.Location = new System.Drawing.Point(19, 344);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(94, 27);
             this.btn_Save.TabIndex = 22;
@@ -190,7 +192,7 @@
             // 
             this.btn_Update.BackColor = System.Drawing.Color.White;
             this.btn_Update.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Update.Location = new System.Drawing.Point(145, 394);
+            this.btn_Update.Location = new System.Drawing.Point(133, 344);
             this.btn_Update.Name = "btn_Update";
             this.btn_Update.Size = new System.Drawing.Size(96, 27);
             this.btn_Update.TabIndex = 23;
@@ -198,11 +200,40 @@
             this.btn_Update.UseVisualStyleBackColor = false;
             this.btn_Update.Click += new System.EventHandler(this.btn_Update_Click);
             // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.Color.White;
+            this.btnBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnBack.Font = new System.Drawing.Font("Bookman Old Style", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.Location = new System.Drawing.Point(22, 24);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(96, 39);
+            this.btnBack.TabIndex = 26;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.White;
+            this.btnDelete.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Location = new System.Drawing.Point(74, 389);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(94, 27);
+            this.btnDelete.TabIndex = 27;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // Frm_Staff_EditShowtimes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Dbsys.Properties.Resources.movie_objects_with_space_top;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btn_Update);
             this.Controls.Add(this.btn_Save);
             this.Controls.Add(this.label6);
@@ -250,5 +281,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btn_Save;
         private System.Windows.Forms.Button btn_Update;
+        private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Button btnDelete;
     }
 }

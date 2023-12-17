@@ -54,7 +54,7 @@ namespace Dbsys
             {
                 case Role.Customer:
                     // Load user Home
-                    new Frm_NewUserHome().Show();
+                    new Frm_CustomerHome().Show();
                     this.Hide();
                     break;
                 case Role.Staff:

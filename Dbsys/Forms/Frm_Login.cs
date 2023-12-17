@@ -49,17 +49,17 @@ namespace Dbsys
                     switch ((Role)userLogged.roleId)
                     {
                         case Role.Customer:
-                            // Load user Home
-                            new Frm_NewUserHome().Show();
+                            // Load Customer Home
+                            new Frm_CustomerHome().Show();
                             this.Hide();
                             break;
                         case Role.Staff:
-                            // Load Teacher Dashboard
+                            //Load StaffHome
                             new Frm_StaffHome().Show();
                             this.Hide();
                             break;
                         case Role.Admin:
-                            // Load Admin Dashboard
+                            // Load Admin Home
                             new Frm_AdminHome().Show();
                             this.Hide();
                             break;

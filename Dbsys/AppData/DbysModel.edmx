@@ -158,12 +158,23 @@ warning 6002: The table/view 'DBSYS.dbo.vw_ShowtimeDetails' does not have a prim
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="sp_DeleteShowtimes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ShowtimeID" Type="int" Mode="In" />
+        </Function>
         <Function Name="sp_InsertShowtimes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="MovieID" Type="int" Mode="In" />
           <Parameter Name="ShowDate" Type="date" Mode="In" />
           <Parameter Name="StartTime" Type="time" Mode="In" />
           <Parameter Name="EndTime" Type="time" Mode="In" />
           <Parameter Name="Capacity" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_RemovedUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_UpdatedUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="int" Mode="In" />
+          <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+          <Parameter Name="UserPassword" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="sp_UpdateShowtimes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ShowtimeID" Type="int" Mode="In" />
@@ -172,12 +183,6 @@ warning 6002: The table/view 'DBSYS.dbo.vw_ShowtimeDetails' does not have a prim
           <Parameter Name="StartTime" Type="time" Mode="In" />
           <Parameter Name="EndTime" Type="time" Mode="In" />
           <Parameter Name="Capacity" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_UpdateUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="userId" Type="int" Mode="In" />
-          <Parameter Name="userName" Type="varchar" Mode="In" />
-          <Parameter Name="userPassword" Type="varchar" Mode="In" />
-          <Parameter Name="roleId" Type="int" Mode="In" />
         </Function>
         <EntityContainer Name="DBSYSModelStoreContainer">
           <EntitySet Name="Movie" EntityType="Self.Movie" Schema="dbo" store:Type="Tables" />
@@ -304,6 +309,23 @@ FROM [dbo].[vw_ShowtimeDetails] AS [vw_ShowtimeDetails]</DefiningQuery>
             <Parameter Name="StartTime" Mode="In" Type="Time" />
             <Parameter Name="EndTime" Mode="In" Type="Time" />
             <Parameter Name="Capacity" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_DeleteShowtime">
+            <Parameter Name="ShowtimeID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_DeleteShowtimes" ReturnType="Collection(DBSYSModel.sp_DeleteShowtimes_Result)">
+          <Parameter Name="ShowtimeID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_RemoveUsers">
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_UpdatedUsers">
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="UserPassword" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_RemovedUsers">
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
           </FunctionImport>
           </EntityContainer>
         <EntityType Name="vw_all_user_role">
@@ -463,6 +485,15 @@ FROM [dbo].[vw_ShowtimeDetails] AS [vw_ShowtimeDetails]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="sp_DeleteShowtimes_Result">
+          <Property Type="Int32" Name="ShowtimeID" Nullable="false" />
+          <Property Type="Int32" Name="movieID" Nullable="true" />
+          <Property Type="String" Name="movieName" Nullable="false" />
+          <Property Type="DateTime" Name="showDate" Nullable="false" />
+          <Property Type="Time" Name="startTime" Nullable="false" />
+          <Property Type="Time" Name="endTime" Nullable="false" />
+          <Property Type="Int32" Name="capacity" Nullable="false" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -479,7 +510,6 @@ FROM [dbo].[vw_ShowtimeDetails] AS [vw_ShowtimeDetails]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="sp_UpdateUsers" FunctionName="DBSYSModel.Store.sp_UpdateUsers" />
           <EntitySetMapping Name="vw_ShowtimeDetails">
             <EntityTypeMapping TypeName="DBSYSModel.vw_ShowtimeDetails">
               <MappingFragment StoreEntitySet="vw_ShowtimeDetails">
@@ -575,6 +605,21 @@ FROM [dbo].[vw_ShowtimeDetails] AS [vw_ShowtimeDetails]</DefiningQuery>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="sp_InsertShowtimes" FunctionName="DBSYSModel.Store.sp_InsertShowtimes" />
           <FunctionImportMapping FunctionImportName="sp_UpdateShowtimes" FunctionName="DBSYSModel.Store.sp_UpdateShowtimes" />
+          <FunctionImportMapping FunctionImportName="sp_DeleteShowtimes" FunctionName="DBSYSModel.Store.sp_DeleteShowtimes">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBSYSModel.sp_DeleteShowtimes_Result">
+                <ScalarProperty Name="ShowtimeID" ColumnName="ShowtimeID" />
+                <ScalarProperty Name="movieID" ColumnName="movieID" />
+                <ScalarProperty Name="movieName" ColumnName="movieName" />
+                <ScalarProperty Name="showDate" ColumnName="showDate" />
+                <ScalarProperty Name="startTime" ColumnName="startTime" />
+                <ScalarProperty Name="endTime" ColumnName="endTime" />
+                <ScalarProperty Name="capacity" ColumnName="capacity" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_UpdatedUsers" FunctionName="DBSYSModel.Store.sp_UpdatedUsers" />
+          <FunctionImportMapping FunctionImportName="sp_RemovedUsers" FunctionName="DBSYSModel.Store.sp_RemovedUsers" />
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

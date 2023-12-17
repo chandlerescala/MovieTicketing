@@ -15,6 +15,8 @@ namespace Dbsys.Forms
     {
         public string username = String.Empty;
         DBSYSEntities db; 
+        private const string AdminPassword = "admin123";
+        private const string StaffPassword = "staff123";
         public Frm_Register()
         {
             InitializeComponent();
@@ -41,6 +43,40 @@ namespace Dbsys.Forms
             cbBoxRole.DisplayMember = "roleName";
             cbBoxRole.DataSource = roles;
           
+        }
+        private string ShowPasswordInputDialog(string title, string prompt)
+        {
+            Form promptForm = new Form()
+            {
+                Width = 500,
+                Height = 150,
+                FormBorderStyle = FormBorderStyle.FixedDialog,
+                Text = title,
+                StartPosition = FormStartPosition.CenterScreen
+            };
+
+            Label label = new Label() { Left = 50, Top = 20, Text = prompt };
+            TextBox textBox = new TextBox() { Left = 50, Top = 50, Width = 400, PasswordChar = '*' };
+            Button confirmation = new Button() { Text = "Ok", Left = 350, Width = 100, Top = 70, DialogResult = DialogResult.OK };
+            confirmation.Click += (sender, e) => { promptForm.Close(); };
+
+            promptForm.Controls.Add(textBox);
+            promptForm.Controls.Add(confirmation);
+            promptForm.Controls.Add(label);
+
+            return promptForm.ShowDialog() == DialogResult.OK ? textBox.Text : "";
+        }
+
+        private bool VerifyAdminPassword()
+        {
+            string inputPassword = ShowPasswordInputDialog("Admin Verification", "Enter admin password:");
+            return AdminPassword.Equals(inputPassword);
+        }
+
+        private bool VerifyStaffPassword()
+        {
+            string inputPassword = ShowPasswordInputDialog("Staff Verification", "Enter staff password:");
+            return StaffPassword.Equals(inputPassword);
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
@@ -71,12 +107,21 @@ namespace Dbsys.Forms
                 errorProvider1.SetError(txtRepassword, "Password not match");
                 return;
             }
-           // int code = 123;
-            // send email verificode (code)
-            // send sms otp (code)
+            int selectedRoleId = (Int32)cbBoxRole.SelectedValue;
 
-            // find the user id
-            // code input equal db. useraccoutn code
+            if (selectedRoleId == 3 && !VerifyAdminPassword())
+            {
+                MessageBox.Show("Admin password verification failed. Registration aborted.");
+                return;
+            }
+
+            if (selectedRoleId == 2 && !VerifyStaffPassword())
+            {
+                MessageBox.Show("Staff password verification failed. Registration aborted.");
+                return;
+            }
+
+
             UserAccount nUserAccount = new UserAccount();
             nUserAccount.userName = txtUsername.Text;
             nUserAccount.userPassword = txtPassword.Text;

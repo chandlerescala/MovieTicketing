@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -70,29 +71,6 @@ namespace Dbsys
             dgv_main.DataSource = userRepo.SearchUserRole(searchTerm);
         }
 
-        private void btnRegistion_Click(object sender, EventArgs e)
-        {
-            String username = txtUsername.Text;
-            String pass = txtPassword.Text;
-
-            String strOutputMsg = "";
-            // Validation not allow empty or null value
-            if (String.IsNullOrEmpty(username))
-            {
-                errorProviderCustom.SetError(txtUsername, "Empty Field!");
-                return;
-            }
-            else
-            // Validation not allow empty or null value
-            if (String.IsNullOrEmpty(pass))
-            {
-                errorProviderCustom.SetError(txtPassword, "Empty Field!");
-                return;
-            }
-            DBSYSEntities db = new DBSYSEntities();
-            db.sp_newUser(txtUsername.Text, txtPassword.Text, 1, (Int32)UserLogged.GetInstance().UserAccount.userId);
-        }
-
         private void dgv_main_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -109,84 +87,67 @@ namespace Dbsys
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            String username = txtUsername.Text;
-            String pass = txtPassword.Text;
-            String strOutputMsg = "";
-
-            if (userSelectedId == null)
+            try
             {
-                MessageBox.Show("No User Selected", "Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
+                using (var db = new DBSYSEntities())
+                {
+                    if (userSelectedId != null)
+                    {
+                        // Remove user logic
+                        db.Database.ExecuteSqlCommand(
+                            "sp_RemovedUsers @UserID",
+                            new SqlParameter("@UserID", userSelectedId)
+                        );
 
-            ErrorCode retValue = userRepo.RemoveUser(userSelectedId, ref strOutputMsg);
-            if (retValue == ErrorCode.Success)
-            {
-                //Clear the errors
-                errorProviderCustom.Clear();
-                MessageBox.Show(strOutputMsg, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                loadUser();
-                //reset the selected id
-                userSelectedId = null;
-
-                txtPassword.Clear();
-                txtUsername.Clear();
+                        MessageBox.Show("User removed successfully!");
+                        loadUser();
+                        userSelectedId = null;
+                        txtUsername.Clear();
+                        txtPassword.Clear();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please select a user to remove.");
+                    }
+                }
             }
-            else
+            catch (Exception ex)
             {
-                // error 
-                MessageBox.Show(strOutputMsg, "Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show($"An error occurred: {ex.Message}");
             }
+            
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            String username = txtUsername.Text;
-            String pass = txtPassword.Text;
-
-            String strOutputMsg = "";
-            // Validation not allow empty or null value
-            if (String.IsNullOrEmpty(username))
+            try
             {
-                errorProviderCustom.SetError(txtUsername, "Empty Field!");
-                return;
+                using (var db = new DBSYSEntities())
+                {
+                    if (userSelectedId != null)
+                    {
+                        // Update existing user logic
+                        db.Database.ExecuteSqlCommand(
+                            "sp_UpdatedUsers @UserID, @UserName, @UserPassword",
+                            new SqlParameter("@UserID", userSelectedId),
+                            new SqlParameter("@UserName", txtUsername.Text),
+                            new SqlParameter("@UserPassword", txtPassword.Text)
+                        );
+
+                        MessageBox.Show("User updated successfully!");
+                        loadUser();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please select a user to update.");
+                    }
+                }
             }
-            else
-            // Validation not allow empty or null value
-            if (String.IsNullOrEmpty(pass))
+            catch (Exception ex)
             {
-                errorProviderCustom.SetError(txtPassword, "Empty Field!");
-                return;
+                MessageBox.Show($"An error occurred: {ex.Message}");
             }
-
-            var userAccount = new UserAccount()
-            {
-                userName = username,
-                userPassword = pass
-            };
-
-            ErrorCode retValue = userRepo.UpdateUser(userSelectedId, userAccount, ref strOutputMsg);
-            if (retValue == ErrorCode.Success)
-            {
-                //Clear the errors
-                errorProviderCustom.Clear();
-                MessageBox.Show(strOutputMsg, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                loadUser();
-                // Refresh the data grid
-                Frm_Admin_Dashboard_Load(sender, new EventArgs());
-
-                //reset the selected id
-                userSelectedId = null;
-
-                txtPassword.Clear();
-                txtUsername.Clear();
             
-            }
-            else
-            {
-                // error 
-                MessageBox.Show(strOutputMsg, "Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
         }
 
        

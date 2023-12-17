@@ -76,7 +76,35 @@ BEGIN
     VALUES (@MovieID, @ShowDate, @StartTime, @EndTime, @Capacity);
 END;
 
+CREATE PROCEDURE sp_DeleteShowtimes @ShowtimeID INT
+AS
+BEGIN
+   DELETE FROM Showtimes WHERE ShowtimeID = @ShowtimeID;
+END;
 
+
+CREATE TABLE SeatManagement (
+    seatID INT PRIMARY KEY,
+    showtimeID INT FOREIGN KEY REFERENCES Showtimes(showtimeID),
+    sectionNumber INT NOT NULL,
+    rowNumber INT NOT NULL,
+    seatNumber INT NOT NULL,
+    isReserved BIT NOT NULL DEFAULT 0,
+    isBlocked BIT NOT NULL DEFAULT 0
+)
+CREATE PROCEDURE sp_UpdateSeatStatus
+    @ShowtimeID INT,
+    @SectionNumber INT,
+    @RowNumber INT,
+    @SeatNumber INT,
+    @IsReserved BIT,
+    @IsBlocked BIT
+AS
+BEGIN
+    UPDATE SeatManagement
+    SET isReserved = @IsReserved, isBlocked = @IsBlocked
+    WHERE showtimeID = @ShowtimeID AND sectionNumber = @SectionNumber AND rowNumber = @RowNumber AND seatNumber = @SeatNumber;
+END;
 --Creates the Tickets table
 CREATE TABLE Tickets(
     ticketID int PRIMARY KEY,
@@ -90,8 +118,10 @@ CREATE VIEW vw_TicketDetails
 AS
 SELECT t.ticketID, t.showtimeID, s.movieID, m.movieName, s.showDate, s.startTime, t.sectionNumber, t.rowNumber, t.seatNumber
 FROM Tickets t
-JOIN Showtimes s ON t.showtimeID = s.showtimeID
-JOIN Movie m ON s.movieID = m.movieID;
+JOIN Showtimes s 
+ON t.showtimeID = s.showtimeID
+JOIN Movie m 
+ON s.movieID = m.movieID;
 
 CREATE PROCEDURE sp_SellTicket @ShowtimeID INT, @SectionNumber INT, @RowNumber INT, @SeatNumber INT
 AS
@@ -130,11 +160,32 @@ INSERT [dbo].[Role] ([roleId], [roleName], [roleDescription]) VALUES (2, N'Staff
 INSERT [dbo].[Role] ([roleId], [roleName], [roleDescription]) VALUES (3, N'Admin', N'Admin')
 SET IDENTITY_INSERT [dbo].[Role] OFF
 
-CREATE PROCEDURE sp_newUser @userName nvarchar(50), @userPassword nvarchar(50), @createdBy int
-AS
-INSERT INTO UserAccount(userName, userPassword, createdBy) 
-	values (@userName, @userPassword, @createdBy)
+--CREATE PROCEDURE sp_newUser @userName nvarchar(50), @userPassword nvarchar(50), @createdBy int
+--AS
+--INSERT INTO UserAccount(userName, userPassword, createdBy) 
+--	values (@userName, @userPassword, @createdBy)
 
+CREATE PROCEDURE sp_UpdatedUsers
+    @UserID INT,
+    @UserName NVARCHAR(50),
+    @UserPassword NVARCHAR(50)
+AS
+BEGIN
+    UPDATE UserAccount
+    SET UserName = @UserName, UserPassword = @UserPassword
+    WHERE UserID = @UserID;
+END;
+
+CREATE PROCEDURE sp_RemovedUsers
+    @UserID INT
+AS
+BEGIN
+    -- Delete related records from UserInformation table
+    DELETE FROM UserInformation WHERE UserID = @UserID;
+
+    -- Delete the user from UserAccount table
+    DELETE FROM UserAccount WHERE UserID = @UserID;
+END;
 	
 
 

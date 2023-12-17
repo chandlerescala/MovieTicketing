@@ -108,10 +108,10 @@
             // 
             // viewMoviesToolStripMenuItem
             // 
-            this.viewMoviesToolStripMenuItem.Image = global::Dbsys.Properties.Resources.ticket;
+            this.viewMoviesToolStripMenuItem.Image = global::Dbsys.Properties.Resources.sits;
             this.viewMoviesToolStripMenuItem.Name = "viewMoviesToolStripMenuItem";
-            this.viewMoviesToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
-            this.viewMoviesToolStripMenuItem.Text = "Tickets";
+            this.viewMoviesToolStripMenuItem.Size = new System.Drawing.Size(131, 20);
+            this.viewMoviesToolStripMenuItem.Text = "Seat Management";
             this.viewMoviesToolStripMenuItem.Click += new System.EventHandler(this.viewMoviesToolStripMenuItem_Click);
             // 
             // accountManagementToolStripMenuItem
@@ -177,12 +177,12 @@
             this.linkLabel_ViewAccount.BackColor = System.Drawing.Color.White;
             this.linkLabel_ViewAccount.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel_ViewAccount.LinkColor = System.Drawing.Color.Black;
-            this.linkLabel_ViewAccount.Location = new System.Drawing.Point(365, 251);
+            this.linkLabel_ViewAccount.Location = new System.Drawing.Point(326, 251);
             this.linkLabel_ViewAccount.Name = "linkLabel_ViewAccount";
-            this.linkLabel_ViewAccount.Size = new System.Drawing.Size(64, 20);
+            this.linkLabel_ViewAccount.Size = new System.Drawing.Size(152, 20);
             this.linkLabel_ViewAccount.TabIndex = 7;
             this.linkLabel_ViewAccount.TabStop = true;
-            this.linkLabel_ViewAccount.Text = "Tickets";
+            this.linkLabel_ViewAccount.Text = "Seat Management";
             // 
             // linkLabel1
             // 
@@ -255,7 +255,7 @@
             // 
             // picBox_AdminLogin
             // 
-            this.picBox_AdminLogin.Image = global::Dbsys.Properties.Resources.ticket;
+            this.picBox_AdminLogin.Image = global::Dbsys.Properties.Resources.sits;
             this.picBox_AdminLogin.Location = new System.Drawing.Point(341, 150);
             this.picBox_AdminLogin.Name = "picBox_AdminLogin";
             this.picBox_AdminLogin.Size = new System.Drawing.Size(121, 98);
