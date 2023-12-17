@@ -23,7 +23,9 @@ userInfEmail varchar(MAX) NOT NULL,
 userId int,
 FOREIGN KEY (userId) REFERENCES UserAccount(userId)
 )
+CREATE VIEW vw_UserDetails  AS
 SELECT * FROM UserInformation
+
 --Creates the movie table
 CREATE TABLE Movie(
 	movieId int IDENTITY(1,1) PRIMARY KEY,
