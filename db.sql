@@ -83,62 +83,23 @@ BEGIN
 END;
 
 
-CREATE TABLE SeatManagement (
-    seatID INT PRIMARY KEY,
-    showtimeID INT FOREIGN KEY REFERENCES Showtimes(showtimeID),
-    sectionNumber INT NOT NULL,
-    rowNumber INT NOT NULL,
-    seatNumber INT NOT NULL,
-    isReserved BIT NOT NULL DEFAULT 0,
-    isBlocked BIT NOT NULL DEFAULT 0
-)
-CREATE PROCEDURE sp_UpdateSeatStatus
-    @ShowtimeID INT,
-    @SectionNumber INT,
-    @RowNumber INT,
-    @SeatNumber INT,
-    @IsReserved BIT,
-    @IsBlocked BIT
-AS
-BEGIN
-    UPDATE SeatManagement
-    SET isReserved = @IsReserved, isBlocked = @IsBlocked
-    WHERE showtimeID = @ShowtimeID AND sectionNumber = @SectionNumber AND rowNumber = @RowNumber AND seatNumber = @SeatNumber;
-END;
---Creates the Tickets table
-CREATE TABLE Tickets(
-    ticketID int PRIMARY KEY,
-    showtimeID int FOREIGN KEY REFERENCES Showtimes(showtimeID),
-	sectionNumber int NOT NULL,
-	rowNumber int NOT NULL,
-    seatNumber int NOT NULL
-)
-
-CREATE VIEW vw_TicketDetails
-AS
-SELECT t.ticketID, t.showtimeID, s.movieID, m.movieName, s.showDate, s.startTime, t.sectionNumber, t.rowNumber, t.seatNumber
-FROM Tickets t
-JOIN Showtimes s 
-ON t.showtimeID = s.showtimeID
-JOIN Movie m 
-ON s.movieID = m.movieID;
-
-CREATE PROCEDURE sp_SellTicket @ShowtimeID INT, @SectionNumber INT, @RowNumber INT, @SeatNumber INT
-AS
-BEGIN
-    INSERT INTO Tickets (showtimeID, sectionNumber, rowNumber, seatNumber)
-    VALUES (@ShowtimeID, @SectionNumber, @RowNumber, @SeatNumber);
-END;
-
 
 --Creates the Sales table
-CREATE TABLE Sales(
-	salesID int PRIMARY KEY,
-	ticketID int FOREIGN KEY REFERENCES Tickets(ticketID),
-	transactionAmount int NOT NULL,
-	transactionDate date NOT NULL,
-	transactionTime time NOT NULL
-)
+CREATE TABLE Sales (
+    saleID INT PRIMARY KEY,
+    showtimeID INT FOREIGN KEY REFERENCES Showtimes(showtimeID),
+    customerName VARCHAR(100) NOT NULL,
+    customerEmail VARCHAR(100),
+    customerPhone VARCHAR(20),
+    transactionDate DATETIME NOT NULL,
+    movieID INT FOREIGN KEY REFERENCES Movie(movieID),    seatNumber INT NOT NULL,
+    quantity INT NOT NULL,
+    totalAmount DECIMAL(10, 2) NOT NULL,
+    paidAmount DECIMAL(10, 2) NOT NULL,
+    changeAmount DECIMAL(10, 2) NOT NULL,
+    CONSTRAINT FK_Sales_Showtimes FOREIGN KEY (showtimeID) REFERENCES Showtimes(showtimeID),
+    CONSTRAINT FK_Sales_Movie FOREIGN KEY (movieID) REFERENCES Movie(movieID)
+);
 
 --Creates the Role table
 CREATE TABLE [dbo].[Role](
@@ -180,10 +141,8 @@ CREATE PROCEDURE sp_RemovedUsers
     @UserID INT
 AS
 BEGIN
-    -- Delete related records from UserInformation table
     DELETE FROM UserInformation WHERE UserID = @UserID;
 
-    -- Delete the user from UserAccount table
     DELETE FROM UserAccount WHERE UserID = @UserID;
 END;
 	
