@@ -34,9 +34,9 @@ namespace Dbsys.AppData
         public DbSet<Role> Role { get; set; }
         public DbSet<Sales> Sales { get; set; }
         public DbSet<Showtimes> Showtimes { get; set; }
-        public DbSet<Tickets> Tickets { get; set; }
         public DbSet<UserAccount> UserAccount { get; set; }
         public DbSet<UserInformation> UserInformation { get; set; }
+        public DbSet<vw_TransactionHistory> vw_TransactionHistory { get; set; }
     
         public virtual int sp_newUser(string userName, string userPassword, Nullable<int> roleId, Nullable<int> createdBy)
         {
@@ -273,6 +273,88 @@ namespace Dbsys.AppData
                 new ObjectParameter("UserID", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_RemovedUsers", userIDParameter);
+        }
+    
+        public virtual int sp_InsertSale(Nullable<int> showtimeID, string customerName, Nullable<System.DateTime> transactionDate, Nullable<int> movieID, Nullable<int> seatNumber, Nullable<int> quantity, Nullable<decimal> totalAmount, Nullable<decimal> paidAmount, Nullable<decimal> changeAmount)
+        {
+            var showtimeIDParameter = showtimeID.HasValue ?
+                new ObjectParameter("ShowtimeID", showtimeID) :
+                new ObjectParameter("ShowtimeID", typeof(int));
+    
+            var customerNameParameter = customerName != null ?
+                new ObjectParameter("CustomerName", customerName) :
+                new ObjectParameter("CustomerName", typeof(string));
+    
+            var transactionDateParameter = transactionDate.HasValue ?
+                new ObjectParameter("TransactionDate", transactionDate) :
+                new ObjectParameter("TransactionDate", typeof(System.DateTime));
+    
+            var movieIDParameter = movieID.HasValue ?
+                new ObjectParameter("MovieID", movieID) :
+                new ObjectParameter("MovieID", typeof(int));
+    
+            var seatNumberParameter = seatNumber.HasValue ?
+                new ObjectParameter("SeatNumber", seatNumber) :
+                new ObjectParameter("SeatNumber", typeof(int));
+    
+            var quantityParameter = quantity.HasValue ?
+                new ObjectParameter("Quantity", quantity) :
+                new ObjectParameter("Quantity", typeof(int));
+    
+            var totalAmountParameter = totalAmount.HasValue ?
+                new ObjectParameter("TotalAmount", totalAmount) :
+                new ObjectParameter("TotalAmount", typeof(decimal));
+    
+            var paidAmountParameter = paidAmount.HasValue ?
+                new ObjectParameter("PaidAmount", paidAmount) :
+                new ObjectParameter("PaidAmount", typeof(decimal));
+    
+            var changeAmountParameter = changeAmount.HasValue ?
+                new ObjectParameter("ChangeAmount", changeAmount) :
+                new ObjectParameter("ChangeAmount", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_InsertSale", showtimeIDParameter, customerNameParameter, transactionDateParameter, movieIDParameter, seatNumberParameter, quantityParameter, totalAmountParameter, paidAmountParameter, changeAmountParameter);
+        }
+    
+        public virtual int sp_InsertSales(Nullable<int> showtimeID, string customerName, Nullable<System.DateTime> transactionDate, Nullable<int> movieID, Nullable<int> seatNumber, Nullable<int> quantity, Nullable<decimal> totalAmount, Nullable<decimal> paidAmount, Nullable<decimal> changeAmount)
+        {
+            var showtimeIDParameter = showtimeID.HasValue ?
+                new ObjectParameter("ShowtimeID", showtimeID) :
+                new ObjectParameter("ShowtimeID", typeof(int));
+    
+            var customerNameParameter = customerName != null ?
+                new ObjectParameter("CustomerName", customerName) :
+                new ObjectParameter("CustomerName", typeof(string));
+    
+            var transactionDateParameter = transactionDate.HasValue ?
+                new ObjectParameter("TransactionDate", transactionDate) :
+                new ObjectParameter("TransactionDate", typeof(System.DateTime));
+    
+            var movieIDParameter = movieID.HasValue ?
+                new ObjectParameter("MovieID", movieID) :
+                new ObjectParameter("MovieID", typeof(int));
+    
+            var seatNumberParameter = seatNumber.HasValue ?
+                new ObjectParameter("SeatNumber", seatNumber) :
+                new ObjectParameter("SeatNumber", typeof(int));
+    
+            var quantityParameter = quantity.HasValue ?
+                new ObjectParameter("Quantity", quantity) :
+                new ObjectParameter("Quantity", typeof(int));
+    
+            var totalAmountParameter = totalAmount.HasValue ?
+                new ObjectParameter("TotalAmount", totalAmount) :
+                new ObjectParameter("TotalAmount", typeof(decimal));
+    
+            var paidAmountParameter = paidAmount.HasValue ?
+                new ObjectParameter("PaidAmount", paidAmount) :
+                new ObjectParameter("PaidAmount", typeof(decimal));
+    
+            var changeAmountParameter = changeAmount.HasValue ?
+                new ObjectParameter("ChangeAmount", changeAmount) :
+                new ObjectParameter("ChangeAmount", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_InsertSales", showtimeIDParameter, customerNameParameter, transactionDateParameter, movieIDParameter, seatNumberParameter, quantityParameter, totalAmountParameter, paidAmountParameter, changeAmountParameter);
         }
     }
 }

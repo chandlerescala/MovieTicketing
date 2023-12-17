@@ -16,7 +16,9 @@ namespace Dbsys.AppData
     {
         public Movie()
         {
+            this.Sales = new HashSet<Sales>();
             this.Showtimes = new HashSet<Showtimes>();
+            this.Sales1 = new HashSet<Sales>();
         }
     
         public int movieId { get; set; }
@@ -28,6 +30,8 @@ namespace Dbsys.AppData
         public string moviePublisher { get; set; }
         public string moviePathImg { get; set; }
     
+        public virtual ICollection<Sales> Sales { get; set; }
         public virtual ICollection<Showtimes> Showtimes { get; set; }
+        public virtual ICollection<Sales> Sales1 { get; set; }
     }
 }

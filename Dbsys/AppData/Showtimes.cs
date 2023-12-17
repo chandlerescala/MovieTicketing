@@ -16,7 +16,8 @@ namespace Dbsys.AppData
     {
         public Showtimes()
         {
-            this.Tickets = new HashSet<Tickets>();
+            this.Sales = new HashSet<Sales>();
+            this.Sales1 = new HashSet<Sales>();
         }
     
         public int showtimeID { get; set; }
@@ -27,6 +28,7 @@ namespace Dbsys.AppData
         public int capacity { get; set; }
     
         public virtual Movie Movie { get; set; }
-        public virtual ICollection<Tickets> Tickets { get; set; }
+        public virtual ICollection<Sales> Sales { get; set; }
+        public virtual ICollection<Sales> Sales1 { get; set; }
     }
 }

@@ -75,5 +75,49 @@ namespace Dbsys
                 MessageBox.Show(ex.Message);
             }
         }
+        private Showtimes GetSelectedShowtimeForMovie(Movie selectedMovie)
+        {
+            using (var db = new DBSYSEntities())
+            {
+                // Explicitly load the related Movie entity
+                selectedMovie = db.Movie.Find(selectedMovie.movieId);
+
+                return db.Showtimes
+                    .Where(s => s.movieID == selectedMovie.movieId)
+                    .OrderBy(s => s.showDate)
+                    .FirstOrDefault();
+            }
+        }
+        private void picBox_Buy_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Ensure a movie is selected
+                if (cbMovies.SelectedIndex >= 0)
+                {
+                    // Get the selected movie
+                    Movie selectedMovie = (Movie)cbMovies.SelectedItem;
+
+                    // Assuming Frm_Customer_Sales accepts a Showtime parameter, 
+                    // you may need to adjust this based on your form's constructor
+                    Showtimes selectedShowtime = GetSelectedShowtimeForMovie(selectedMovie);
+
+                    // Pass the selected showtime to the sales form
+                    Frm_Customer_Sales buy = new Frm_Customer_Sales(selectedShowtime);
+                    buy.Show();
+                    this.Hide();  // Hide the current form instead of closing it
+                }
+                else
+                {
+                    MessageBox.Show("Please select a movie before proceeding to buy tickets.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+
     }
 }

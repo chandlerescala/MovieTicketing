@@ -85,9 +85,6 @@
     <Compile Include="AppData\sp_DeleteShowtimes_Result.cs">
       <DependentUpon>DbysModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="AppData\Tickets.cs">
-      <DependentUpon>DbysModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="AppData\UserAccount.cs">
       <DependentUpon>DbysModel.tt</DependentUpon>
     </Compile>
@@ -99,6 +96,15 @@
     </Compile>
     <Compile Include="AppData\vw_ShowtimeDetails.cs">
       <DependentUpon>DbysModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppData\vw_TransactionHistory.cs">
+      <DependentUpon>DbysModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Frm_TransactionHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Frm_TransactionHistory.Designer.cs">
+      <DependentUpon>Frm_TransactionHistory.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Frm_Customer_ClosedShow.cs">
       <SubType>Form</SubType>
@@ -123,6 +129,12 @@
     </Compile>
     <Compile Include="Forms\Frm_CustomerHome.Designer.cs">
       <DependentUpon>Frm_CustomerHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Frm_Customer_Sales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Frm_Customer_Sales.Designer.cs">
+      <DependentUpon>Frm_Customer_Sales.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Frm_StaffHome.cs">
       <SubType>Form</SubType>
@@ -184,12 +196,6 @@
     <Compile Include="Forms\Frm_UserHome.Designer.cs">
       <DependentUpon>Frm_UserHome.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Frm_Admin_History.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Frm_Admin_History.Designer.cs">
-      <DependentUpon>Frm_Admin_History.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Movies\Movie1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -220,6 +226,9 @@
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Utils\Constant.cs" />
     <Compile Include="Utils\Func.cs" />
+    <EmbeddedResource Include="Forms\Frm_TransactionHistory.resx">
+      <DependentUpon>Frm_TransactionHistory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Frm_Customer_ClosedShow.resx">
       <DependentUpon>Frm_Customer_ClosedShow.cs</DependentUpon>
     </EmbeddedResource>
@@ -231,6 +240,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Frm_CustomerHome.resx">
       <DependentUpon>Frm_CustomerHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Frm_Customer_Sales.resx">
+      <DependentUpon>Frm_Customer_Sales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Frm_StaffHome.resx">
       <DependentUpon>Frm_StaffHome.cs</DependentUpon>
@@ -261,9 +273,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Frm_UserHome.resx">
       <DependentUpon>Frm_UserHome.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Frm_Admin_History.resx">
-      <DependentUpon>Frm_Admin_History.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Movies\Movie1.resx">
       <DependentUpon>Movie1.cs</DependentUpon>

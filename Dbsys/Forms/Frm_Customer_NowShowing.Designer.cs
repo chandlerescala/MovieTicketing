@@ -234,6 +234,7 @@
             this.picBox_Buy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBox_Buy.TabIndex = 47;
             this.picBox_Buy.TabStop = false;
+            this.picBox_Buy.Click += new System.EventHandler(this.picBox_Buy_Click);
             // 
             // linkLabel_Buy
             // 

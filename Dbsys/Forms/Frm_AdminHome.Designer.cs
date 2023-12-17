@@ -143,7 +143,7 @@
             // 
             this.profileToolStripMenuItem.Image = global::Dbsys.Properties.Resources.profile2;
             this.profileToolStripMenuItem.Name = "profileToolStripMenuItem";
-            this.profileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.profileToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
             this.profileToolStripMenuItem.Text = "Profile";
             this.profileToolStripMenuItem.Click += new System.EventHandler(this.profileToolStripMenuItem_Click);
             // 

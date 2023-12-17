@@ -76,7 +76,7 @@ namespace Dbsys
 
         private void picBox_History_Click(object sender, EventArgs e)
         {
-            Frm_Admin_History hist = new Frm_Admin_History();
+            Frm_TransactionHistory hist = new Frm_TransactionHistory();
             hist.Show();
             this.Close();
         }
@@ -104,7 +104,7 @@ namespace Dbsys
 
         private void transactionHistoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Frm_Admin_History hist = new Frm_Admin_History();
+            Frm_TransactionHistory hist = new Frm_TransactionHistory();
             hist.Show();
             this.Close();
         }

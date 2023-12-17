@@ -89,10 +89,9 @@ CREATE TABLE Sales (
     saleID INT PRIMARY KEY,
     showtimeID INT FOREIGN KEY REFERENCES Showtimes(showtimeID),
     customerName VARCHAR(100) NOT NULL,
-    customerEmail VARCHAR(100),
-    customerPhone VARCHAR(20),
     transactionDate DATETIME NOT NULL,
-    movieID INT FOREIGN KEY REFERENCES Movie(movieID),    seatNumber INT NOT NULL,
+    movieID INT FOREIGN KEY REFERENCES Movie(movieID),    
+	seatNumber INT NOT NULL,
     quantity INT NOT NULL,
     totalAmount DECIMAL(10, 2) NOT NULL,
     paidAmount DECIMAL(10, 2) NOT NULL,
@@ -100,6 +99,14 @@ CREATE TABLE Sales (
     CONSTRAINT FK_Sales_Showtimes FOREIGN KEY (showtimeID) REFERENCES Showtimes(showtimeID),
     CONSTRAINT FK_Sales_Movie FOREIGN KEY (movieID) REFERENCES Movie(movieID)
 );
+
+SELECT * FROM Sales
+CREATE PROCEDURE sp_InsertSales @ShowtimeID INT, @CustomerName VARCHAR(100), @TransactionDate DATETIME, @MovieID INT, @SeatNumber INT, @Quantity INT, @TotalAmount DECIMAL(10, 2), @PaidAmount DECIMAL(10, 2), @ChangeAmount DECIMAL(10, 2)
+AS
+BEGIN
+    INSERT INTO Sales ( showtimeID, customerName, transactionDate, movieID, seatNumber, quantity, totalAmount, paidAmount, changeAmount)
+    VALUES (@ShowtimeID,  @CustomerName, @TransactionDate,  @MovieID, @SeatNumber, @Quantity, @TotalAmount, @PaidAmount, @ChangeAmount);
+END;
 
 --Creates the Role table
 CREATE TABLE [dbo].[Role](
@@ -147,6 +154,29 @@ BEGIN
 END;
 	
 
+-- Create a view to get transaction details for a user
+CREATE VIEW vw_TransactionHistory
+AS
+SELECT s.saleID, s.showtimeID, st.movieID, m.movieName, s.customerName, s.transactionDate, s.seatNumber, s.quantity, s.totalAmount, s.paidAmount, s.changeAmount
+FROM Sales s
+JOIN Showtimes st 
+ON s.showtimeID = st.showtimeID
+JOIN Movie m 
+ON st.movieID = m.movieId;
 
+
+-- Create a stored procedure to retrieve transaction history for a specific user
+CREATE PROCEDURE sp_GetUserTransactionHistory @UserID INT
+AS
+BEGIN
+    SELECT h.*
+    FROM vw_UserTransactionHistory h 
+	JOIN Showtimes st 
+	ON h.showtimeID = st.showtimeID
+    WHERE st.showDate <= GETDATE()  -- Filter transactions for past showtimes
+        AND EXISTS (
+            SELECT 1 FROM UserAccount u WHERE u.userId = @UserID AND u.userId = st.createdBy
+        );
+END;
 
 

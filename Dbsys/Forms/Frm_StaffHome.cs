@@ -75,7 +75,9 @@ namespace Dbsys
 
         private void picBox_History_Click(object sender, EventArgs e)
         {
-            
+            Frm_TransactionHistory hist = new Frm_TransactionHistory();
+            hist.Show();
+            this.Close();
         }
 
         private void addMovieToolStripMenuItem_Click(object sender, EventArgs e)
@@ -95,7 +97,9 @@ namespace Dbsys
 
         private void transactionHistoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+            Frm_TransactionHistory hist = new Frm_TransactionHistory();
+            hist.Show();
+            this.Close();
         }
 
         private void logOutToolStripMenuItem_Click_1(object sender, EventArgs e)

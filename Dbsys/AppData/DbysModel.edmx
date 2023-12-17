@@ -28,13 +28,18 @@
         </EntityType>
         <EntityType Name="Sales">
           <Key>
-            <PropertyRef Name="salesID" />
+            <PropertyRef Name="saleID" />
           </Key>
-          <Property Name="salesID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ticketID" Type="int" />
-          <Property Name="transactionAmount" Type="int" Nullable="false" />
-          <Property Name="transactionDate" Type="date" Nullable="false" />
-          <Property Name="transactionTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="saleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="showtimeID" Type="int" />
+          <Property Name="customerName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="transactionDate" Type="datetime" Nullable="false" />
+          <Property Name="movieID" Type="int" />
+          <Property Name="seatNumber" Type="int" Nullable="false" />
+          <Property Name="quantity" Type="int" Nullable="false" />
+          <Property Name="totalAmount" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="paidAmount" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="changeAmount" Type="decimal" Precision="10" Scale="2" Nullable="false" />
         </EntityType>
         <EntityType Name="Showtimes">
           <Key>
@@ -46,16 +51,6 @@
           <Property Name="startTime" Type="time" Precision="7" Nullable="false" />
           <Property Name="endTime" Type="time" Precision="7" Nullable="false" />
           <Property Name="capacity" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Tickets">
-          <Key>
-            <PropertyRef Name="ticketID" />
-          </Key>
-          <Property Name="ticketID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="showtimeID" Type="int" />
-          <Property Name="sectionNumber" Type="int" Nullable="false" />
-          <Property Name="rowNumber" Type="int" Nullable="false" />
-          <Property Name="seatNumber" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="UserAccount">
           <Key>
@@ -110,15 +105,53 @@ warning 6002: The table/view 'DBSYS.dbo.vw_ShowtimeDetails' does not have a prim
           <Property Name="endTime" Type="time" Precision="7" Nullable="false" />
           <Property Name="capacity" Type="int" Nullable="false" />
         </EntityType>
-        <Association Name="FK__Sales__ticketID__02FC7413">
-          <End Role="Tickets" Type="Self.Tickets" Multiplicity="0..1" />
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DBSYS.dbo.vw_TransactionHistory' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_TransactionHistory">
+          <Key>
+            <PropertyRef Name="saleID" />
+            <PropertyRef Name="movieName" />
+            <PropertyRef Name="customerName" />
+            <PropertyRef Name="transactionDate" />
+            <PropertyRef Name="seatNumber" />
+            <PropertyRef Name="quantity" />
+            <PropertyRef Name="totalAmount" />
+            <PropertyRef Name="paidAmount" />
+            <PropertyRef Name="changeAmount" />
+          </Key>
+          <Property Name="saleID" Type="int" Nullable="false" />
+          <Property Name="showtimeID" Type="int" />
+          <Property Name="movieID" Type="int" />
+          <Property Name="movieName" Type="varchar(max)" Nullable="false" />
+          <Property Name="customerName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="transactionDate" Type="datetime" Nullable="false" />
+          <Property Name="seatNumber" Type="int" Nullable="false" />
+          <Property Name="quantity" Type="int" Nullable="false" />
+          <Property Name="totalAmount" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="paidAmount" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="changeAmount" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Sales__movieID__3A4CA8FD">
+          <End Role="Movie" Type="Self.Movie" Multiplicity="0..1" />
           <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Tickets">
-              <PropertyRef Name="ticketID" />
+            <Principal Role="Movie">
+              <PropertyRef Name="movieId" />
             </Principal>
             <Dependent Role="Sales">
-              <PropertyRef Name="ticketID" />
+              <PropertyRef Name="movieID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sales__showtimeI__395884C4">
+          <End Role="Showtimes" Type="Self.Showtimes" Multiplicity="0..1" />
+          <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Showtimes">
+              <PropertyRef Name="showtimeID" />
+            </Principal>
+            <Dependent Role="Sales">
+              <PropertyRef Name="showtimeID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -134,18 +167,6 @@ warning 6002: The table/view 'DBSYS.dbo.vw_ShowtimeDetails' does not have a prim
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Tickets__showtim__6B24EA82">
-          <End Role="Showtimes" Type="Self.Showtimes" Multiplicity="0..1" />
-          <End Role="Tickets" Type="Self.Tickets" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Showtimes">
-              <PropertyRef Name="showtimeID" />
-            </Principal>
-            <Dependent Role="Tickets">
-              <PropertyRef Name="showtimeID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__UserInfor__userI__6EF57B66">
           <End Role="UserAccount" Type="Self.UserAccount" Multiplicity="0..1" />
           <End Role="UserInformation" Type="Self.UserInformation" Multiplicity="*" />
@@ -158,8 +179,43 @@ warning 6002: The table/view 'DBSYS.dbo.vw_ShowtimeDetails' does not have a prim
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Sales_Movie">
+          <End Role="Movie" Type="Self.Movie" Multiplicity="0..1" />
+          <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movie">
+              <PropertyRef Name="movieId" />
+            </Principal>
+            <Dependent Role="Sales">
+              <PropertyRef Name="movieID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sales_Showtimes">
+          <End Role="Showtimes" Type="Self.Showtimes" Multiplicity="0..1" />
+          <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Showtimes">
+              <PropertyRef Name="showtimeID" />
+            </Principal>
+            <Dependent Role="Sales">
+              <PropertyRef Name="showtimeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Function Name="sp_DeleteShowtimes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ShowtimeID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_InsertSales" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ShowtimeID" Type="int" Mode="In" />
+          <Parameter Name="CustomerName" Type="varchar" Mode="In" />
+          <Parameter Name="TransactionDate" Type="datetime" Mode="In" />
+          <Parameter Name="MovieID" Type="int" Mode="In" />
+          <Parameter Name="SeatNumber" Type="int" Mode="In" />
+          <Parameter Name="Quantity" Type="int" Mode="In" />
+          <Parameter Name="TotalAmount" Type="decimal" Mode="In" />
+          <Parameter Name="PaidAmount" Type="decimal" Mode="In" />
+          <Parameter Name="ChangeAmount" Type="decimal" Mode="In" />
         </Function>
         <Function Name="sp_InsertShowtimes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="MovieID" Type="int" Mode="In" />
@@ -189,7 +245,6 @@ warning 6002: The table/view 'DBSYS.dbo.vw_ShowtimeDetails' does not have a prim
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sales" EntityType="Self.Sales" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Showtimes" EntityType="Self.Showtimes" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Tickets" EntityType="Self.Tickets" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserAccount" EntityType="Self.UserAccount" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserInformation" EntityType="Self.UserInformation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="vw_all_user_role" EntityType="Self.vw_all_user_role" store:Type="Views" store:Schema="dbo">
@@ -211,21 +266,44 @@ FROM [dbo].[vw_all_user_role] AS [vw_all_user_role]</DefiningQuery>
 [vw_ShowtimeDetails].[capacity] AS [capacity]
 FROM [dbo].[vw_ShowtimeDetails] AS [vw_ShowtimeDetails]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK__Sales__ticketID__02FC7413" Association="Self.FK__Sales__ticketID__02FC7413">
-            <End Role="Tickets" EntitySet="Tickets" />
+          <EntitySet Name="vw_TransactionHistory" EntityType="Self.vw_TransactionHistory" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[vw_TransactionHistory].[saleID] AS [saleID], 
+[vw_TransactionHistory].[showtimeID] AS [showtimeID], 
+[vw_TransactionHistory].[movieID] AS [movieID], 
+[vw_TransactionHistory].[movieName] AS [movieName], 
+[vw_TransactionHistory].[customerName] AS [customerName], 
+[vw_TransactionHistory].[transactionDate] AS [transactionDate], 
+[vw_TransactionHistory].[seatNumber] AS [seatNumber], 
+[vw_TransactionHistory].[quantity] AS [quantity], 
+[vw_TransactionHistory].[totalAmount] AS [totalAmount], 
+[vw_TransactionHistory].[paidAmount] AS [paidAmount], 
+[vw_TransactionHistory].[changeAmount] AS [changeAmount]
+FROM [dbo].[vw_TransactionHistory] AS [vw_TransactionHistory]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__Sales__movieID__3A4CA8FD" Association="Self.FK__Sales__movieID__3A4CA8FD">
+            <End Role="Movie" EntitySet="Movie" />
+            <End Role="Sales" EntitySet="Sales" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sales__showtimeI__395884C4" Association="Self.FK__Sales__showtimeI__395884C4">
+            <End Role="Showtimes" EntitySet="Showtimes" />
             <End Role="Sales" EntitySet="Sales" />
           </AssociationSet>
           <AssociationSet Name="FK__Showtimes__movie__68487DD7" Association="Self.FK__Showtimes__movie__68487DD7">
             <End Role="Movie" EntitySet="Movie" />
             <End Role="Showtimes" EntitySet="Showtimes" />
           </AssociationSet>
-          <AssociationSet Name="FK__Tickets__showtim__6B24EA82" Association="Self.FK__Tickets__showtim__6B24EA82">
-            <End Role="Showtimes" EntitySet="Showtimes" />
-            <End Role="Tickets" EntitySet="Tickets" />
-          </AssociationSet>
           <AssociationSet Name="FK__UserInfor__userI__6EF57B66" Association="Self.FK__UserInfor__userI__6EF57B66">
             <End Role="UserAccount" EntitySet="UserAccount" />
             <End Role="UserInformation" EntitySet="UserInformation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sales_Movie" Association="Self.FK_Sales_Movie">
+            <End Role="Movie" EntitySet="Movie" />
+            <End Role="Sales" EntitySet="Sales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sales_Showtimes" Association="Self.FK_Sales_Showtimes">
+            <End Role="Showtimes" EntitySet="Showtimes" />
+            <End Role="Sales" EntitySet="Sales" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -257,29 +335,6 @@ FROM [dbo].[vw_ShowtimeDetails] AS [vw_ShowtimeDetails]</DefiningQuery>
             <Parameter Name="roleId" Mode="In" Type="Int32" />
           </FunctionImport>
           <EntitySet Name="vw_ShowtimeDetails" EntityType="DBSYSModel.vw_ShowtimeDetails" />
-          <EntitySet Name="Movie" EntityType="DBSYSModel.Movie" />
-          <EntitySet Name="Role" EntityType="DBSYSModel.Role" />
-          <EntitySet Name="Sales" EntityType="DBSYSModel.Sales" />
-          <EntitySet Name="Showtimes" EntityType="DBSYSModel.Showtimes" />
-          <EntitySet Name="Tickets" EntityType="DBSYSModel.Tickets" />
-          <EntitySet Name="UserAccount" EntityType="DBSYSModel.UserAccount" />
-          <EntitySet Name="UserInformation" EntityType="DBSYSModel.UserInformation" />
-          <AssociationSet Name="FK__Showtimes__movie__68487DD7" Association="DBSYSModel.FK__Showtimes__movie__68487DD7">
-            <End Role="Movie" EntitySet="Movie" />
-            <End Role="Showtimes" EntitySet="Showtimes" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Sales__ticketID__02FC7413" Association="DBSYSModel.FK__Sales__ticketID__02FC7413">
-            <End Role="Tickets" EntitySet="Tickets" />
-            <End Role="Sales" EntitySet="Sales" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Tickets__showtim__6B24EA82" Association="DBSYSModel.FK__Tickets__showtim__6B24EA82">
-            <End Role="Showtimes" EntitySet="Showtimes" />
-            <End Role="Tickets" EntitySet="Tickets" />
-          </AssociationSet>
-          <AssociationSet Name="FK__UserInfor__userI__6EF57B66" Association="DBSYSModel.FK__UserInfor__userI__6EF57B66">
-            <End Role="UserAccount" EntitySet="UserAccount" />
-            <End Role="UserInformation" EntitySet="UserInformation" />
-          </AssociationSet>
           <FunctionImport Name="sp_UpdateShowtime">
             <Parameter Name="ShowtimeID" Mode="In" Type="Int32" />
             <Parameter Name="MovieID" Mode="In" Type="Int32" />
@@ -325,7 +380,60 @@ FROM [dbo].[vw_ShowtimeDetails] AS [vw_ShowtimeDetails]</DefiningQuery>
             <Parameter Name="UserPassword" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_RemovedUsers">
-            <Parameter Name="UserID" Mode="In" Type="Int32" />
+          <Parameter Name="UserID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="Movie" EntityType="DBSYSModel.Movie" />
+          <EntitySet Name="Role" EntityType="DBSYSModel.Role" />
+          <EntitySet Name="Sales" EntityType="DBSYSModel.Sales" />
+          <EntitySet Name="Showtimes" EntityType="DBSYSModel.Showtimes" />
+          <EntitySet Name="UserAccount" EntityType="DBSYSModel.UserAccount" />
+          <EntitySet Name="UserInformation" EntityType="DBSYSModel.UserInformation" />
+          <AssociationSet Name="FK__Sales__movieID__3A4CA8FD" Association="DBSYSModel.FK__Sales__movieID__3A4CA8FD">
+            <End Role="Movie" EntitySet="Movie" />
+            <End Role="Sales" EntitySet="Sales" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Showtimes__movie__68487DD7" Association="DBSYSModel.FK__Showtimes__movie__68487DD7">
+            <End Role="Movie" EntitySet="Movie" />
+            <End Role="Showtimes" EntitySet="Showtimes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sales_Movie" Association="DBSYSModel.FK_Sales_Movie">
+            <End Role="Movie" EntitySet="Movie" />
+            <End Role="Sales" EntitySet="Sales" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sales__showtimeI__395884C4" Association="DBSYSModel.FK__Sales__showtimeI__395884C4">
+            <End Role="Showtimes" EntitySet="Showtimes" />
+            <End Role="Sales" EntitySet="Sales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sales_Showtimes" Association="DBSYSModel.FK_Sales_Showtimes">
+            <End Role="Showtimes" EntitySet="Showtimes" />
+            <End Role="Sales" EntitySet="Sales" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserInfor__userI__6EF57B66" Association="DBSYSModel.FK__UserInfor__userI__6EF57B66">
+            <End Role="UserAccount" EntitySet="UserAccount" />
+            <End Role="UserInformation" EntitySet="UserInformation" />
+          </AssociationSet>
+          <FunctionImport Name="sp_InsertSale">
+            <Parameter Name="ShowtimeID" Mode="In" Type="Int32" />
+            <Parameter Name="CustomerName" Mode="In" Type="String" />
+            <Parameter Name="TransactionDate" Mode="In" Type="DateTime" />
+            <Parameter Name="MovieID" Mode="In" Type="Int32" />
+            <Parameter Name="SeatNumber" Mode="In" Type="Int32" />
+            <Parameter Name="Quantity" Mode="In" Type="Int32" />
+            <Parameter Name="TotalAmount" Mode="In" Type="Decimal" />
+            <Parameter Name="PaidAmount" Mode="In" Type="Decimal" />
+            <Parameter Name="ChangeAmount" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <EntitySet Name="vw_TransactionHistory" EntityType="DBSYSModel.vw_TransactionHistory" />
+          <FunctionImport Name="sp_InsertSales">
+            <Parameter Name="ShowtimeID" Mode="In" Type="Int32" />
+            <Parameter Name="CustomerName" Mode="In" Type="String" />
+            <Parameter Name="TransactionDate" Mode="In" Type="DateTime" />
+            <Parameter Name="MovieID" Mode="In" Type="Int32" />
+            <Parameter Name="SeatNumber" Mode="In" Type="Int32" />
+            <Parameter Name="Quantity" Mode="In" Type="Int32" />
+            <Parameter Name="TotalAmount" Mode="In" Type="Decimal" />
+            <Parameter Name="PaidAmount" Mode="In" Type="Decimal" />
+            <Parameter Name="ChangeAmount" Mode="In" Type="Decimal" />
           </FunctionImport>
           </EntityContainer>
         <EntityType Name="vw_all_user_role">
@@ -356,6 +464,15 @@ FROM [dbo].[vw_ShowtimeDetails] AS [vw_ShowtimeDetails]</DefiningQuery>
           <Property Name="endTime" Type="Time" Nullable="false" Precision="7" />
           <Property Name="capacity" Type="Int32" Nullable="false" />
         </EntityType>
+        <ComplexType Name="sp_DeleteShowtimes_Result">
+          <Property Type="Int32" Name="ShowtimeID" Nullable="false" />
+          <Property Type="Int32" Name="movieID" Nullable="true" />
+          <Property Type="String" Name="movieName" Nullable="false" />
+          <Property Type="DateTime" Name="showDate" Nullable="false" />
+          <Property Type="Time" Name="startTime" Nullable="false" />
+          <Property Type="Time" Name="endTime" Nullable="false" />
+          <Property Type="Int32" Name="capacity" Nullable="false" />
+        </ComplexType>
         <EntityType Name="Movie">
           <Key>
             <PropertyRef Name="movieId" />
@@ -368,7 +485,9 @@ FROM [dbo].[vw_ShowtimeDetails] AS [vw_ShowtimeDetails]</DefiningQuery>
           <Property Name="movieDirector" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="moviePublisher" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="moviePathImg" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Sales" Relationship="DBSYSModel.FK__Sales__movieID__3A4CA8FD" FromRole="Movie" ToRole="Sales" />
           <NavigationProperty Name="Showtimes" Relationship="DBSYSModel.FK__Showtimes__movie__68487DD7" FromRole="Movie" ToRole="Showtimes" />
+          <NavigationProperty Name="Sales1" Relationship="DBSYSModel.FK_Sales_Movie" FromRole="Movie" ToRole="Sales" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -380,39 +499,36 @@ FROM [dbo].[vw_ShowtimeDetails] AS [vw_ShowtimeDetails]</DefiningQuery>
         </EntityType>
         <EntityType Name="Sales">
           <Key>
-            <PropertyRef Name="salesID" />
+            <PropertyRef Name="saleID" />
           </Key>
-          <Property Name="salesID" Type="Int32" Nullable="false" />
-          <Property Name="ticketID" Type="Int32" />
-          <Property Name="transactionAmount" Type="Int32" Nullable="false" />
-          <Property Name="transactionDate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="transactionTime" Type="Time" Nullable="false" Precision="7" />
-          <NavigationProperty Name="Tickets" Relationship="DBSYSModel.FK__Sales__ticketID__02FC7413" FromRole="Sales" ToRole="Tickets" />
+          <Property Name="saleID" Type="Int32" Nullable="false" />
+          <Property Name="showtimeID" Type="Int32" />
+          <Property Name="customerName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="transactionDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="movieID" Type="Int32" />
+          <Property Name="seatNumber" Type="Int32" Nullable="false" />
+          <Property Name="quantity" Type="Int32" Nullable="false" />
+          <Property Name="totalAmount" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="paidAmount" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="changeAmount" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <NavigationProperty Name="Movie" Relationship="DBSYSModel.FK__Sales__movieID__3A4CA8FD" FromRole="Sales" ToRole="Movie" />
+          <NavigationProperty Name="Movie1" Relationship="DBSYSModel.FK_Sales_Movie" FromRole="Sales" ToRole="Movie" />
+          <NavigationProperty Name="Showtimes" Relationship="DBSYSModel.FK__Sales__showtimeI__395884C4" FromRole="Sales" ToRole="Showtimes" />
+          <NavigationProperty Name="Showtimes1" Relationship="DBSYSModel.FK_Sales_Showtimes" FromRole="Sales" ToRole="Showtimes" />
         </EntityType>
         <EntityType Name="Showtimes">
           <Key>
             <PropertyRef Name="showtimeID" />
           </Key>
-          <Property Name="showtimeID" Type="Int32" Nullable="false" />
+          <Property Name="showtimeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="movieID" Type="Int32" />
           <Property Name="showDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="startTime" Type="Time" Nullable="false" Precision="7" />
           <Property Name="endTime" Type="Time" Nullable="false" Precision="7" />
           <Property Name="capacity" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Movie" Relationship="DBSYSModel.FK__Showtimes__movie__68487DD7" FromRole="Showtimes" ToRole="Movie" />
-          <NavigationProperty Name="Tickets" Relationship="DBSYSModel.FK__Tickets__showtim__6B24EA82" FromRole="Showtimes" ToRole="Tickets" />
-        </EntityType>
-        <EntityType Name="Tickets">
-          <Key>
-            <PropertyRef Name="ticketID" />
-          </Key>
-          <Property Name="ticketID" Type="Int32" Nullable="false" />
-          <Property Name="showtimeID" Type="Int32" />
-          <Property Name="sectionNumber" Type="Int32" Nullable="false" />
-          <Property Name="rowNumber" Type="Int32" Nullable="false" />
-          <Property Name="seatNumber" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Sales" Relationship="DBSYSModel.FK__Sales__ticketID__02FC7413" FromRole="Tickets" ToRole="Sales" />
-          <NavigationProperty Name="Showtimes" Relationship="DBSYSModel.FK__Tickets__showtim__6B24EA82" FromRole="Tickets" ToRole="Showtimes" />
+          <NavigationProperty Name="Sales" Relationship="DBSYSModel.FK__Sales__showtimeI__395884C4" FromRole="Showtimes" ToRole="Sales" />
+          <NavigationProperty Name="Sales1" Relationship="DBSYSModel.FK_Sales_Showtimes" FromRole="Showtimes" ToRole="Sales" />
         </EntityType>
         <EntityType Name="UserAccount">
           <Key>
@@ -437,6 +553,18 @@ FROM [dbo].[vw_ShowtimeDetails] AS [vw_ShowtimeDetails]</DefiningQuery>
           <Property Name="userId" Type="Int32" />
           <NavigationProperty Name="UserAccount" Relationship="DBSYSModel.FK__UserInfor__userI__6EF57B66" FromRole="UserInformation" ToRole="UserAccount" />
         </EntityType>
+        <Association Name="FK__Sales__movieID__3A4CA8FD">
+          <End Type="DBSYSModel.Movie" Role="Movie" Multiplicity="0..1" />
+          <End Type="DBSYSModel.Sales" Role="Sales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movie">
+              <PropertyRef Name="movieId" />
+            </Principal>
+            <Dependent Role="Sales">
+              <PropertyRef Name="movieID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__Showtimes__movie__68487DD7">
           <End Type="DBSYSModel.Movie" Role="Movie" Multiplicity="0..1" />
           <End Type="DBSYSModel.Showtimes" Role="Showtimes" Multiplicity="*" />
@@ -449,26 +577,38 @@ FROM [dbo].[vw_ShowtimeDetails] AS [vw_ShowtimeDetails]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Sales__ticketID__02FC7413">
-          <End Type="DBSYSModel.Tickets" Role="Tickets" Multiplicity="0..1" />
+        <Association Name="FK_Sales_Movie">
+          <End Type="DBSYSModel.Movie" Role="Movie" Multiplicity="0..1" />
           <End Type="DBSYSModel.Sales" Role="Sales" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Tickets">
-              <PropertyRef Name="ticketID" />
+            <Principal Role="Movie">
+              <PropertyRef Name="movieId" />
             </Principal>
             <Dependent Role="Sales">
-              <PropertyRef Name="ticketID" />
+              <PropertyRef Name="movieID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Tickets__showtim__6B24EA82">
+        <Association Name="FK__Sales__showtimeI__395884C4">
           <End Type="DBSYSModel.Showtimes" Role="Showtimes" Multiplicity="0..1" />
-          <End Type="DBSYSModel.Tickets" Role="Tickets" Multiplicity="*" />
+          <End Type="DBSYSModel.Sales" Role="Sales" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Showtimes">
               <PropertyRef Name="showtimeID" />
             </Principal>
-            <Dependent Role="Tickets">
+            <Dependent Role="Sales">
+              <PropertyRef Name="showtimeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sales_Showtimes">
+          <End Type="DBSYSModel.Showtimes" Role="Showtimes" Multiplicity="0..1" />
+          <End Type="DBSYSModel.Sales" Role="Sales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Showtimes">
+              <PropertyRef Name="showtimeID" />
+            </Principal>
+            <Dependent Role="Sales">
               <PropertyRef Name="showtimeID" />
             </Dependent>
           </ReferentialConstraint>
@@ -485,15 +625,30 @@ FROM [dbo].[vw_ShowtimeDetails] AS [vw_ShowtimeDetails]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <ComplexType Name="sp_DeleteShowtimes_Result">
-          <Property Type="Int32" Name="ShowtimeID" Nullable="false" />
-          <Property Type="Int32" Name="movieID" Nullable="true" />
-          <Property Type="String" Name="movieName" Nullable="false" />
-          <Property Type="DateTime" Name="showDate" Nullable="false" />
-          <Property Type="Time" Name="startTime" Nullable="false" />
-          <Property Type="Time" Name="endTime" Nullable="false" />
-          <Property Type="Int32" Name="capacity" Nullable="false" />
-        </ComplexType>
+        <EntityType Name="vw_TransactionHistory">
+          <Key>
+            <PropertyRef Name="saleID" />
+            <PropertyRef Name="movieName" />
+            <PropertyRef Name="customerName" />
+            <PropertyRef Name="transactionDate" />
+            <PropertyRef Name="seatNumber" />
+            <PropertyRef Name="quantity" />
+            <PropertyRef Name="totalAmount" />
+            <PropertyRef Name="paidAmount" />
+            <PropertyRef Name="changeAmount" />
+          </Key>
+          <Property Name="saleID" Type="Int32" Nullable="false" />
+          <Property Name="showtimeID" Type="Int32" />
+          <Property Name="movieID" Type="Int32" />
+          <Property Name="movieName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="customerName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="transactionDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="seatNumber" Type="Int32" Nullable="false" />
+          <Property Name="quantity" Type="Int32" Nullable="false" />
+          <Property Name="totalAmount" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="paidAmount" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="changeAmount" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -523,6 +678,23 @@ FROM [dbo].[vw_ShowtimeDetails] AS [vw_ShowtimeDetails]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_InsertShowtimes" FunctionName="DBSYSModel.Store.sp_InsertShowtimes" />
+          <FunctionImportMapping FunctionImportName="sp_UpdateShowtimes" FunctionName="DBSYSModel.Store.sp_UpdateShowtimes" />
+          <FunctionImportMapping FunctionImportName="sp_DeleteShowtimes" FunctionName="DBSYSModel.Store.sp_DeleteShowtimes">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DBSYSModel.sp_DeleteShowtimes_Result">
+                <ScalarProperty Name="ShowtimeID" ColumnName="ShowtimeID" />
+                <ScalarProperty Name="movieID" ColumnName="movieID" />
+                <ScalarProperty Name="movieName" ColumnName="movieName" />
+                <ScalarProperty Name="showDate" ColumnName="showDate" />
+                <ScalarProperty Name="startTime" ColumnName="startTime" />
+                <ScalarProperty Name="endTime" ColumnName="endTime" />
+                <ScalarProperty Name="capacity" ColumnName="capacity" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_UpdatedUsers" FunctionName="DBSYSModel.Store.sp_UpdatedUsers" />
+          <FunctionImportMapping FunctionImportName="sp_RemovedUsers" FunctionName="DBSYSModel.Store.sp_RemovedUsers" />
           <EntitySetMapping Name="Movie">
             <EntityTypeMapping TypeName="DBSYSModel.Movie">
               <MappingFragment StoreEntitySet="Movie">
@@ -549,11 +721,16 @@ FROM [dbo].[vw_ShowtimeDetails] AS [vw_ShowtimeDetails]</DefiningQuery>
           <EntitySetMapping Name="Sales">
             <EntityTypeMapping TypeName="DBSYSModel.Sales">
               <MappingFragment StoreEntitySet="Sales">
-                <ScalarProperty Name="transactionTime" ColumnName="transactionTime" />
+                <ScalarProperty Name="changeAmount" ColumnName="changeAmount" />
+                <ScalarProperty Name="paidAmount" ColumnName="paidAmount" />
+                <ScalarProperty Name="totalAmount" ColumnName="totalAmount" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="seatNumber" ColumnName="seatNumber" />
+                <ScalarProperty Name="movieID" ColumnName="movieID" />
                 <ScalarProperty Name="transactionDate" ColumnName="transactionDate" />
-                <ScalarProperty Name="transactionAmount" ColumnName="transactionAmount" />
-                <ScalarProperty Name="ticketID" ColumnName="ticketID" />
-                <ScalarProperty Name="salesID" ColumnName="salesID" />
+                <ScalarProperty Name="customerName" ColumnName="customerName" />
+                <ScalarProperty Name="showtimeID" ColumnName="showtimeID" />
+                <ScalarProperty Name="saleID" ColumnName="saleID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -566,17 +743,6 @@ FROM [dbo].[vw_ShowtimeDetails] AS [vw_ShowtimeDetails]</DefiningQuery>
                 <ScalarProperty Name="showDate" ColumnName="showDate" />
                 <ScalarProperty Name="movieID" ColumnName="movieID" />
                 <ScalarProperty Name="showtimeID" ColumnName="showtimeID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Tickets">
-            <EntityTypeMapping TypeName="DBSYSModel.Tickets">
-              <MappingFragment StoreEntitySet="Tickets">
-                <ScalarProperty Name="seatNumber" ColumnName="seatNumber" />
-                <ScalarProperty Name="rowNumber" ColumnName="rowNumber" />
-                <ScalarProperty Name="sectionNumber" ColumnName="sectionNumber" />
-                <ScalarProperty Name="showtimeID" ColumnName="showtimeID" />
-                <ScalarProperty Name="ticketID" ColumnName="ticketID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -603,23 +769,24 @@ FROM [dbo].[vw_ShowtimeDetails] AS [vw_ShowtimeDetails]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="sp_InsertShowtimes" FunctionName="DBSYSModel.Store.sp_InsertShowtimes" />
-          <FunctionImportMapping FunctionImportName="sp_UpdateShowtimes" FunctionName="DBSYSModel.Store.sp_UpdateShowtimes" />
-          <FunctionImportMapping FunctionImportName="sp_DeleteShowtimes" FunctionName="DBSYSModel.Store.sp_DeleteShowtimes">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="DBSYSModel.sp_DeleteShowtimes_Result">
-                <ScalarProperty Name="ShowtimeID" ColumnName="ShowtimeID" />
-                <ScalarProperty Name="movieID" ColumnName="movieID" />
+          <EntitySetMapping Name="vw_TransactionHistory">
+            <EntityTypeMapping TypeName="DBSYSModel.vw_TransactionHistory">
+              <MappingFragment StoreEntitySet="vw_TransactionHistory">
+                <ScalarProperty Name="changeAmount" ColumnName="changeAmount" />
+                <ScalarProperty Name="paidAmount" ColumnName="paidAmount" />
+                <ScalarProperty Name="totalAmount" ColumnName="totalAmount" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="seatNumber" ColumnName="seatNumber" />
+                <ScalarProperty Name="transactionDate" ColumnName="transactionDate" />
+                <ScalarProperty Name="customerName" ColumnName="customerName" />
                 <ScalarProperty Name="movieName" ColumnName="movieName" />
-                <ScalarProperty Name="showDate" ColumnName="showDate" />
-                <ScalarProperty Name="startTime" ColumnName="startTime" />
-                <ScalarProperty Name="endTime" ColumnName="endTime" />
-                <ScalarProperty Name="capacity" ColumnName="capacity" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_UpdatedUsers" FunctionName="DBSYSModel.Store.sp_UpdatedUsers" />
-          <FunctionImportMapping FunctionImportName="sp_RemovedUsers" FunctionName="DBSYSModel.Store.sp_RemovedUsers" />
+                <ScalarProperty Name="movieID" ColumnName="movieID" />
+                <ScalarProperty Name="showtimeID" ColumnName="showtimeID" />
+                <ScalarProperty Name="saleID" ColumnName="saleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_InsertSales" FunctionName="DBSYSModel.Store.sp_InsertSales" />
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

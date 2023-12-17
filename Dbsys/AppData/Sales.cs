@@ -14,12 +14,20 @@ namespace Dbsys.AppData
     
     public partial class Sales
     {
-        public int salesID { get; set; }
-        public Nullable<int> ticketID { get; set; }
-        public int transactionAmount { get; set; }
+        public int saleID { get; set; }
+        public Nullable<int> showtimeID { get; set; }
+        public string customerName { get; set; }
         public System.DateTime transactionDate { get; set; }
-        public System.TimeSpan transactionTime { get; set; }
+        public Nullable<int> movieID { get; set; }
+        public int seatNumber { get; set; }
+        public int quantity { get; set; }
+        public decimal totalAmount { get; set; }
+        public decimal paidAmount { get; set; }
+        public decimal changeAmount { get; set; }
     
-        public virtual Tickets Tickets { get; set; }
+        public virtual Movie Movie { get; set; }
+        public virtual Movie Movie1 { get; set; }
+        public virtual Showtimes Showtimes { get; set; }
+        public virtual Showtimes Showtimes1 { get; set; }
     }
 }
