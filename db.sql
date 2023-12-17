@@ -53,9 +53,30 @@ CREATE TABLE Showtimes(
     showDate date NOT NULL,
     startTime time NOT NULL,
     endTime time NOT NULL,
-    ticketsSold int NOT NULL,
     capacity int NOT NULL
 )
+CREATE VIEW vw_ShowtimeDetails AS
+SELECT s.ShowtimeID, s.movieID, m.movieName, s.showDate, s.startTime, s.endTime, s.capacity
+FROM Showtimes s
+JOIN Movie m 
+ON s.movieID = m.movieId
+
+CREATE PROCEDURE sp_UpdateShowtimes @ShowtimeID INT, @MovieID INT, @ShowDate DATE, @StartTime TIME, @EndTime TIME, @Capacity INT
+AS
+BEGIN
+	UPDATE Showtimes
+    SET movieID = @MovieID, showDate = @ShowDate, startTime = @StartTime, endTime = @EndTime, capacity = @Capacity
+    WHERE ShowtimeID = @ShowtimeID;
+END;
+
+CREATE PROCEDURE sp_InsertShowtimes @MovieID INT, @ShowDate DATE, @StartTime TIME, @EndTime TIME, @Capacity INT
+AS
+BEGIN
+    INSERT INTO Showtimes (movieID, showDate, startTime, endTime, capacity)
+    VALUES (@MovieID, @ShowDate, @StartTime, @EndTime, @Capacity);
+END;
+
+
 --Creates the Tickets table
 CREATE TABLE Tickets(
     ticketID int PRIMARY KEY,
@@ -64,6 +85,22 @@ CREATE TABLE Tickets(
 	rowNumber int NOT NULL,
     seatNumber int NOT NULL
 )
+
+CREATE VIEW vw_TicketDetails
+AS
+SELECT t.ticketID, t.showtimeID, s.movieID, m.movieName, s.showDate, s.startTime, t.sectionNumber, t.rowNumber, t.seatNumber
+FROM Tickets t
+JOIN Showtimes s ON t.showtimeID = s.showtimeID
+JOIN Movie m ON s.movieID = m.movieID;
+
+CREATE PROCEDURE sp_SellTicket @ShowtimeID INT, @SectionNumber INT, @RowNumber INT, @SeatNumber INT
+AS
+BEGIN
+    INSERT INTO Tickets (showtimeID, sectionNumber, rowNumber, seatNumber)
+    VALUES (@ShowtimeID, @SectionNumber, @RowNumber, @SeatNumber);
+END;
+
+
 --Creates the Sales table
 CREATE TABLE Sales(
 	salesID int PRIMARY KEY,

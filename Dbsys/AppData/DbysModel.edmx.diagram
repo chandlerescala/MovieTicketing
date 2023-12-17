@@ -6,6 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="5ba6b4505a7a4141ba9c39e83a8dbe66" Name="Diagram1">
         <EntityTypeShape EntityType="DBSYSModel.vw_all_user_role" Width="1.5" PointX="4.75" PointY="4.75" />
+        <EntityTypeShape EntityType="DBSYSModel.vw_ShowtimeDetails" Width="1.5" PointX="7.75" PointY="4.75" />
         <EntityTypeShape EntityType="DBSYSModel.Movie" Width="1.5" PointX="0.75" PointY="1" />
         <EntityTypeShape EntityType="DBSYSModel.Role" Width="1.5" PointX="0.75" PointY="4.75" />
         <EntityTypeShape EntityType="DBSYSModel.Sales" Width="1.5" PointX="7.5" PointY="1.25" />

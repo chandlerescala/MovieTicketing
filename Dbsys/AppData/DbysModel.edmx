@@ -30,7 +30,7 @@
           <Key>
             <PropertyRef Name="salesID" />
           </Key>
-          <Property Name="salesID" Type="int" Nullable="false" />
+          <Property Name="salesID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ticketID" Type="int" />
           <Property Name="transactionAmount" Type="int" Nullable="false" />
           <Property Name="transactionDate" Type="date" Nullable="false" />
@@ -40,19 +40,18 @@
           <Key>
             <PropertyRef Name="showtimeID" />
           </Key>
-          <Property Name="showtimeID" Type="int" Nullable="false" />
+          <Property Name="showtimeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="movieID" Type="int" />
           <Property Name="showDate" Type="date" Nullable="false" />
           <Property Name="startTime" Type="time" Precision="7" Nullable="false" />
           <Property Name="endTime" Type="time" Precision="7" Nullable="false" />
-          <Property Name="ticketsSold" Type="int" Nullable="false" />
           <Property Name="capacity" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Tickets">
           <Key>
             <PropertyRef Name="ticketID" />
           </Key>
-          <Property Name="ticketID" Type="int" Nullable="false" />
+          <Property Name="ticketID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="showtimeID" Type="int" />
           <Property Name="sectionNumber" Type="int" Nullable="false" />
           <Property Name="rowNumber" Type="int" Nullable="false" />
@@ -91,6 +90,25 @@ warning 6002: The table/view 'DBSYS.dbo.vw_all_user_role' does not have a primar
           <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Role" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DBSYS.dbo.vw_ShowtimeDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_ShowtimeDetails">
+          <Key>
+            <PropertyRef Name="ShowtimeID" />
+            <PropertyRef Name="movieName" />
+            <PropertyRef Name="showDate" />
+            <PropertyRef Name="startTime" />
+            <PropertyRef Name="endTime" />
+            <PropertyRef Name="capacity" />
+          </Key>
+          <Property Name="ShowtimeID" Type="int" Nullable="false" />
+          <Property Name="movieID" Type="int" />
+          <Property Name="movieName" Type="varchar(max)" Nullable="false" />
+          <Property Name="showDate" Type="date" Nullable="false" />
+          <Property Name="startTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="endTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="capacity" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK__Sales__ticketID__02FC7413">
           <End Role="Tickets" Type="Self.Tickets" Multiplicity="0..1" />
@@ -140,6 +158,21 @@ warning 6002: The table/view 'DBSYS.dbo.vw_all_user_role' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="sp_InsertShowtimes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MovieID" Type="int" Mode="In" />
+          <Parameter Name="ShowDate" Type="date" Mode="In" />
+          <Parameter Name="StartTime" Type="time" Mode="In" />
+          <Parameter Name="EndTime" Type="time" Mode="In" />
+          <Parameter Name="Capacity" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_UpdateShowtimes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ShowtimeID" Type="int" Mode="In" />
+          <Parameter Name="MovieID" Type="int" Mode="In" />
+          <Parameter Name="ShowDate" Type="date" Mode="In" />
+          <Parameter Name="StartTime" Type="time" Mode="In" />
+          <Parameter Name="EndTime" Type="time" Mode="In" />
+          <Parameter Name="Capacity" Type="int" Mode="In" />
+        </Function>
         <Function Name="sp_UpdateUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="userId" Type="int" Mode="In" />
           <Parameter Name="userName" Type="varchar" Mode="In" />
@@ -161,6 +194,17 @@ warning 6002: The table/view 'DBSYS.dbo.vw_all_user_role' does not have a primar
 [vw_all_user_role].[Password] AS [Password], 
 [vw_all_user_role].[Role] AS [Role]
 FROM [dbo].[vw_all_user_role] AS [vw_all_user_role]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_ShowtimeDetails" EntityType="Self.vw_ShowtimeDetails" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[vw_ShowtimeDetails].[ShowtimeID] AS [ShowtimeID], 
+[vw_ShowtimeDetails].[movieID] AS [movieID], 
+[vw_ShowtimeDetails].[movieName] AS [movieName], 
+[vw_ShowtimeDetails].[showDate] AS [showDate], 
+[vw_ShowtimeDetails].[startTime] AS [startTime], 
+[vw_ShowtimeDetails].[endTime] AS [endTime], 
+[vw_ShowtimeDetails].[capacity] AS [capacity]
+FROM [dbo].[vw_ShowtimeDetails] AS [vw_ShowtimeDetails]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK__Sales__ticketID__02FC7413" Association="Self.FK__Sales__ticketID__02FC7413">
             <End Role="Tickets" EntitySet="Tickets" />
@@ -191,6 +235,23 @@ FROM [dbo].[vw_all_user_role] AS [vw_all_user_role]</DefiningQuery>
             <Parameter Name="createdBy" Type="Int32" Mode="In" />
           </FunctionImport>
           <EntitySet Name="vw_all_user_role" EntityType="DBSYSModel.vw_all_user_role" />
+          <FunctionImport Name="sp_UpdateUser">
+            <Parameter Name="userId" Mode="In" Type="Int32" />
+            <Parameter Name="userName" Mode="In" Type="String" />
+            <Parameter Name="userPassword" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_UpdatedUser">
+            <Parameter Name="userId" Mode="In" Type="Int32" />
+            <Parameter Name="userName" Mode="In" Type="String" />
+            <Parameter Name="userPassword" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_UpdateUsers">
+            <Parameter Name="userId" Mode="In" Type="Int32" />
+            <Parameter Name="userName" Mode="In" Type="String" />
+            <Parameter Name="userPassword" Mode="In" Type="String" />
+            <Parameter Name="roleId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="vw_ShowtimeDetails" EntityType="DBSYSModel.vw_ShowtimeDetails" />
           <EntitySet Name="Movie" EntityType="DBSYSModel.Movie" />
           <EntitySet Name="Role" EntityType="DBSYSModel.Role" />
           <EntitySet Name="Sales" EntityType="DBSYSModel.Sales" />
@@ -214,21 +275,35 @@ FROM [dbo].[vw_all_user_role] AS [vw_all_user_role]</DefiningQuery>
             <End Role="UserAccount" EntitySet="UserAccount" />
             <End Role="UserInformation" EntitySet="UserInformation" />
           </AssociationSet>
-          <FunctionImport Name="sp_UpdateUser">
-            <Parameter Name="userId" Mode="In" Type="Int32" />
-            <Parameter Name="userName" Mode="In" Type="String" />
-            <Parameter Name="userPassword" Mode="In" Type="String" />
+          <FunctionImport Name="sp_UpdateShowtime">
+            <Parameter Name="ShowtimeID" Mode="In" Type="Int32" />
+            <Parameter Name="MovieID" Mode="In" Type="Int32" />
+            <Parameter Name="ShowDate" Mode="In" Type="DateTime" />
+            <Parameter Name="StartTime" Mode="In" Type="Time" />
+            <Parameter Name="EndTime" Mode="In" Type="Time" />
+            <Parameter Name="Capacity" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="sp_UpdatedUser">
-            <Parameter Name="userId" Mode="In" Type="Int32" />
-            <Parameter Name="userName" Mode="In" Type="String" />
-            <Parameter Name="userPassword" Mode="In" Type="String" />
+          <FunctionImport Name="sp_InsertShowtime">
+            <Parameter Name="MovieID" Mode="In" Type="Int32" />
+            <Parameter Name="ShowDate" Mode="In" Type="DateTime" />
+            <Parameter Name="StartTime" Mode="In" Type="Time" />
+            <Parameter Name="EndTime" Mode="In" Type="Time" />
+            <Parameter Name="Capacity" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="sp_UpdateUsers">
-            <Parameter Name="userId" Mode="In" Type="Int32" />
-            <Parameter Name="userName" Mode="In" Type="String" />
-            <Parameter Name="userPassword" Mode="In" Type="String" />
-            <Parameter Name="roleId" Mode="In" Type="Int32" />
+          <FunctionImport Name="sp_InsertShowtimes">
+            <Parameter Name="MovieID" Mode="In" Type="Int32" />
+            <Parameter Name="ShowDate" Mode="In" Type="DateTime" />
+            <Parameter Name="StartTime" Mode="In" Type="Time" />
+            <Parameter Name="EndTime" Mode="In" Type="Time" />
+            <Parameter Name="Capacity" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_UpdateShowtimes">
+            <Parameter Name="ShowtimeID" Mode="In" Type="Int32" />
+            <Parameter Name="MovieID" Mode="In" Type="Int32" />
+            <Parameter Name="ShowDate" Mode="In" Type="DateTime" />
+            <Parameter Name="StartTime" Mode="In" Type="Time" />
+            <Parameter Name="EndTime" Mode="In" Type="Time" />
+            <Parameter Name="Capacity" Mode="In" Type="Int32" />
           </FunctionImport>
           </EntityContainer>
         <EntityType Name="vw_all_user_role">
@@ -241,6 +316,23 @@ FROM [dbo].[vw_all_user_role] AS [vw_all_user_role]</DefiningQuery>
           <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vw_ShowtimeDetails">
+          <Key>
+            <PropertyRef Name="ShowtimeID" />
+            <PropertyRef Name="movieName" />
+            <PropertyRef Name="showDate" />
+            <PropertyRef Name="startTime" />
+            <PropertyRef Name="endTime" />
+            <PropertyRef Name="capacity" />
+          </Key>
+          <Property Name="ShowtimeID" Type="Int32" Nullable="false" />
+          <Property Name="movieID" Type="Int32" />
+          <Property Name="movieName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="showDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="startTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="endTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="capacity" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Movie">
           <Key>
@@ -284,7 +376,6 @@ FROM [dbo].[vw_all_user_role] AS [vw_all_user_role]</DefiningQuery>
           <Property Name="showDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="startTime" Type="Time" Nullable="false" Precision="7" />
           <Property Name="endTime" Type="Time" Nullable="false" Precision="7" />
-          <Property Name="ticketsSold" Type="Int32" Nullable="false" />
           <Property Name="capacity" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Movie" Relationship="DBSYSModel.FK__Showtimes__movie__68487DD7" FromRole="Showtimes" ToRole="Movie" />
           <NavigationProperty Name="Tickets" Relationship="DBSYSModel.FK__Tickets__showtim__6B24EA82" FromRole="Showtimes" ToRole="Tickets" />
@@ -388,6 +479,20 @@ FROM [dbo].[vw_all_user_role] AS [vw_all_user_role]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_UpdateUsers" FunctionName="DBSYSModel.Store.sp_UpdateUsers" />
+          <EntitySetMapping Name="vw_ShowtimeDetails">
+            <EntityTypeMapping TypeName="DBSYSModel.vw_ShowtimeDetails">
+              <MappingFragment StoreEntitySet="vw_ShowtimeDetails">
+                <ScalarProperty Name="capacity" ColumnName="capacity" />
+                <ScalarProperty Name="endTime" ColumnName="endTime" />
+                <ScalarProperty Name="startTime" ColumnName="startTime" />
+                <ScalarProperty Name="showDate" ColumnName="showDate" />
+                <ScalarProperty Name="movieName" ColumnName="movieName" />
+                <ScalarProperty Name="movieID" ColumnName="movieID" />
+                <ScalarProperty Name="ShowtimeID" ColumnName="ShowtimeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Movie">
             <EntityTypeMapping TypeName="DBSYSModel.Movie">
               <MappingFragment StoreEntitySet="Movie">
@@ -426,7 +531,6 @@ FROM [dbo].[vw_all_user_role] AS [vw_all_user_role]</DefiningQuery>
             <EntityTypeMapping TypeName="DBSYSModel.Showtimes">
               <MappingFragment StoreEntitySet="Showtimes">
                 <ScalarProperty Name="capacity" ColumnName="capacity" />
-                <ScalarProperty Name="ticketsSold" ColumnName="ticketsSold" />
                 <ScalarProperty Name="endTime" ColumnName="endTime" />
                 <ScalarProperty Name="startTime" ColumnName="startTime" />
                 <ScalarProperty Name="showDate" ColumnName="showDate" />
@@ -469,7 +573,8 @@ FROM [dbo].[vw_all_user_role] AS [vw_all_user_role]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="sp_UpdateUsers" FunctionName="DBSYSModel.Store.sp_UpdateUsers" />
+          <FunctionImportMapping FunctionImportName="sp_InsertShowtimes" FunctionName="DBSYSModel.Store.sp_InsertShowtimes" />
+          <FunctionImportMapping FunctionImportName="sp_UpdateShowtimes" FunctionName="DBSYSModel.Store.sp_UpdateShowtimes" />
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

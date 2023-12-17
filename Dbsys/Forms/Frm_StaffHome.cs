@@ -1,4 +1,5 @@
 ﻿using Dbsys.AppData;
+using Dbsys.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -62,7 +63,9 @@ namespace Dbsys
 
         private void picBox_AddMovie_Click(object sender, EventArgs e)
         {
-            
+            Frm_Staff_EditShowtimes sh = new Frm_Staff_EditShowtimes();
+            sh.Show();
+            this.Close();
         }
 
         private void picBox_ViewMovie_Click(object sender, EventArgs e)

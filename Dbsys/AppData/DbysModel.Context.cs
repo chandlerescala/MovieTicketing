@@ -29,6 +29,7 @@ namespace Dbsys.AppData
         }
     
         public DbSet<vw_all_user_role> vw_all_user_role { get; set; }
+        public DbSet<vw_ShowtimeDetails> vw_ShowtimeDetails { get; set; }
         public DbSet<Movie> Movie { get; set; }
         public DbSet<Role> Role { get; set; }
         public DbSet<Sales> Sales { get; set; }
@@ -111,6 +112,114 @@ namespace Dbsys.AppData
                 new ObjectParameter("roleId", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_UpdateUsers", userIdParameter, userNameParameter, userPasswordParameter, roleIdParameter);
+        }
+    
+        public virtual int sp_UpdateShowtime(Nullable<int> showtimeID, Nullable<int> movieID, Nullable<System.DateTime> showDate, Nullable<System.TimeSpan> startTime, Nullable<System.TimeSpan> endTime, Nullable<int> capacity)
+        {
+            var showtimeIDParameter = showtimeID.HasValue ?
+                new ObjectParameter("ShowtimeID", showtimeID) :
+                new ObjectParameter("ShowtimeID", typeof(int));
+    
+            var movieIDParameter = movieID.HasValue ?
+                new ObjectParameter("MovieID", movieID) :
+                new ObjectParameter("MovieID", typeof(int));
+    
+            var showDateParameter = showDate.HasValue ?
+                new ObjectParameter("ShowDate", showDate) :
+                new ObjectParameter("ShowDate", typeof(System.DateTime));
+    
+            var startTimeParameter = startTime.HasValue ?
+                new ObjectParameter("StartTime", startTime) :
+                new ObjectParameter("StartTime", typeof(System.TimeSpan));
+    
+            var endTimeParameter = endTime.HasValue ?
+                new ObjectParameter("EndTime", endTime) :
+                new ObjectParameter("EndTime", typeof(System.TimeSpan));
+    
+            var capacityParameter = capacity.HasValue ?
+                new ObjectParameter("Capacity", capacity) :
+                new ObjectParameter("Capacity", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_UpdateShowtime", showtimeIDParameter, movieIDParameter, showDateParameter, startTimeParameter, endTimeParameter, capacityParameter);
+        }
+    
+        public virtual int sp_InsertShowtime(Nullable<int> movieID, Nullable<System.DateTime> showDate, Nullable<System.TimeSpan> startTime, Nullable<System.TimeSpan> endTime, Nullable<int> capacity)
+        {
+            var movieIDParameter = movieID.HasValue ?
+                new ObjectParameter("MovieID", movieID) :
+                new ObjectParameter("MovieID", typeof(int));
+    
+            var showDateParameter = showDate.HasValue ?
+                new ObjectParameter("ShowDate", showDate) :
+                new ObjectParameter("ShowDate", typeof(System.DateTime));
+    
+            var startTimeParameter = startTime.HasValue ?
+                new ObjectParameter("StartTime", startTime) :
+                new ObjectParameter("StartTime", typeof(System.TimeSpan));
+    
+            var endTimeParameter = endTime.HasValue ?
+                new ObjectParameter("EndTime", endTime) :
+                new ObjectParameter("EndTime", typeof(System.TimeSpan));
+    
+            var capacityParameter = capacity.HasValue ?
+                new ObjectParameter("Capacity", capacity) :
+                new ObjectParameter("Capacity", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_InsertShowtime", movieIDParameter, showDateParameter, startTimeParameter, endTimeParameter, capacityParameter);
+        }
+    
+        public virtual int sp_InsertShowtimes(Nullable<int> movieID, Nullable<System.DateTime> showDate, Nullable<System.TimeSpan> startTime, Nullable<System.TimeSpan> endTime, Nullable<int> capacity)
+        {
+            var movieIDParameter = movieID.HasValue ?
+                new ObjectParameter("MovieID", movieID) :
+                new ObjectParameter("MovieID", typeof(int));
+    
+            var showDateParameter = showDate.HasValue ?
+                new ObjectParameter("ShowDate", showDate) :
+                new ObjectParameter("ShowDate", typeof(System.DateTime));
+    
+            var startTimeParameter = startTime.HasValue ?
+                new ObjectParameter("StartTime", startTime) :
+                new ObjectParameter("StartTime", typeof(System.TimeSpan));
+    
+            var endTimeParameter = endTime.HasValue ?
+                new ObjectParameter("EndTime", endTime) :
+                new ObjectParameter("EndTime", typeof(System.TimeSpan));
+    
+            var capacityParameter = capacity.HasValue ?
+                new ObjectParameter("Capacity", capacity) :
+                new ObjectParameter("Capacity", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_InsertShowtimes", movieIDParameter, showDateParameter, startTimeParameter, endTimeParameter, capacityParameter);
+        }
+    
+        public virtual int sp_UpdateShowtimes(Nullable<int> showtimeID, Nullable<int> movieID, Nullable<System.DateTime> showDate, Nullable<System.TimeSpan> startTime, Nullable<System.TimeSpan> endTime, Nullable<int> capacity)
+        {
+            var showtimeIDParameter = showtimeID.HasValue ?
+                new ObjectParameter("ShowtimeID", showtimeID) :
+                new ObjectParameter("ShowtimeID", typeof(int));
+    
+            var movieIDParameter = movieID.HasValue ?
+                new ObjectParameter("MovieID", movieID) :
+                new ObjectParameter("MovieID", typeof(int));
+    
+            var showDateParameter = showDate.HasValue ?
+                new ObjectParameter("ShowDate", showDate) :
+                new ObjectParameter("ShowDate", typeof(System.DateTime));
+    
+            var startTimeParameter = startTime.HasValue ?
+                new ObjectParameter("StartTime", startTime) :
+                new ObjectParameter("StartTime", typeof(System.TimeSpan));
+    
+            var endTimeParameter = endTime.HasValue ?
+                new ObjectParameter("EndTime", endTime) :
+                new ObjectParameter("EndTime", typeof(System.TimeSpan));
+    
+            var capacityParameter = capacity.HasValue ?
+                new ObjectParameter("Capacity", capacity) :
+                new ObjectParameter("Capacity", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_UpdateShowtimes", showtimeIDParameter, movieIDParameter, showDateParameter, startTimeParameter, endTimeParameter, capacityParameter);
         }
     }
 }

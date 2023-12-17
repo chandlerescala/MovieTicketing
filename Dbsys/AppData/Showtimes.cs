@@ -24,7 +24,6 @@ namespace Dbsys.AppData
         public System.DateTime showDate { get; set; }
         public System.TimeSpan startTime { get; set; }
         public System.TimeSpan endTime { get; set; }
-        public int ticketsSold { get; set; }
         public int capacity { get; set; }
     
         public virtual Movie Movie { get; set; }

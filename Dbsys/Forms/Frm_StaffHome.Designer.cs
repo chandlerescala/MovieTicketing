@@ -46,14 +46,14 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.picBox_History = new System.Windows.Forms.PictureBox();
             this.picBox_ViewMovie = new System.Windows.Forms.PictureBox();
-            this.picBox_AddMovie = new System.Windows.Forms.PictureBox();
+            this.picBox_EditShowtimes = new System.Windows.Forms.PictureBox();
             this.picBox_AdminLogin = new System.Windows.Forms.PictureBox();
             this.txtLoggedUser = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_History)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_ViewMovie)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox_AddMovie)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox_EditShowtimes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_AdminLogin)).BeginInit();
             this.SuspendLayout();
             // 
@@ -242,16 +242,16 @@
             this.picBox_ViewMovie.TabStop = false;
             this.picBox_ViewMovie.Click += new System.EventHandler(this.picBox_ViewMovie_Click);
             // 
-            // picBox_AddMovie
+            // picBox_EditShowtimes
             // 
-            this.picBox_AddMovie.Image = global::Dbsys.Properties.Resources.Showtimes;
-            this.picBox_AddMovie.Location = new System.Drawing.Point(144, 150);
-            this.picBox_AddMovie.Name = "picBox_AddMovie";
-            this.picBox_AddMovie.Size = new System.Drawing.Size(121, 98);
-            this.picBox_AddMovie.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBox_AddMovie.TabIndex = 2;
-            this.picBox_AddMovie.TabStop = false;
-            this.picBox_AddMovie.Click += new System.EventHandler(this.picBox_AddMovie_Click);
+            this.picBox_EditShowtimes.Image = global::Dbsys.Properties.Resources.Showtimes;
+            this.picBox_EditShowtimes.Location = new System.Drawing.Point(144, 150);
+            this.picBox_EditShowtimes.Name = "picBox_EditShowtimes";
+            this.picBox_EditShowtimes.Size = new System.Drawing.Size(121, 98);
+            this.picBox_EditShowtimes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBox_EditShowtimes.TabIndex = 2;
+            this.picBox_EditShowtimes.TabStop = false;
+            this.picBox_EditShowtimes.Click += new System.EventHandler(this.picBox_AddMovie_Click);
             // 
             // picBox_AdminLogin
             // 
@@ -289,7 +289,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.picBox_History);
             this.Controls.Add(this.picBox_ViewMovie);
-            this.Controls.Add(this.picBox_AddMovie);
+            this.Controls.Add(this.picBox_EditShowtimes);
             this.Controls.Add(this.picBox_AdminLogin);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -304,7 +304,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_History)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_ViewMovie)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox_AddMovie)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox_EditShowtimes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_AdminLogin)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -316,7 +316,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.PictureBox picBox_AdminLogin;
-        private System.Windows.Forms.PictureBox picBox_AddMovie;
+        private System.Windows.Forms.PictureBox picBox_EditShowtimes;
         private System.Windows.Forms.PictureBox picBox_ViewMovie;
         private System.Windows.Forms.PictureBox picBox_History;
         private System.Windows.Forms.Label label1;

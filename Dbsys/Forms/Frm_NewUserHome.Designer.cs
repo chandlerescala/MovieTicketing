@@ -45,16 +45,16 @@
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.picBox_History = new System.Windows.Forms.PictureBox();
-            this.picBox_ViewMovie = new System.Windows.Forms.PictureBox();
+            this.picBox_Closed = new System.Windows.Forms.PictureBox();
             this.picBox_NowShowing = new System.Windows.Forms.PictureBox();
-            this.picBox_AdminLogin = new System.Windows.Forms.PictureBox();
+            this.picBox_NextShow = new System.Windows.Forms.PictureBox();
             this.txtLoggedUser = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_History)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox_ViewMovie)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox_Closed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_NowShowing)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox_AdminLogin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox_NextShow)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -232,16 +232,16 @@
             this.picBox_History.TabStop = false;
             this.picBox_History.Click += new System.EventHandler(this.picBox_History_Click);
             // 
-            // picBox_ViewMovie
+            // picBox_Closed
             // 
-            this.picBox_ViewMovie.Image = global::Dbsys.Properties.Resources.close_2579419;
-            this.picBox_ViewMovie.Location = new System.Drawing.Point(144, 290);
-            this.picBox_ViewMovie.Name = "picBox_ViewMovie";
-            this.picBox_ViewMovie.Size = new System.Drawing.Size(121, 98);
-            this.picBox_ViewMovie.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBox_ViewMovie.TabIndex = 3;
-            this.picBox_ViewMovie.TabStop = false;
-            this.picBox_ViewMovie.Click += new System.EventHandler(this.picBox_ViewMovie_Click);
+            this.picBox_Closed.Image = global::Dbsys.Properties.Resources.close_2579419;
+            this.picBox_Closed.Location = new System.Drawing.Point(144, 290);
+            this.picBox_Closed.Name = "picBox_Closed";
+            this.picBox_Closed.Size = new System.Drawing.Size(121, 98);
+            this.picBox_Closed.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBox_Closed.TabIndex = 3;
+            this.picBox_Closed.TabStop = false;
+            this.picBox_Closed.Click += new System.EventHandler(this.picBox_ViewMovie_Click);
             // 
             // picBox_NowShowing
             // 
@@ -254,16 +254,16 @@
             this.picBox_NowShowing.TabStop = false;
             this.picBox_NowShowing.Click += new System.EventHandler(this.picBox_AddMovie_Click);
             // 
-            // picBox_AdminLogin
+            // picBox_NextShow
             // 
-            this.picBox_AdminLogin.Image = global::Dbsys.Properties.Resources.next_show;
-            this.picBox_AdminLogin.Location = new System.Drawing.Point(341, 150);
-            this.picBox_AdminLogin.Name = "picBox_AdminLogin";
-            this.picBox_AdminLogin.Size = new System.Drawing.Size(121, 98);
-            this.picBox_AdminLogin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBox_AdminLogin.TabIndex = 1;
-            this.picBox_AdminLogin.TabStop = false;
-            this.picBox_AdminLogin.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.picBox_NextShow.Image = global::Dbsys.Properties.Resources.next_show;
+            this.picBox_NextShow.Location = new System.Drawing.Point(341, 150);
+            this.picBox_NextShow.Name = "picBox_NextShow";
+            this.picBox_NextShow.Size = new System.Drawing.Size(121, 98);
+            this.picBox_NextShow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBox_NextShow.TabIndex = 1;
+            this.picBox_NextShow.TabStop = false;
+            this.picBox_NextShow.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // txtLoggedUser
             // 
@@ -289,9 +289,9 @@
             this.Controls.Add(this.linkLabel_AddMovie);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.picBox_History);
-            this.Controls.Add(this.picBox_ViewMovie);
+            this.Controls.Add(this.picBox_Closed);
             this.Controls.Add(this.picBox_NowShowing);
-            this.Controls.Add(this.picBox_AdminLogin);
+            this.Controls.Add(this.picBox_NextShow);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
@@ -304,9 +304,9 @@
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_History)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox_ViewMovie)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox_Closed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_NowShowing)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox_AdminLogin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox_NextShow)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -316,9 +316,9 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.PictureBox picBox_AdminLogin;
+        private System.Windows.Forms.PictureBox picBox_NextShow;
         private System.Windows.Forms.PictureBox picBox_NowShowing;
-        private System.Windows.Forms.PictureBox picBox_ViewMovie;
+        private System.Windows.Forms.PictureBox picBox_Closed;
         private System.Windows.Forms.PictureBox picBox_History;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.LinkLabel linkLabel_AddMovie;
