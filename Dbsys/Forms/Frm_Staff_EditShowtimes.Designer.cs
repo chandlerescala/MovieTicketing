@@ -46,6 +46,7 @@
             this.btn_Update = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewShowtimes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMovie)).BeginInit();
             this.SuspendLayout();
@@ -225,6 +226,17 @@
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.White;
+            this.label9.Font = new System.Drawing.Font("Bookman Old Style", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(277, 24);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(182, 24);
+            this.label9.TabIndex = 52;
+            this.label9.Text = "Edit Showtimes";
+            // 
             // Frm_Staff_EditShowtimes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -232,6 +244,7 @@
             this.BackgroundImage = global::Dbsys.Properties.Resources.movie_objects_with_space_top;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btn_Update);
@@ -283,5 +296,6 @@
         private System.Windows.Forms.Button btn_Update;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Label label9;
     }
 }

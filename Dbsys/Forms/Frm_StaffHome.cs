@@ -129,5 +129,19 @@ namespace Dbsys
 
             this.Close();
         }
+
+        private void picBox_UserInfo_Click(object sender, EventArgs e)
+        {
+            Frm_Staff_UserInformation u = new Frm_Staff_UserInformation();
+            u.Show();
+            this.Close();
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Frm_Staff_UserInformation u = new Frm_Staff_UserInformation();
+            u.Show();
+            this.Close();
+        }
     }
 }

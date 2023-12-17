@@ -131,6 +131,23 @@ warning 6002: The table/view 'DBSYS.dbo.vw_TransactionHistory' does not have a p
           <Property Name="paidAmount" Type="decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="changeAmount" Type="decimal" Precision="10" Scale="2" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DBSYS.dbo.vw_UserDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_UserDetails">
+          <Key>
+            <PropertyRef Name="userInfoId" />
+            <PropertyRef Name="userInfLname" />
+            <PropertyRef Name="userInfFname" />
+            <PropertyRef Name="userInfAddress" />
+            <PropertyRef Name="userInfEmail" />
+          </Key>
+          <Property Name="userInfoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userInfLname" Type="varchar(max)" Nullable="false" />
+          <Property Name="userInfFname" Type="varchar(max)" Nullable="false" />
+          <Property Name="userInfAddress" Type="varchar(max)" Nullable="false" />
+          <Property Name="userInfEmail" Type="varchar(max)" Nullable="false" />
+          <Property Name="userId" Type="int" />
+        </EntityType>
         <Association Name="FK__Sales__movieID__3A4CA8FD">
           <End Role="Movie" Type="Self.Movie" Multiplicity="0..1" />
           <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
@@ -280,6 +297,16 @@ FROM [dbo].[vw_ShowtimeDetails] AS [vw_ShowtimeDetails]</DefiningQuery>
 [vw_TransactionHistory].[paidAmount] AS [paidAmount], 
 [vw_TransactionHistory].[changeAmount] AS [changeAmount]
 FROM [dbo].[vw_TransactionHistory] AS [vw_TransactionHistory]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_UserDetails" EntityType="Self.vw_UserDetails" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[vw_UserDetails].[userInfoId] AS [userInfoId], 
+[vw_UserDetails].[userInfLname] AS [userInfLname], 
+[vw_UserDetails].[userInfFname] AS [userInfFname], 
+[vw_UserDetails].[userInfAddress] AS [userInfAddress], 
+[vw_UserDetails].[userInfEmail] AS [userInfEmail], 
+[vw_UserDetails].[userId] AS [userId]
+FROM [dbo].[vw_UserDetails] AS [vw_UserDetails]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK__Sales__movieID__3A4CA8FD" Association="Self.FK__Sales__movieID__3A4CA8FD">
             <End Role="Movie" EntitySet="Movie" />
@@ -435,6 +462,7 @@ FROM [dbo].[vw_TransactionHistory] AS [vw_TransactionHistory]</DefiningQuery>
             <Parameter Name="PaidAmount" Mode="In" Type="Decimal" />
             <Parameter Name="ChangeAmount" Mode="In" Type="Decimal" />
           </FunctionImport>
+          <EntitySet Name="vw_UserDetails" EntityType="DBSYSModel.vw_UserDetails" />
           </EntityContainer>
         <EntityType Name="vw_all_user_role">
           <Key>
@@ -649,6 +677,21 @@ FROM [dbo].[vw_TransactionHistory] AS [vw_TransactionHistory]</DefiningQuery>
           <Property Name="paidAmount" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
           <Property Name="changeAmount" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
         </EntityType>
+        <EntityType Name="vw_UserDetails">
+          <Key>
+            <PropertyRef Name="userInfoId" />
+            <PropertyRef Name="userInfLname" />
+            <PropertyRef Name="userInfFname" />
+            <PropertyRef Name="userInfAddress" />
+            <PropertyRef Name="userInfEmail" />
+          </Key>
+          <Property Name="userInfoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userInfLname" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="userInfFname" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="userInfAddress" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="userInfEmail" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="userId" Type="Int32" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -787,6 +830,18 @@ FROM [dbo].[vw_TransactionHistory] AS [vw_TransactionHistory]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="sp_InsertSales" FunctionName="DBSYSModel.Store.sp_InsertSales" />
+          <EntitySetMapping Name="vw_UserDetails">
+            <EntityTypeMapping TypeName="DBSYSModel.vw_UserDetails">
+              <MappingFragment StoreEntitySet="vw_UserDetails">
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="userInfEmail" ColumnName="userInfEmail" />
+                <ScalarProperty Name="userInfAddress" ColumnName="userInfAddress" />
+                <ScalarProperty Name="userInfFname" ColumnName="userInfFname" />
+                <ScalarProperty Name="userInfLname" ColumnName="userInfLname" />
+                <ScalarProperty Name="userInfoId" ColumnName="userInfoId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

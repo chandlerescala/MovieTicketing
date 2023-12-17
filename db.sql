@@ -12,14 +12,6 @@ createdBy int,
 userStatus varchar (10) not NULL default 'ACTIVE',
 )
 
-CREATE PROCEDURE sp_UpdateUsers @userId INT, @userName VARCHAR(50),@userPassword VARCHAR(50), @roleId int
-AS
-BEGIN
-    UPDATE UserAccount SET userName = @userName, userPassword = @userPassword, roleId =  @roleId  WHERE userId = @userId;
-END
-
-DROP PROCEDURE sp_UpdateUsers
-GO
 
 --Creates the user information table
 CREATE TABLE UserInformation(
@@ -163,20 +155,5 @@ JOIN Showtimes st
 ON s.showtimeID = st.showtimeID
 JOIN Movie m 
 ON st.movieID = m.movieId;
-
-
--- Create a stored procedure to retrieve transaction history for a specific user
-CREATE PROCEDURE sp_GetUserTransactionHistory @UserID INT
-AS
-BEGIN
-    SELECT h.*
-    FROM vw_UserTransactionHistory h 
-	JOIN Showtimes st 
-	ON h.showtimeID = st.showtimeID
-    WHERE st.showDate <= GETDATE()  -- Filter transactions for past showtimes
-        AND EXISTS (
-            SELECT 1 FROM UserAccount u WHERE u.userId = @UserID AND u.userId = st.createdBy
-        );
-END;
 
 

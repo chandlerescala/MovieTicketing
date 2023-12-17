@@ -40,6 +40,7 @@
             this.btn_Save = new System.Windows.Forms.Button();
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -163,6 +164,17 @@
             this.label3.TabIndex = 49;
             this.label3.Text = "First Name";
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.White;
+            this.label9.Font = new System.Drawing.Font("Bookman Old Style", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(275, 23);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(82, 24);
+            this.label9.TabIndex = 51;
+            this.label9.Text = "Profile";
+            // 
             // Frm_ProfileSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -170,6 +182,7 @@
             this.BackgroundImage = global::Dbsys.Properties.Resources.movie_objects_with_space_top;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(639, 336);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.txtFirstName);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btn_Save);
@@ -209,5 +222,6 @@
         private System.Windows.Forms.Button btn_Save;
         private System.Windows.Forms.TextBox txtFirstName;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label9;
     }
 }

@@ -48,6 +48,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.ckShowPass = new System.Windows.Forms.CheckBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_main)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -236,6 +237,17 @@
             this.ckShowPass.UseVisualStyleBackColor = false;
             this.ckShowPass.CheckedChanged += new System.EventHandler(this.ckShowPass_CheckedChanged);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.White;
+            this.label4.Font = new System.Drawing.Font("Bookman Old Style", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(226, 42);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(357, 24);
+            this.label4.TabIndex = 41;
+            this.label4.Text = "CineSwift Account Management";
+            // 
             // Frm_Admin_AccountManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -243,6 +255,7 @@
             this.BackgroundImage = global::Dbsys.Properties.Resources.movie_objects_with_space_top;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(813, 468);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.ckShowPass);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnUpdate);
@@ -298,5 +311,6 @@
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox ckShowPass;
+        private System.Windows.Forms.Label label4;
     }
 }

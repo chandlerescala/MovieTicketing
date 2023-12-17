@@ -47,6 +47,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.picBox_Buy = new System.Windows.Forms.PictureBox();
             this.linkLabel_Buy = new System.Windows.Forms.LinkLabel();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_Buy)).BeginInit();
             this.SuspendLayout();
@@ -249,6 +250,17 @@
             this.linkLabel_Buy.TabStop = true;
             this.linkLabel_Buy.Text = "Buy";
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.White;
+            this.label9.Font = new System.Drawing.Font("Bookman Old Style", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(313, 9);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(137, 24);
+            this.label9.TabIndex = 49;
+            this.label9.Text = "Next Shows";
+            // 
             // Frm_Customer_NextShow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -256,6 +268,7 @@
             this.BackgroundImage = global::Dbsys.Properties.Resources.movie_objects_with_space_top;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.linkLabel_Buy);
             this.Controls.Add(this.picBox_Buy);
             this.Controls.Add(this.txtGenre);
@@ -309,5 +322,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.PictureBox picBox_Buy;
         private System.Windows.Forms.LinkLabel linkLabel_Buy;
+        private System.Windows.Forms.Label label9;
     }
 }
