@@ -299,6 +299,22 @@
       <DependentUpon>DbysModel.edmx</DependentUpon>
       <LastGenOutput>DbysModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Img_2023-11-19_18-31-24.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Img_2023-11-19_18-54-49.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Img_2023-11-19_18-55-58.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Img_2023-11-19_18-57-39.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Img_2023-11-19_23-30-56.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\Cinema4D_34147.png" />
     <None Include="Resources\Buy1.png" />
     <None Include="Resources\next show.png" />
     <None Include="Resources\close_2579419.png" />

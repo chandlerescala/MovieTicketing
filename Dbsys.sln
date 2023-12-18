@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dbsys", "Dbsys\Dbsys.csproj", "{67732E9A-FD93-41AC-9424-2CA6B742498B}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup1", "Setup1\Setup1.vdproj", "{A2D3D6D9-64E7-4109-9AFC-2EB0F3E50377}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +17,13 @@ Global
 		{67732E9A-FD93-41AC-9424-2CA6B742498B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67732E9A-FD93-41AC-9424-2CA6B742498B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{67732E9A-FD93-41AC-9424-2CA6B742498B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2D3D6D9-64E7-4109-9AFC-2EB0F3E50377}.Debug|Any CPU.ActiveCfg = Debug
+		{A2D3D6D9-64E7-4109-9AFC-2EB0F3E50377}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {49137B81-9B48-4FE4-A825-F3C01373B957}
 	EndGlobalSection
 EndGlobal
