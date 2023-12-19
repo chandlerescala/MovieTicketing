@@ -149,15 +149,7 @@ namespace Dbsys
                     h.Show();
                     this.Close(); 
                 }
-                else
-                {
-                    //txtCustomerName.Text = "";
-                    //txtQuantity.Text = "";
-                    //txtPaidAmount.Text = "";
-                    //lblChangeAmount.Text = "";
-                    //cbSeatNumber.SelectedIndex = -1; 
-                    //txtCustomerName.Focus();
-                }
+ 
             }
         }
 
