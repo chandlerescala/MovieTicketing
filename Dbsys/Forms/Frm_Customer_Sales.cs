@@ -110,14 +110,35 @@ namespace Dbsys
                 return;
             }
 
+            // Validate quantity is a positive integer
+            if (!int.TryParse(txtQuantity.Text, out int quantity) || quantity <= 0)
+            {
+                MessageBox.Show("Please enter a valid quantity.");
+                return;
+            }
+
+            // Validate paid amount is a positive decimal
+            if (!decimal.TryParse(txtPaidAmount.Text, out decimal paidAmount) || paidAmount < 0)
+            {
+                MessageBox.Show("Please enter a valid paid amount.");
+                return;
+            }
+
+            // Calculate total amount based on ticket price and quantity
+            decimal totalAmount = quantity * selectedShowtime.Movie.moviePrice;
+
+            // Validate paid amount is not less than total amount
+            if (paidAmount < totalAmount)
+            {
+                MessageBox.Show("Paid amount cannot be less than the total amount.");
+                return;
+            }
+
+            decimal changeAmount = paidAmount - totalAmount;
+
             // Save sales transaction to the database
             using (var db = new DBSYSEntities())
             {
-                int quantity = int.Parse(txtQuantity.Text);
-                decimal totalAmount = quantity * selectedShowtime.Movie.moviePrice;
-                decimal paidAmount = decimal.Parse(txtPaidAmount.Text);
-                decimal changeAmount = paidAmount - totalAmount;
-
                 // Use the stored procedure to insert the sale
                 db.Database.ExecuteSqlCommand(
                     "sp_InsertSales @ShowtimeID, @CustomerName, @TransactionDate, @MovieID, @SeatNumber, @Quantity, @TotalAmount, @PaidAmount, @ChangeAmount",
@@ -147,9 +168,8 @@ namespace Dbsys
 
                     Frm_CustomerHome h = new Frm_CustomerHome();
                     h.Show();
-                    this.Close(); 
+                    this.Close();
                 }
- 
             }
         }
 
@@ -202,7 +222,6 @@ namespace Dbsys
             e.Graphics.DrawString($"Total Amount: Php {totalAmount:F2}", normalFont, brush, startX, startY);
             startY += lineHeight;
 
-            // Print footer
             e.Graphics.DrawString("==========================", headerFont, brush, startX, startY);
 
             MessageBox.Show("Printed Successfully!", "Sales Receipt", MessageBoxButtons.OK, MessageBoxIcon.Information);
