@@ -96,17 +96,13 @@ namespace Dbsys
                 // Ensure a movie is selected
                 if (cbMovies.SelectedIndex >= 0)
                 {
-                    // Get the selected movie
+                
                     Movie selectedMovie = (Movie)cbMovies.SelectedItem;
-
-                    // Assuming Frm_Customer_Sales accepts a Showtime parameter, 
-                    // you may need to adjust this based on your form's constructor
+ 
                     Showtimes selectedShowtime = GetSelectedShowtimeForMovie(selectedMovie);
 
-                    // Pass the selected showtime to the sales form
                     Frm_Customer_Sales buy = new Frm_Customer_Sales(selectedShowtime);
-                    buy.Show();
-                    this.Hide();  // Hide the current form instead of closing it
+                    buy.ShowDialog();
                 }
                 else
                 {

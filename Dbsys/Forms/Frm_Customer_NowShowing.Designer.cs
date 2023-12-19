@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Customer_NowShowing));
-            this.btnBack = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cbMovies = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -49,22 +48,10 @@
             this.picBox_Buy = new System.Windows.Forms.PictureBox();
             this.linkLabel_Buy = new System.Windows.Forms.LinkLabel();
             this.label9 = new System.Windows.Forms.Label();
+            this.btnBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_Buy)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnBack
-            // 
-            this.btnBack.BackColor = System.Drawing.Color.White;
-            this.btnBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnBack.Font = new System.Drawing.Font("Bookman Old Style", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.Location = new System.Drawing.Point(12, 12);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(96, 39);
-            this.btnBack.TabIndex = 25;
-            this.btnBack.Text = "Back";
-            this.btnBack.UseVisualStyleBackColor = false;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // pictureBox1
             // 
@@ -262,6 +249,19 @@
             this.label9.TabIndex = 49;
             this.label9.Text = "Now Showing";
             // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.Color.White;
+            this.btnBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnBack.Font = new System.Drawing.Font("Bookman Old Style", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.Location = new System.Drawing.Point(12, 12);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(96, 39);
+            this.btnBack.TabIndex = 25;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // Frm_Customer_NowShowing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -305,7 +305,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ComboBox cbMovies;
         private System.Windows.Forms.Label label2;
@@ -325,5 +324,6 @@
         private System.Windows.Forms.PictureBox picBox_Buy;
         private System.Windows.Forms.LinkLabel linkLabel_Buy;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btnBack;
     }
 }

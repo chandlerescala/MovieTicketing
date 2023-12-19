@@ -51,6 +51,8 @@
             this.btnConfirmPurchase = new System.Windows.Forms.Button();
             this.movieImage = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.btnPrint = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.movieImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -282,6 +284,22 @@
             this.label8.TabIndex = 56;
             this.label8.Text = "CINESWIFT SALES";
             // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.BackColor = System.Drawing.Color.White;
+            this.btnPrint.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrint.Location = new System.Drawing.Point(680, 15);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(94, 27);
+            this.btnPrint.TabIndex = 57;
+            this.btnPrint.Text = "Print";
+            this.btnPrint.UseVisualStyleBackColor = false;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
             // Frm_Customer_Sales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -289,6 +307,7 @@
             this.BackgroundImage = global::Dbsys.Properties.Resources.movie_objects_with_space_top;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.btnConfirmPurchase);
             this.Controls.Add(this.btnCalculateChange);
@@ -348,5 +367,7 @@
         private System.Windows.Forms.Button btnConfirmPurchase;
         private System.Windows.Forms.PictureBox movieImage;
         private System.Windows.Forms.Label label8;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.Button btnPrint;
     }
 }

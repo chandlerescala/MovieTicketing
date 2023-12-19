@@ -51,6 +51,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_BDFB739B6D8F40829C54A70ACD86CD45"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_CA48C4182B644682B4E2D172E6B57267"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -307,6 +313,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BDFB739B6D8F40829C54A70ACD86CD45"
+            {
+            "SourcePath" = "8:..\\Dbsys\\bin\\Debug\\Image\\Img_2023-12-18_8-13-16.jpg"
+            "TargetName" = "8:Img_2023-12-18_8-13-16.jpg"
+            "Tag" = "8:"
+            "Folder" = "8:_CDA493F150B24C4A929C77A6563F1888"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CA48C4182B644682B4E2D172E6B57267"
             {
             "SourcePath" = "8:..\\Dbsys\\bin\\Debug\\Image\\Img_2023-11-19_23-30-56.jpg"
@@ -458,7 +484,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Setup1"
         "ProductCode" = "8:{AE6186DB-9625-4CE9-A456-E99D0CD0F20B}"
-        "PackageCode" = "8:{699CD1C5-1B5C-4A15-B98A-C0A8A25C7BBC}"
+        "PackageCode" = "8:{48A06842-B206-4AA6-8F23-23C67E8E0D55}"
         "UpgradeCode" = "8:{F6E002E0-6BAD-4D4B-934C-A67BF8BEDB87}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
