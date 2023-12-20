@@ -111,8 +111,8 @@
             // 
             this.viewMoviesToolStripMenuItem.Image = global::Dbsys.Properties.Resources.package;
             this.viewMoviesToolStripMenuItem.Name = "viewMoviesToolStripMenuItem";
-            this.viewMoviesToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
-            this.viewMoviesToolStripMenuItem.Text = "View Movies";
+            this.viewMoviesToolStripMenuItem.Size = new System.Drawing.Size(119, 20);
+            this.viewMoviesToolStripMenuItem.Text = "Manage Movies";
             this.viewMoviesToolStripMenuItem.Click += new System.EventHandler(this.viewMoviesToolStripMenuItem_Click);
             // 
             // accountManagementToolStripMenuItem
@@ -191,12 +191,12 @@
             this.linkLabel1.BackColor = System.Drawing.Color.White;
             this.linkLabel1.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel1.LinkColor = System.Drawing.Color.Black;
-            this.linkLabel1.Location = new System.Drawing.Point(153, 391);
+            this.linkLabel1.Location = new System.Drawing.Point(139, 391);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(104, 20);
+            this.linkLabel1.Size = new System.Drawing.Size(129, 20);
             this.linkLabel1.TabIndex = 8;
             this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "View Movies";
+            this.linkLabel1.Text = "Manage Movies";
             // 
             // linkLabel2
             // 

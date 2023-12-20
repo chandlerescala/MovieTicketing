@@ -87,6 +87,28 @@ warning 6002: The table/view 'DBSYS.dbo.vw_all_user_role' does not have a primar
           <Property Name="Role" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'DBSYS.dbo.vw_MovieDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_MovieDetails">
+          <Key>
+            <PropertyRef Name="movieId" />
+            <PropertyRef Name="movieName" />
+            <PropertyRef Name="moviePrice" />
+            <PropertyRef Name="movieReleaseYear" />
+            <PropertyRef Name="movieGenre" />
+            <PropertyRef Name="movieDirector" />
+            <PropertyRef Name="moviePublisher" />
+            <PropertyRef Name="moviePathImg" />
+          </Key>
+          <Property Name="movieId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="movieName" Type="varchar(max)" Nullable="false" />
+          <Property Name="moviePrice" Type="int" Nullable="false" />
+          <Property Name="movieReleaseYear" Type="int" Nullable="false" />
+          <Property Name="movieGenre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="movieDirector" Type="varchar(max)" Nullable="false" />
+          <Property Name="moviePublisher" Type="varchar(max)" Nullable="false" />
+          <Property Name="moviePathImg" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'DBSYS.dbo.vw_ShowtimeDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vw_ShowtimeDetails">
           <Key>
@@ -271,6 +293,18 @@ warning 6002: The table/view 'DBSYS.dbo.vw_UserDetails' does not have a primary 
 [vw_all_user_role].[Password] AS [Password], 
 [vw_all_user_role].[Role] AS [Role]
 FROM [dbo].[vw_all_user_role] AS [vw_all_user_role]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_MovieDetails" EntityType="Self.vw_MovieDetails" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[vw_MovieDetails].[movieId] AS [movieId], 
+[vw_MovieDetails].[movieName] AS [movieName], 
+[vw_MovieDetails].[moviePrice] AS [moviePrice], 
+[vw_MovieDetails].[movieReleaseYear] AS [movieReleaseYear], 
+[vw_MovieDetails].[movieGenre] AS [movieGenre], 
+[vw_MovieDetails].[movieDirector] AS [movieDirector], 
+[vw_MovieDetails].[moviePublisher] AS [moviePublisher], 
+[vw_MovieDetails].[moviePathImg] AS [moviePathImg]
+FROM [dbo].[vw_MovieDetails] AS [vw_MovieDetails]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vw_ShowtimeDetails" EntityType="Self.vw_ShowtimeDetails" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -463,6 +497,7 @@ FROM [dbo].[vw_UserDetails] AS [vw_UserDetails]</DefiningQuery>
             <Parameter Name="ChangeAmount" Mode="In" Type="Decimal" />
           </FunctionImport>
           <EntitySet Name="vw_UserDetails" EntityType="DBSYSModel.vw_UserDetails" />
+          <EntitySet Name="vw_MovieDetails" EntityType="DBSYSModel.vw_MovieDetails" />
           </EntityContainer>
         <EntityType Name="vw_all_user_role">
           <Key>
@@ -692,6 +727,26 @@ FROM [dbo].[vw_UserDetails] AS [vw_UserDetails]</DefiningQuery>
           <Property Name="userInfEmail" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="userId" Type="Int32" />
         </EntityType>
+        <EntityType Name="vw_MovieDetails">
+          <Key>
+            <PropertyRef Name="movieId" />
+            <PropertyRef Name="movieName" />
+            <PropertyRef Name="moviePrice" />
+            <PropertyRef Name="movieReleaseYear" />
+            <PropertyRef Name="movieGenre" />
+            <PropertyRef Name="movieDirector" />
+            <PropertyRef Name="moviePublisher" />
+            <PropertyRef Name="moviePathImg" />
+          </Key>
+          <Property Name="movieId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="movieName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="moviePrice" Type="Int32" Nullable="false" />
+          <Property Name="movieReleaseYear" Type="Int32" Nullable="false" />
+          <Property Name="movieGenre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="movieDirector" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="moviePublisher" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="moviePathImg" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -839,6 +894,20 @@ FROM [dbo].[vw_UserDetails] AS [vw_UserDetails]</DefiningQuery>
                 <ScalarProperty Name="userInfFname" ColumnName="userInfFname" />
                 <ScalarProperty Name="userInfLname" ColumnName="userInfLname" />
                 <ScalarProperty Name="userInfoId" ColumnName="userInfoId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_MovieDetails">
+            <EntityTypeMapping TypeName="DBSYSModel.vw_MovieDetails">
+              <MappingFragment StoreEntitySet="vw_MovieDetails">
+                <ScalarProperty Name="moviePathImg" ColumnName="moviePathImg" />
+                <ScalarProperty Name="moviePublisher" ColumnName="moviePublisher" />
+                <ScalarProperty Name="movieDirector" ColumnName="movieDirector" />
+                <ScalarProperty Name="movieGenre" ColumnName="movieGenre" />
+                <ScalarProperty Name="movieReleaseYear" ColumnName="movieReleaseYear" />
+                <ScalarProperty Name="moviePrice" ColumnName="moviePrice" />
+                <ScalarProperty Name="movieName" ColumnName="movieName" />
+                <ScalarProperty Name="movieId" ColumnName="movieId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

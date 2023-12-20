@@ -270,7 +270,7 @@
             this.MinimizeBox = false;
             this.Name = "Frm_Staff_EditShowtimes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Frm_Staff_EditShowtimes";
+            this.Text = "Edit Showtimes";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewShowtimes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMovie)).EndInit();
             this.ResumeLayout(false);

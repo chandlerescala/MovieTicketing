@@ -47,7 +47,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.dataGridViewMovies = new System.Windows.Forms.DataGridView();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btn_Update = new System.Windows.Forms.Button();
+            this.btnChangeImage = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMovies)).BeginInit();
             this.SuspendLayout();
             // 
             // btnBack
@@ -76,7 +81,7 @@
             // 
             this.cbMovies.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbMovies.FormattingEnabled = true;
-            this.cbMovies.Location = new System.Drawing.Point(40, 382);
+            this.cbMovies.Location = new System.Drawing.Point(40, 413);
             this.cbMovies.Name = "cbMovies";
             this.cbMovies.Size = new System.Drawing.Size(340, 28);
             this.cbMovies.TabIndex = 27;
@@ -87,7 +92,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(36, 359);
+            this.label2.Location = new System.Drawing.Point(36, 390);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(115, 20);
             this.label2.TabIndex = 28;
@@ -98,7 +103,6 @@
             this.txtGenre.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtGenre.Location = new System.Drawing.Point(492, 215);
             this.txtGenre.Name = "txtGenre";
-            this.txtGenre.ReadOnly = true;
             this.txtGenre.Size = new System.Drawing.Size(185, 23);
             this.txtGenre.TabIndex = 46;
             // 
@@ -118,7 +122,6 @@
             this.txtReleaseYear.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtReleaseYear.Location = new System.Drawing.Point(492, 178);
             this.txtReleaseYear.Name = "txtReleaseYear";
-            this.txtReleaseYear.ReadOnly = true;
             this.txtReleaseYear.Size = new System.Drawing.Size(107, 23);
             this.txtReleaseYear.TabIndex = 44;
             // 
@@ -138,7 +141,6 @@
             this.txtMoviePrice.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMoviePrice.Location = new System.Drawing.Point(492, 138);
             this.txtMoviePrice.Name = "txtMoviePrice";
-            this.txtMoviePrice.ReadOnly = true;
             this.txtMoviePrice.Size = new System.Drawing.Size(145, 23);
             this.txtMoviePrice.TabIndex = 42;
             // 
@@ -158,7 +160,6 @@
             this.txtMoviePublisher.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMoviePublisher.Location = new System.Drawing.Point(492, 307);
             this.txtMoviePublisher.Name = "txtMoviePublisher";
-            this.txtMoviePublisher.ReadOnly = true;
             this.txtMoviePublisher.Size = new System.Drawing.Size(268, 23);
             this.txtMoviePublisher.TabIndex = 40;
             // 
@@ -167,7 +168,6 @@
             this.txtMovieDirector.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMovieDirector.Location = new System.Drawing.Point(492, 261);
             this.txtMovieDirector.Name = "txtMovieDirector";
-            this.txtMovieDirector.ReadOnly = true;
             this.txtMovieDirector.Size = new System.Drawing.Size(268, 23);
             this.txtMovieDirector.TabIndex = 39;
             // 
@@ -176,7 +176,6 @@
             this.txtMovieName.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMovieName.Location = new System.Drawing.Point(492, 94);
             this.txtMovieName.Name = "txtMovieName";
-            this.txtMovieName.ReadOnly = true;
             this.txtMovieName.Size = new System.Drawing.Size(280, 23);
             this.txtMovieName.TabIndex = 38;
             // 
@@ -229,11 +228,56 @@
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.White;
             this.label9.Font = new System.Drawing.Font("Bookman Old Style", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(264, 12);
+            this.label9.Location = new System.Drawing.Point(380, 12);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(256, 24);
+            this.label9.Size = new System.Drawing.Size(285, 24);
             this.label9.TabIndex = 47;
-            this.label9.Text = "CineSwift View Movies";
+            this.label9.Text = "CineSwift Manage Movies";
+            // 
+            // dataGridViewMovies
+            // 
+            this.dataGridViewMovies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewMovies.Location = new System.Drawing.Point(397, 359);
+            this.dataGridViewMovies.Name = "dataGridViewMovies";
+            this.dataGridViewMovies.Size = new System.Drawing.Size(584, 220);
+            this.dataGridViewMovies.TabIndex = 48;
+            this.dataGridViewMovies.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewMovies_CellClick);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.White;
+            this.btnDelete.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Location = new System.Drawing.Point(289, 517);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(94, 27);
+            this.btnDelete.TabIndex = 50;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btn_Update
+            // 
+            this.btn_Update.BackColor = System.Drawing.Color.White;
+            this.btn_Update.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Update.Location = new System.Drawing.Point(287, 471);
+            this.btn_Update.Name = "btn_Update";
+            this.btn_Update.Size = new System.Drawing.Size(96, 27);
+            this.btn_Update.TabIndex = 49;
+            this.btn_Update.Text = "Update";
+            this.btn_Update.UseVisualStyleBackColor = false;
+            this.btn_Update.Click += new System.EventHandler(this.btn_Update_Click);
+            // 
+            // btnChangeImage
+            // 
+            this.btnChangeImage.BackColor = System.Drawing.Color.White;
+            this.btnChangeImage.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChangeImage.Location = new System.Drawing.Point(191, 351);
+            this.btnChangeImage.Name = "btnChangeImage";
+            this.btnChangeImage.Size = new System.Drawing.Size(93, 27);
+            this.btnChangeImage.TabIndex = 51;
+            this.btnChangeImage.Text = "Change";
+            this.btnChangeImage.UseVisualStyleBackColor = false;
+            this.btnChangeImage.Click += new System.EventHandler(this.btnChangeImage_Click);
             // 
             // Frm_Admin_ViewMovies
             // 
@@ -241,7 +285,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Dbsys.Properties.Resources.movie_objects_with_space_top;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1024, 622);
+            this.Controls.Add(this.btnChangeImage);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btn_Update);
+            this.Controls.Add(this.dataGridViewMovies);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtGenre);
             this.Controls.Add(this.label6);
@@ -269,6 +317,7 @@
             this.Text = "ViewMovies(Admin)";
             this.Load += new System.EventHandler(this.Frm_Admin_ViewMovies_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMovies)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -293,5 +342,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DataGridView dataGridViewMovies;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btn_Update;
+        private System.Windows.Forms.Button btnChangeImage;
     }
 }

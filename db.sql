@@ -38,6 +38,7 @@ CREATE TABLE Movie(
 	moviePathImg varchar(MAX) NOT NULL
 )
 --test
+CREATE VIEW vw_MovieDetails AS
 SELECT * FROM Movie
 
 --Creates the Showtimes table

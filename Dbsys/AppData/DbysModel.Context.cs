@@ -38,6 +38,7 @@ namespace Dbsys.AppData
         public DbSet<UserInformation> UserInformation { get; set; }
         public DbSet<vw_TransactionHistory> vw_TransactionHistory { get; set; }
         public DbSet<vw_UserDetails> vw_UserDetails { get; set; }
+        public DbSet<vw_MovieDetails> vw_MovieDetails { get; set; }
     
         public virtual int sp_newUser(string userName, string userPassword, Nullable<int> roleId, Nullable<int> createdBy)
         {
