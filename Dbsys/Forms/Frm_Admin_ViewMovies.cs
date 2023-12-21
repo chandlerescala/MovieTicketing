@@ -147,8 +147,9 @@ namespace Dbsys
                 }
 
                 newImagePath = null;
+                loadCbBox();
             }
-            loadCbBox();
+            
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
