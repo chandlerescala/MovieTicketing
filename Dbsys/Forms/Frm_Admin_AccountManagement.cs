@@ -64,10 +64,8 @@ namespace Dbsys
 
         private void picBox_Search_Click(object sender, EventArgs e)
         {
-            // Get the search term from the textbox
             string searchTerm = txtSearch.Text;
-
-            // Search for the items based on the search term
+           
             dgv_main.DataSource = userRepo.SearchUserRole(searchTerm);
         }
 
@@ -93,7 +91,7 @@ namespace Dbsys
                 {
                     if (userSelectedId != null)
                     {
-                        // Remove user logic
+                        // Remove user
                         db.Database.ExecuteSqlCommand(
                             "sp_RemovedUsers @UserID",
                             new SqlParameter("@UserID", userSelectedId)
@@ -126,7 +124,7 @@ namespace Dbsys
                 {
                     if (userSelectedId != null)
                     {
-                        // Update existing user logic
+                        // Update user 
                         db.Database.ExecuteSqlCommand(
                             "sp_UpdatedUsers @UserID, @UserName, @UserPassword",
                             new SqlParameter("@UserID", userSelectedId),

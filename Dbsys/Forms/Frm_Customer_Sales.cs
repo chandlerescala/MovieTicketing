@@ -28,19 +28,17 @@ namespace Dbsys
             DisplayShowtimeDetails();
             LoadSeatNumbers();
 
-            // Initialize the PrintDocument
             printDocument = new PrintDocument();
             printDocument.PrintPage += printDocument1_PrintPage;
         }
         private void DisplayShowtimeDetails()
         {
-            // Display selected showtime details
+
             lblMovieName.Text = selectedShowtime.Movie.movieName;
             lblShowDate.Text = selectedShowtime.showDate.ToShortDateString();
             lblStartTime.Text = selectedShowtime.startTime.ToString();
             lblEndTime.Text = selectedShowtime.endTime.ToString();
 
-            // Load and display the movie picture
             string imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Image", selectedShowtime.Movie.moviePathImg);
 
             if (File.Exists(imagePath))
@@ -49,14 +47,14 @@ namespace Dbsys
             }
             else
             {
-                // Set a default image or handle the case when no image is available
+                
                 movieImage.Image = null;
             }
         }
 
         private void LoadSeatNumbers()
         {
-            // Load available seat numbers for the selected showtime
+           
             using (var db = new DBSYSEntities())
             {
                 var soldSeats = db.Sales
@@ -68,7 +66,7 @@ namespace Dbsys
                     .Except(soldSeats)
                     .ToList();
 
-                // Bind available seats to ComboBox
+                
                 cbSeatNumber.DataSource = availableSeats;
             }
         }
@@ -105,7 +103,7 @@ namespace Dbsys
        
         private void CalculateTotalAmount()
         {
-                // Calculate total amount based on ticket price and quantity
+               
                 if (int.TryParse(txtQuantity.Text, out int quantity))
                 {
                     decimal ticketPrice = selectedShowtime.Movie.moviePrice;
@@ -123,7 +121,7 @@ namespace Dbsys
         {
             if (validation())
             {
-                // Calculate change based on paid amount
+              
                 if (decimal.TryParse(txtPaidAmount.Text, out decimal paidAmount))
                 {
                     if (decimal.TryParse(lblTotalAmount.Text.Split(' ')[3], out decimal totalAmount))
@@ -140,7 +138,7 @@ namespace Dbsys
             //validation method
             if (validation())
             {
-                // Save sales transaction to the database
+                
                 using (var db = new DBSYSEntities())
                 {
                     int quantity = int.Parse(txtQuantity.Text);
@@ -148,7 +146,7 @@ namespace Dbsys
                     decimal paidAmount = decimal.Parse(txtPaidAmount.Text);
                     decimal changeAmount = paidAmount - totalAmount;
 
-                    // Use the stored procedure to insert the sale
+                    // Insert Sales
                     db.Database.ExecuteSqlCommand(
                         "sp_InsertSales @ShowtimeID, @CustomerName, @TransactionDate, @MovieID, @SeatNumber, @Quantity, @TotalAmount, @PaidAmount, @ChangeAmount",
                         new SqlParameter("@ShowtimeID", selectedShowtime.showtimeID),

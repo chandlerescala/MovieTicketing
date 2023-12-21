@@ -54,7 +54,6 @@ namespace Dbsys.Forms
                 txtEditEndTime.Text = row.Cells["endTime"].Value.ToString();
                 txtEditCapacity.Text = row.Cells["capacity"].Value.ToString();
 
-                // Retrieve movie details based on the movieID
                 if (int.TryParse(txtEditMovieID.Text, out int selectedMovieID))
                 {
                     using (var db = new DBSYSEntities())
@@ -63,10 +62,9 @@ namespace Dbsys.Forms
 
                         if (movie != null)
                         {
-                            // Populate movie-related textboxes
+                            
                             txtMovieName.Text = movie.movieName;
 
-                            // Construct the absolute image path
                             string imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Image", movie.moviePathImg);
 
                             // Load and display the movie picture
@@ -76,7 +74,6 @@ namespace Dbsys.Forms
                             }
                             else
                             {
-                                // Set a default image or handle the case when no image is available
                                 pictureBoxMovie.Image = null;
                             }
                         }
@@ -95,12 +92,11 @@ namespace Dbsys.Forms
                     {
                         using (var db = new DBSYSEntities())
                         {
-                            // Check if the provided MovieID exists in the Movies table
                             var existingMovie = db.Movie.FirstOrDefault(m => m.movieId == selectedMovieID);
 
                             if (existingMovie != null)
                             {
-                                // Existing movie found, proceed with inserting a new showtime
+                                //Insert Showtimes
                                 db.Database.ExecuteSqlCommand(
                                     "sp_InsertShowtimes @MovieID, @ShowDate, @StartTime, @EndTime, @Capacity",
                                     new SqlParameter("@MovieID", selectedMovieID),
@@ -145,20 +141,19 @@ namespace Dbsys.Forms
                     {
                         using (var db = new DBSYSEntities())
                         {
-                            // Check if the provided MovieID exists in the Movies table
                             var existingMovie = db.Movie.FirstOrDefault(m => m.movieId == selectedMovieID);
 
                             if (existingMovie != null)
                             {
-                                // Existing movie found, proceed with updating the showtime
+  
                                 if (dataGridViewShowtimes.SelectedRows.Count > 0)
                                 {
-                                    // Update existing showtime logic
+                                    
                                     int selectedShowtimeID = (int)dataGridViewShowtimes.SelectedRows[0].Cells["ShowtimeID"].Value;
-
+                                    // Update showtime
                                     db.Database.ExecuteSqlCommand(
                                         "sp_UpdateShowtimes @ShowtimeID, @MovieID, @ShowDate, @StartTime, @EndTime, @Capacity",
-                                        new SqlParameter("@ShowtimeID", selectedShowtimeID), // Use the existing showtimeID
+                                        new SqlParameter("@ShowtimeID", selectedShowtimeID),
                                         new SqlParameter("@MovieID", selectedMovieID),
                                         new SqlParameter("@ShowDate", Convert.ToDateTime(txtEditShowDate.Text)),
                                         new SqlParameter("@StartTime", TimeSpan.Parse(txtEditStartTime.Text)),
@@ -213,7 +208,7 @@ namespace Dbsys.Forms
 
                     using (var db = new DBSYSEntities())
                     {
-                        // Execute the stored procedure instead of direct SQL
+                        //delete showtime
                         db.Database.ExecuteSqlCommand("sp_DeleteShowtimes @ShowtimeID", new SqlParameter("@ShowtimeID", selectedShowtimeID));
 
                         MessageBox.Show("Showtime deleted successfully!");
